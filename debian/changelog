@@ -1,0 +1,1317 @@
+ucsd-psystem-fs (1.22.D005-1) unstable; urgency=low
+
+  * Mark S Waterbury <mark.s.waterbury@bellsouth.net> noticed a broken link on
+    the web site.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 21 Jul 2013 20:39:02 +1000
+
+ucsd-psystem-fs (1.22.D004-1) unstable; urgency=low
+
+  * This change set update to use the latest aemakegen from aegi s>= 4.25.D500
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 15 Nov 2012 11:23:44 +1100
+
+ucsd-psystem-fs (1.22.D003-1) unstable; urgency=low
+
+  * Kai Henningsen <kai.extern@gmail.com> discovered that test 19 could gave a
+    false negative in time zones with an abbreviation of more than 3 characters.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 29 Jul 2012 13:13:17 +1000
+
+ucsd-psystem-fs (1.22.D002-1) unstable; urgency=low
+
+  * This change set fixes a bug in the ppa-upload script.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 08 Jul 2012 16:09:59 +1000
+
+ucsd-psystem-fs (1.22.D001-1) unstable; urgency=low
+
+  * This change set prepares the ucsd-psystem-fs project for the next public
+    release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 08 Jul 2012 15:41:30 +1000
+
+ucsd-psystem-fs (1.21.D006-1) unstable; urgency=low
+
+  * This change set attempts to address the problems with etc/version.so not
+    being updated appropriately.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 08 Jul 2012 15:13:03 +1000
+
+ucsd-psystem-fs (1.21.D005-1) unstable; urgency=low
+
+  * This change fixes a problem with test 20, it was exiting without doing any
+    testing.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 08 Jul 2012 15:00:21 +1000
+
+ucsd-psystem-fs (1.21.D004-1) unstable; urgency=low
+
+  * There was a bug with the web site, caused by a missing dependency in the
+    build.  It was using an out-of-date version number to build the download
+    page.
+  * My thanks to Erik Backerud <Erik.Backerud@Svenskaakademien.se> for reporting
+    this problem.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 08 Jul 2012 14:54:28 +1000
+
+ucsd-psystem-fs (1.21.D003-1) unstable; urgency=low
+
+  * This change set updates the build system to be muchquieter in most cases.
+    If you need the verbose output, add "verbose=1" to the aeb command line
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 08 Jul 2012 14:13:23 +1000
+
+ucsd-psystem-fs (1.21.D002-1) unstable; urgency=low
+
+  * The build now has code to make sure all required packages are present.  This
+    is helpful after a system upgrade.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 08 Jul 2012 13:53:50 +1000
+
+ucsd-psystem-fs (1.21.D001-1) unstable; urgency=low
+
+  * This change set prepares the ucsd-psystem-fs project for the next public
+    release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 24 May 2011 17:51:44 +1000
+
+ucsd-psystem-fs (1.20.D005-1) unstable; urgency=low
+
+  * There is a new ucsdpsys_disk --system-volume option, which may be used to
+    test whether or not a disk image looks like a system disk.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 24 May 2011 17:25:58 +1000
+
+ucsd-psystem-fs (1.20.D004-1) unstable; urgency=low
+
+  * This change set adds the Wikipedia article to the web page's See Also
+    section.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 19 May 2011 21:14:10 +1000
+
+ucsd-psystem-fs (1.20.D003-1) unstable; urgency=low
+
+  * This change set updates the PPA upload script to upload to Natty as well.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 12 Dec 2010 23:24:08 +1100
+
+ucsd-psystem-fs (1.20.D002-1) unstable; urgency=low
+
+  * The debian package now Recommends the sister packages ucsd-psystem-vm and
+    ucsd-psystem-xc.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 11 Oct 2010 16:53:19 +1100
+
+ucsd-psystem-fs (1.20.D001-1) unstable; urgency=low
+
+  * This change set prepares the ucsd-psystem-fs project for the next public
+    release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 11 Oct 2010 16:38:14 +1100
+
+ucsd-psystem-fs (1.19.D008-1) unstable; urgency=low
+
+  * The ucsdpsys_disk --wipe-unused option now also wipes the unused portions of
+    the last block of data files that are not multiples of 512 bytes.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 11 Oct 2010 16:29:01 +1100
+
+ucsd-psystem-fs (1.19.D007-1) unstable; urgency=low
+
+  * This change set removes the ucsdpsys_charset(1) command, it has gone to the
+    ucsd-psystem-xc project, instead.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 11 Oct 2010 13:14:28 +1100
+
+ucsd-psystem-fs (1.19.D006-1) unstable; urgency=low
+
+  * There is a new ucsdpsys_disk --wipe-unused option, used to erase unused
+    blocks.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 28 Sep 2010 17:00:48 +1000
+
+ucsd-psystem-fs (1.19.D005-1) unstable; urgency=low
+
+  * A bug in old versions of GNU Coreutils was causing a false negative.
+  * My thanks to the LaunchPas PPA build farm for finding this problem.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 19 Sep 2010 14:38:31 +1000
+
+ucsd-psystem-fs (1.19.D004-1) unstable; urgency=low
+
+  * This change fixesa false nagative in test 27, on Ubuntu Hardy, cause by a
+    bug in old versions of GNU Coreutils.
+  * My thnks to the LaunchPad PPA for finding this problem.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 18 Sep 2010 17:58:25 +1000
+
+ucsd-psystem-fs (1.19.D003-1) unstable; urgency=low
+
+  * The download page on the web site has been improved.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 18 Sep 2010 14:04:18 +1000
+
+ucsd-psystem-fs (1.19.D002-1) unstable; urgency=low
+
+  * The author's email address has been updated.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 18 Sep 2010 13:44:36 +1000
+
+ucsd-psystem-fs (1.19.D001-1) unstable; urgency=low
+
+  * This change set prepares the ucsd-psystem-fs project for the next public
+    release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 18 Sep 2010 13:19:08 +1000
+
+ucsd-psystem-fs (1.18.D008-1) unstable; urgency=low
+
+  * The ppa upload script now uploads to hardy as well.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 12 Sep 2010 21:01:41 +1000
+
+ucsd-psystem-fs (1.18.D007-1) unstable; urgency=low
+
+  * An include file was missing, making the S_IFREG macro undefined.  Strangely,
+    this compiled on earlier systems, just not Ubuntu Maverick.
+  * My thanks to the LaunchPad PPA build farm for finding this problem.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 12 Sep 2010 10:08:07 +1000
+
+ucsd-psystem-fs (1.18.D006-1) unstable; urgency=low
+
+  * A false negative in the test suite, to do with ucsdpsys_disk --put
+    <directory> was failing because of no sort order was specific for the
+    directory listing use to check.
+  * My thanks to the LaunchPad PPA build farm for finding this problem.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 12 Sep 2010 10:00:45 +1000
+
+ucsd-psystem-fs (1.18.D005-1) unstable; urgency=low
+
+  * A build problem has been fixed on Ubuntu Maverik i386, an include file has
+    been omitted for the fstat(2) function.
+  * My thanks to the LaunchPad PPA build farm for finding this problem.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 12 Sep 2010 02:24:51 +1000
+
+ucsd-psystem-fs (1.18.D004-1) unstable; urgency=low
+
+  * Some problems have been fixed concerning testing with a chroot, in the case
+    where the building user does not have sufficient permissions to access the /
+    dev/fuse device.
+  * My thanks to the LaunchPad PPA build farm for finding this problem.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 12 Sep 2010 01:51:58 +1000
+
+ucsd-psystem-fs (1.18.D003-1) unstable; urgency=low
+
+  * Several tests gave false negatives when run on systems without complete FUSE
+    support, such as when running inside a build chroot with incomplete /dev
+    support, and missing /dev/fuse.  The relevant tests now check to see if /
+    dev/fuse is available, and degrade gracefully if this is not the case.
+  * My thanks to the LaunchPad PPA build farm for finding this problem
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 12 Sep 2010 01:23:56 +1000
+
+ucsd-psystem-fs (1.18.D002-1) unstable; urgency=low
+
+  * There was a missing include file, which caused the build to fail on some
+    systems.
+  * My thanks to the LaunchPad PPA build farm for finding this problem
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 12 Sep 2010 00:46:23 +1000
+
+ucsd-psystem-fs (1.18.D001-1) unstable; urgency=low
+
+  * This change set prepares the ucsd-psystem-fs project for the next public
+    release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 12 Sep 2010 00:12:55 +1000
+
+ucsd-psystem-fs (1.17.D003-1) unstable; urgency=low
+
+  * This change set adds a ppa-upload script, for uploading source packages to
+    the LaunchPad PPA
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 11 Sep 2010 23:57:20 +1000
+
+ucsd-psystem-fs (1.17.D002-1) unstable; urgency=low
+
+  * The debian packaging Build-Depends was missing libboost-dev
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 11 Sep 2010 23:53:32 +1000
+
+ucsd-psystem-fs (1.17.D001-1) unstable; urgency=low
+
+  * This change set prepares the ucsd-psystem-fs project for the next public
+    release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 09 Sep 2010 11:41:48 +1000
+
+ucsd-psystem-fs (1.16.D002-1) unstable; urgency=low
+
+  * There was a problem buiulding on i386 Linux systems, now fixed.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 08 Sep 2010 15:43:32 +1000
+
+ucsd-psystem-fs (1.16.D001-1) unstable; urgency=low
+
+  * This change set prepares the ucsd-psystem-fs project for the next public
+    release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 08 Sep 2010 13:36:33 +1000
+
+ucsd-psystem-fs (1.15.D003-1) unstable; urgency=low
+
+  * This change set fixes a build problem on 32-bit Linux machines. A necessary
+    include file had been omitted in crucial places, now fixed.
+  * My thanks to Laurie Boshel for reporting this problem.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 06 Sep 2010 23:33:36 +1000
+
+ucsd-psystem-fs (1.15.D002-1) unstable; urgency=low
+
+  * All of the commands now ask libexplain for a four column hanging indent on
+    each error message.	 It makes it easier to see when one ends and the next
+    begins.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 28 Aug 2010 13:39:19 +1000
+
+ucsd-psystem-fs (1.15.D001-1) unstable; urgency=low
+
+  * This change set prepares ucsd-psystem-fs for the next public release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 24 Aug 2010 14:25:33 +1000
+
+ucsd-psystem-fs (1.14.D009-1) unstable; urgency=low
+
+  * The debian Build-Depends: lin in the debian/control file has been updated to
+    include libexplain-dev
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 24 Aug 2010 14:04:02 +1000
+
+ucsd-psystem-fs (1.14.D008-1) unstable; urgency=low
+
+  * The ucsdpsys_mkfs(1) command now understands how to write the boot blocks.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 23 Aug 2010 13:44:00 +1000
+
+ucsd-psystem-fs (1.14.D007-1) unstable; urgency=low
+
+  * The ucsdpsys_disk(1) command now understands how to read a write the boot
+    blocks (1KiB).
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 23 Aug 2010 13:35:19 +1000
+
+ucsd-psystem-fs (1.14.D006-1) unstable; urgency=low
+
+  * The new escape-hyphen policy, the one that finds unescaped hyphen characters
+    before lintian(1) does, has been turned on, and the problems so found have
+    been fixed.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 15 Aug 2010 01:02:25 +1000
+
+ucsd-psystem-fs (1.14.D005-1) unstable; urgency=low
+
+  * The code that tries to guess the interleaving and offset now includes a
+    brief attempt to brute-force the correct disk image offset.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 07 Jul 2010 01:09:36 +1000
+
+ucsd-psystem-fs (1.14.D004-1) unstable; urgency=low
+
+  * This change set adds a ucsdpsys_fs(5) man page, documenting the directory
+    structure of UCSD p-System volumnes (disks).
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 26 Jun 2010 19:54:36 +1000
+
+ucsd-psystem-fs (1.14.D003-1) unstable; urgency=low
+
+  * This change set gets rid of the quit class hierarchy, in favor of libexplain
+    support.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 23 Jun 2010 23:40:59 +1000
+
+ucsd-psystem-fs (1.14.D002-1) unstable; urgency=low
+
+  * This change set moves most of the quitter.fatal_error_with_errno processing
+    into libexplain, for superior error messages.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 23 Jun 2010 14:01:42 +1000
+
+ucsd-psystem-fs (1.14.D001-1) unstable; urgency=low
+
+  * This change set prepares the ucsd-psystem-fs project for the next public
+    relaese.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 22 Jun 2010 00:02:51 +1000
+
+ucsd-psystem-fs (1.13.D004-1) unstable; urgency=low
+
+  * There is a new ucsdpsys_text(5) man page, made by splitting out the relevant
+    part of ucsdpsys_text(1) man page.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 21 Jun 2010 22:46:02 +1000
+
+ucsd-psystem-fs (1.13.D003-1) unstable; urgency=low
+
+  * The ucsdpsys_disk(1) command has a new -A option, that can be used to
+    request that dot-files also be transferred.	 By default dot-files are
+    ignored.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 21 Jun 2010 00:42:43 +1000
+
+ucsd-psystem-fs (1.13.D002-1) unstable; urgency=low
+
+  * The ucsdpsys_mkfs(1) command now defaults its disk size based on the --
+    architecture given.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 20 Jun 2010 01:13:59 +1000
+
+ucsd-psystem-fs (1.13.D001-1) unstable; urgency=low
+
+  * This change set prefpares ucsd-psystem-fs for the next public release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 20 Jun 2010 00:32:51 +1000
+
+ucsd-psystem-fs (1.12.D007-1) unstable; urgency=low
+
+  * The building instructiosn add slightly more information about a confusing
+    error.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 20 Jun 2010 00:17:45 +1000
+
+ucsd-psystem-fs (1.12.D006-1) unstable; urgency=low
+
+  * The ucsdpsys_mkfs(1) command has a new --architecture option, used to tell
+    it the host architecture.  This, in turn, determines the byte sex of the
+    file system to be created.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 20 Jun 2010 00:15:17 +1000
+
+ucsd-psystem-fs (1.12.D005-1) unstable; urgency=low
+
+  * The ucsdpsys_rt11(1) command now has a --extract-all option, so that all
+    files may be extracted with one command.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 18 Jun 2010 14:16:03 +1000
+
+ucsd-psystem-fs (1.12.D004-1) unstable; urgency=low
+
+  * The ucsdpsys_rt11(1) command is now able to guess whether a file is bianry
+    or text, and write an appropriate file.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 18 Jun 2010 13:45:07 +1000
+
+ucsd-psystem-fs (1.12.D003-1) unstable; urgency=low
+
+  * there is a new ucsdpsys_rt11(1) command, that may be used to extract files
+    from RT-11 disk images.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 18 Jun 2010 12:35:08 +1000
+
+ucsd-psystem-fs (1.12.D002-1) unstable; urgency=low
+
+  * The ucsdpsys_disk --crunch option now has aliases --squeeze and --
+    defragment.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 18 Jun 2010 12:17:46 +1000
+
+ucsd-psystem-fs (1.12.D001-1) unstable; urgency=low
+
+  * This change set prepares ucsd-psystem-fs for the next public release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 18 Jun 2010 01:19:58 +1000
+
+ucsd-psystem-fs (1.11.D002-1) unstable; urgency=low
+
+  * Some left-over debugging code has been removed from the sort-by-name
+    directory listing.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 18 Jun 2010 01:09:37 +1000
+
+ucsd-psystem-fs (1.11.D001-1) unstable; urgency=low
+
+  * This change set prepares ucsd-psystem-fs for the next public release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 16 Jun 2010 18:37:08 +1000
+
+ucsd-psystem-fs (1.9.D004-1) unstable; urgency=low
+
+  * The ucsdpsys_disk command now allows you to specify the sort criteria for
+    the file listing.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 16 Jun 2010 15:38:53 +1000
+
+ucsd-psystem-fs (1.9.D003-1) unstable; urgency=low
+
+  * The web page now contains a link to the ucsd-psystem-os sister project.  The
+    one-paragraph description has been improved.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 16 Jun 2010 02:10:41 +1000
+
+ucsd-psystem-fs (1.9.D002-1) unstable; urgency=low
+
+  * The ucsdpsys_disk(1) command has a new --crunch option, that may be used to
+    move all of the files to the beginning of the disk image, maximizing the
+    space available for the UCSD p-System to work with.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 03 Jun 2010 23:02:53 +1000
+
+ucsd-psystem-fs (1.9.D001-1) unstable; urgency=low
+
+  * This change set prepares ucsd-psystem-fs for the next public release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 30 May 2010 16:11:46 +1000
+
+ucsd-psystem-fs (1.8.D006-1) unstable; urgency=low
+
+  * It is now possible to specify a third interleave type on the command line,
+    and provision has been ,ade to add more in the future.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 25 May 2010 17:47:15 +1000
+
+ucsd-psystem-fs (1.8.D005-1) unstable; urgency=low
+
+  * The file system now silently translates shash (/) characters in file named
+    into underscore (_) characters.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 21 May 2010 14:26:54 +1000
+
+ucsd-psystem-fs (1.8.D004-1) unstable; urgency=low
+
+  * This change set fixes a particularly uninformative error.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 21 May 2010 12:56:29 +1000
+
+ucsd-psystem-fs (1.8.D003-1) unstable; urgency=low
+
+  * The format of the directory listing has been changed slightly.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 11 May 2010 09:34:55 +1000
+
+ucsd-psystem-fs (1.8.D002-1) unstable; urgency=low
+
+  * The ucsdpsys_mkfs --label option now converts the label to upper case.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 06 May 2010 17:08:58 +1000
+
+ucsd-psystem-fs (1.8.D001-1) unstable; urgency=low
+
+  * This change set prepares ucsd-psystem-fs for the next public release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 09 Apr 2010 21:04:24 +1000
+
+ucsd-psystem-fs (1.7.D008-1) unstable; urgency=low
+
+  * The ucsdpsys_interleave(1), ucsdpsys_mkfs(1), ucsdpsys_mount(1), ucsdpsys_
+    text(1) and ucsdpsys_umount(1) command now understand long options.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 09 Apr 2010 20:19:47 +1000
+
+ucsd-psystem-fs (1.7.D007-1) unstable; urgency=low
+
+  * The ucsdpsys_charset(1) and ucsdpsys_fsck(1) commands now understand long
+    command line options.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 09 Apr 2010 19:49:38 +1000
+
+ucsd-psystem-fs (1.7.D006-1) unstable; urgency=low
+
+  * The ucsdpsys_disk(1) command now understands long options.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 09 Apr 2010 19:33:36 +1000
+
+ucsd-psystem-fs (1.7.D005-1) unstable; urgency=low
+
+  * The fiilekind being guessed for the system.pascal file was wrong.  This was
+    because the '*.pascal' text pattern was matching.  Specific names are now
+    match before the patterns.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 09 Apr 2010 15:18:51 +1000
+
+ucsd-psystem-fs (1.7.D004-1) unstable; urgency=low
+
+  * This change set fixes the new test file template to use the new '.' style.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 09 Apr 2010 15:08:45 +1000
+
+ucsd-psystem-fs (1.7.D003-1) unstable; urgency=low
+
+  * It is now possible to add a size suffix when specifying the size to
+    ucsdpsys_mkfs(1).
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 08 Apr 2010 16:51:48 +1000
+
+ucsd-psystem-fs (1.7.D002-1) unstable; urgency=low
+
+  * The integration build omitted the Debian package.  This fixes it.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 04 Apr 2010 00:16:55 +1100
+
+ucsd-psystem-fs (1.7.D001-1) unstable; urgency=low
+
+  * This change set prepares the ucsd-psystem-fs project for the next public
+    release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 04 Apr 2010 00:02:11 +1100
+
+ucsd-psystem-fs (1.6.D011-1) unstable; urgency=low
+
+  * The web site has switch from the B&W gnu icon to the coloured one.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 03 Apr 2010 23:44:55 +1100
+
+ucsd-psystem-fs (1.6.D010-1) unstable; urgency=low
+
+  * The build system is now able to build Debian packages.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 03 Apr 2010 23:38:59 +1100
+
+ucsd-psystem-fs (1.6.D009-1) unstable; urgency=low
+
+  * Th eMakefile.in file is now generated by aemakegen.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 03 Apr 2010 22:44:38 +1100
+
+ucsd-psystem-fs (1.6.D008-1) unstable; urgency=low
+
+  * The release notes are now in the corerct order.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 03 Apr 2010 22:23:16 +1100
+
+ucsd-psystem-fs (1.6.D007-1) unstable; urgency=low
+
+  * The web page now mentions the ucsd-psystem-vm project.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 03 Apr 2010 22:05:57 +1100
+
+ucsd-psystem-fs (1.6.D006-1) unstable; urgency=low
+
+  * The code that tries to divine the file type from the file's name, has been
+    extended to understand more of the types of the system files.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 16 Mar 2010 22:58:33 +1100
+
+ucsd-psystem-fs (1.6.D005-1) unstable; urgency=low
+
+  * This change switches to the x86_64 bvuild architecture.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 09 Mar 2010 15:54:10 +1100
+
+ucsd-psystem-fs (1.6.D004-1) unstable; urgency=low
+
+  * The .imd format code is now able to cope with broken sector maps.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 21 Jan 2008 13:02:50 +1100
+
+ucsd-psystem-fs (1.6.D003-1) unstable; urgency=low
+
+  * The ucsdpsys_interleave command now accespt a -Tguess option, for guessing
+    the interleave of a disk image.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 21 Jan 2008 12:03:08 +1100
+
+ucsd-psystem-fs (1.6.D002-1) unstable; urgency=low
+
+  * The code has been made more robust around volume header records with
+    incorrect dnumfiles fields.	 This is now detected, and can be repaired with
+    the ucsdpsys_fsck(1) command.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 21 Jan 2008 10:15:08 +1100
+
+ucsd-psystem-fs (1.6.D001-1) unstable; urgency=low
+
+  * This change prepares ucsd-psystem-fs for the next public release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 20 Jan 2008 15:16:58 +1100
+
+ucsd-psystem-fs (1.D007-1) unstable; urgency=low
+
+  * This change prepares ucsd-psystem-fs for the next public release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 20 Jan 2008 15:03:54 +1100
+
+ucsd-psystem-fs (1.5.D010-1) unstable; urgency=low
+
+  * The in-memory Unix form of the text file data is now cached, rather than
+    recreating it again and again.  It is flushed when open files are closed.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 20 Jan 2008 12:59:48 +1100
+
+ucsd-psystem-fs (1.5.D009-1) unstable; urgency=low
+
+  * The problem with missing tabs in the Makefile have been fixed.
+  * The tests now use $PATH to find he test_prefix script, and the Makefile
+    updated to set the PATH before tests.
+  * The infinite loop in ucsdpsys_umount has been fixed.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 19 Jan 2008 00:21:14 +1100
+
+ucsd-psystem-fs (1.5.D008-1) unstable; urgency=low
+
+  * The man pages have been updated to describe the new ability to convert text
+    files on-the-fly.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 18 Jan 2008 22:51:03 +1100
+
+ucsd-psystem-fs (1.5.D007-1) unstable; urgency=low
+
+  * There is a new ucsdpsys_mount -t option, which may be used to have text
+    files converted on-the-fly.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 18 Jan 2008 22:26:36 +1100
+
+ucsd-psystem-fs (1.5.D006-1) unstable; urgency=low
+
+  * The output_smart_pointer has been refactored to use the boost::shared_ptr
+    instead.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 18 Jan 2008 13:42:15 +1100
+
+ucsd-psystem-fs (1.5.D005-1) unstable; urgency=low
+
+  * The input_smart_pointer has been refactored to use the Boost smart pointer
+    instead.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 18 Jan 2008 13:07:35 +1100
+
+ucsd-psystem-fs (1.5.D004-1) unstable; urgency=low
+
+  * Refactor to use directory_entry::pointer.  Updated to use FUSE version 2.6
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 18 Jan 2008 11:40:36 +1100
+
+ucsd-psystem-fs (1.5.D003-1) unstable; urgency=low
+
+  * This change prepares UCSD-pSystem-FS for the next public release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 10 Jan 2008 18:49:49 +1100
+
+ucsd-psystem-fs (1.5.D002-1) unstable; urgency=low
+
+  * The ucsdpsys_umount command now exits with a non-zero exit status if it runs
+    out of retries.  It also emits a comforting message if it needs more than
+    one attempt.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 10 Jan 2008 18:47:48 +1100
+
+ucsd-psystem-fs (1.5.D001-1) unstable; urgency=low
+
+  * The FUSE behaviour has changed slightly, and it is now necessary to retry
+    umount attempts is within (about) a second of the last access.  We use
+    usleep if available to minimize the time spent sleeping.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 10 Jan 2008 18:30:07 +1100
+
+ucsd-psystem-fs (1.4.D003-1) unstable; urgency=low
+
+  * The text file decoding can now cope with text block padding in the first
+    block.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 24 Sep 2007 15:45:51 +1000
+
+ucsd-psystem-fs (1.4.D002-1) unstable; urgency=low
+
+  * The Teledisk TD0 format is now understood for reading.  See http://
+    www.classiccmp.org/dunfield/img/td0notes.txt for a description.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 21 Sep 2007 22:51:49 +1000
+
+ucsd-psystem-fs (1.4.D001-1) unstable; urgency=low
+
+  * This change prepares UCSD-PSystem-FS for the next public release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 10 Sep 2007 09:58:28 +1000
+
+ucsd-psystem-fs (1.3.D007-1) unstable; urgency=low
+
+  * The IMD format reader is now able to cope with missing sectors.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 10 Sep 2007 09:08:38 +1000
+
+ucsd-psystem-fs (1.3.D006-1) unstable; urgency=low
+
+  * The MANIFEST file is no more.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 09 Sep 2007 22:53:48 +1000
+
+ucsd-psystem-fs (1.3.D005-1) unstable; urgency=low
+
+  * The programs now automatically detect IMageDisk (.imd) format files and can
+    access them read-only.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 09 Sep 2007 21:10:24 +1000
+
+ucsd-psystem-fs (1.3.D004-1) unstable; urgency=low
+
+  * The code now uses boost shared pointer for the sector_io
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 08 Sep 2007 23:23:47 +1000
+
+ucsd-psystem-fs (1.3.D003-1) unstable; urgency=low
+
+  * The license has been changed to GNU GPL version 3.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 08 Sep 2007 21:22:27 +1000
+
+ucsd-psystem-fs (1.3.D002-1) unstable; urgency=low
+
+  * The web page now links to another apple2fs file system for Linux.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 04 Apr 2007 22:07:15 +1000
+
+ucsd-psystem-fs (1.3.D001-1) unstable; urgency=low
+
+  * This change prepares ucsd-psystem-fs for the next public release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 04 Apr 2007 21:17:34 +1000
+
+ucsd-psystem-fs (1.2.D017-1) unstable; urgency=low
+
+  * The page footer has been improved.	Sister projects are now linked.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 04 Apr 2007 20:37:32 +1000
+
+ucsd-psystem-fs (1.2.D016-1) unstable; urgency=low
+
+  * The web interface pages now display the project icon in the top corners.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 04 Apr 2007 20:20:29 +1000
+
+ucsd-psystem-fs (1.2.D015-1) unstable; urgency=low
+
+  * A build problem in one of the include files has been fixed.
+  * My thanks to Udo Munk <umunk@elba472.myserver.t-online.de> for reporting
+    this problem.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 04 Apr 2007 19:50:54 +1000
+
+ucsd-psystem-fs (1.2.D014-1) unstable; urgency=low
+
+  * Add .pas to the list of known text suffixes.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 24 May 2006 13:39:13 +1000
+
+ucsd-psystem-fs (1.2.D013-1) unstable; urgency=low
+
+  * Add .pas to the list of known text suffixes.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 24 May 2006 13:35:44 +1000
+
+ucsd-psystem-fs (1.2.D012-1) unstable; urgency=low
+
+  * The file names in the system are now converted to upper case automatically.
+    This is bacuse the p-System performs case SENSITIVE file name comparisons
+    some of the time, and case INsensitive at other times.  The only way to work
+    consistently is to always convert the names of new files to upper case.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 21 May 2006 11:57:35 +1000
+
+ucsd-psystem-fs (1.2.D011-1) unstable; urgency=low
+
+  * The ucsdpsys_disk(1) command now automagically converts text files during
+    put (-p) and get (-p) operations unless specifically requested to berform
+    binary transfers (-B).
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 21 May 2006 00:48:34 +1000
+
+ucsd-psystem-fs (1.2.D010-1) unstable; urgency=low
+
+  * An output class hierarchy has been added to the library.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 21 May 2006 00:45:40 +1000
+
+ucsd-psystem-fs (1.2.D009-1) unstable; urgency=low
+
+  * A new class heirarchy of input classes has been added to the libraty.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 21 May 2006 00:35:36 +1000
+
+ucsd-psystem-fs (1.2.D008-1) unstable; urgency=low
+
+  * The ucsdpsys_disk(1) command now preserves the modification date (as far as
+    is possible) across gets (-g) and puts (-p).
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 20 May 2006 00:12:22 +1000
+
+ucsd-psystem-fs (1.2.D007-1) unstable; urgency=low
+
+  * The front page of the reference manual now has an interpretation of the
+    original colourful Apple Pascal logo.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 18 May 2006 23:25:12 +1000
+
+ucsd-psystem-fs (1.2.D006-1) unstable; urgency=low
+
+  * Some small improvements have been made to the web site.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 18 May 2006 16:21:05 +1000
+
+ucsd-psystem-fs (1.2.D005-1) unstable; urgency=low
+
+  * The sourceforge.net portions of the web pages taken out of comments, because
+    SF.net project registration finally came through.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 18 May 2006 16:19:30 +1000
+
+ucsd-psystem-fs (1.2.D004-1) unstable; urgency=low
+
+  * The sourceforge.net portions of the web pages taken out of comments, because
+    SF.net project registration finally came through.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 18 May 2006 08:54:42 +1000
+
+ucsd-psystem-fs (1.2.D003-1) unstable; urgency=low
+
+  * The ucsdpsys_disk(1) command is now able to get and put whole directories
+    from and to UCSD p-System disk images.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 17 May 2006 18:39:54 +1000
+
+ucsd-psystem-fs (1.2.D002-1) unstable; urgency=low
+
+  * There is now a C++ program which writes the appropriate PostScript for the
+    colourful logo appearing on the cover of the various UCSD p-System manuals.
+    This was then used to generate clean crisp icons.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 16 May 2006 22:21:01 +1000
+
+ucsd-psystem-fs (1.2.D001-1) unstable; urgency=low
+
+  * This change prepares ucsd-psystem-fs for the next public release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 16 May 2006 18:22:07 +1000
+
+ucsd-psystem-fs (1.1.D009-1) unstable; urgency=low
+
+  * A bug has been fixed in the ucsdpsys_text program.	It no longer inserts tab
+    characters in the text of a line when a tab is in the Unix file at that
+    position - space characters are inserted instead.  A warning is issued for
+    all other cases of non-printing characters.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 16 May 2006 17:16:06 +1000
+
+ucsd-psystem-fs (1.1.D008-1) unstable; urgency=low
+
+  * A bug has been fixed in the date time last modified file meta-data. The bit
+    layout being used for dates was wrong.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 15 May 2006 21:19:10 +1000
+
+ucsd-psystem-fs (1.1.D007-1) unstable; urgency=low
+
+  * The ucsdpsys_disk command now understands how to manipulate disk files which
+    have differing Unix and p-System file names.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 15 May 2006 19:39:41 +1000
+
+ucsd-psystem-fs (1.1.D006-1) unstable; urgency=low
+
+  * The directory listings now resemble to original more closely.  Which is
+    pretty ugly, FYI.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 15 May 2006 17:45:47 +1000
+
+ucsd-psystem-fs (1.1.D005-1) unstable; urgency=low
+
+  * The write() handling has been improved.  It now uses the existing gap beyond
+    the current file if that will serve immediate needs.  This saves expensive
+    block shuufling to make a gap we didn't need.  This situation can arrise,
+    for example, as a result of an open with O_TRUNC specified.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 15 May 2006 16:48:26 +1000
+
+ucsd-psystem-fs (1.1.D004-1) unstable; urgency=low
+
+  * The automatic dfkind code now understands ".back" file to be text files.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 14 May 2006 23:30:14 +1000
+
+ucsd-psystem-fs (1.1.D003-1) unstable; urgency=low
+
+  * The RPM .spec file link has been removed from the web site.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 13 May 2006 20:18:54 +1000
+
+ucsd-psystem-fs (1.1.D002-1) unstable; urgency=low
+
+  * All reference to SourceForget.net have been temporarily removed from the web
+    pages.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Fri, 12 May 2006 16:57:51 +1000
+
+ucsd-psystem-fs (1.1.D001-1) unstable; urgency=low
+
+  * This change prepares ucsd-psystem-fs for its forst public release.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 11 May 2006 22:18:38 +1000
+
+ucsd-psystem-fs (1.0.D051-1) unstable; urgency=low
+
+  * The dependency on fuse.h by lib/directory/entry.h has been removed.
+    Perhapse this will allow all the tools except ucsdpsys_mount to be built on
+    systems without fuse support.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 11 May 2006 21:12:13 +1000
+
+ucsd-psystem-fs (1.0.D050-1) unstable; urgency=low
+
+  * The lib/sector_io.cc file has been split into smaller pieces, so that the
+    linker has more chance to omit the unused methods.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 11 May 2006 20:17:13 +1000
+
+ucsd-psystem-fs (1.0.D049-1) unstable; urgency=low
+
+  * There is a new ucsdpsys_charset comamnd which may be used to encode and
+    decode SYSTEM.CHARSET bitmapped font files.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 11 May 2006 17:05:38 +1000
+
+ucsd-psystem-fs (1.0.D048-1) unstable; urgency=low
+
+  * The interleaving classes now pass an interleave hint down to their input
+    sources a hint as to the sector size they intend to use.  This can be used
+    to minimize the number of analigned reads and writes which would occur
+    without the hint.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 11 May 2006 16:50:13 +1000
+
+ucsd-psystem-fs (1.0.D047-1) unstable; urgency=low
+
+  * The ucsdpsys_text(1) command now preserves the last-time-modified time for
+    the files it translates, when the translation is done in-situ.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 11 May 2006 16:29:35 +1000
+
+ucsd-psystem-fs (1.0.D046-1) unstable; urgency=low
+
+  * There is a new ucsdpsys_interleave command which may be used to de-
+    interleave or re-interleave disk images.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 11 May 2006 16:17:43 +1000
+
+ucsd-psystem-fs (1.0.D045-1) unstable; urgency=low
+
+  * The sector_io_raw and sector_io_mmap classes have been enhanced to permit
+    direct read and write methods, for improved perfomance.  This skips any
+    artificial "sector I/O" partitioning.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 11 May 2006 16:15:13 +1000
+
+ucsd-psystem-fs (1.0.D044-1) unstable; urgency=low
+
+  * It is possible to have a big volume label, containg two copies of the
+    directory and meta-data, rather then just one. Probably using the theory
+    that you can recover after a directory write problem, or something. We don't
+    try to do that, we just keep the second copy up-to-date.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 11 May 2006 09:49:58 +1000
+
+ucsd-psystem-fs (1.0.D043-1) unstable; urgency=low
+
+  * The sectir_io code has been changed so that the public interface is always
+    byte-wise reads and writes.	 The read_sector and write_sector methods are
+    now private.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 11 May 2006 09:15:36 +1000
+
+ucsd-psystem-fs (1.0.D042-1) unstable; urgency=low
+
+  * The debug function prototype has been altered to include printf format
+    information, so the compiler is able to catch more errors.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 11 May 2006 08:11:08 +1000
+
+ucsd-psystem-fs (1.0.D041-1) unstable; urgency=low
+
+  * The project build now include file metrics.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 09 May 2006 18:34:00 +1000
+
+ucsd-psystem-fs (1.0.D040-1) unstable; urgency=low
+
+  * There is a new ucsdpsys_umount(1) command, for unmounting file systems.
+    This command is merely a thin wrapper around the fusermount -u command.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 09 May 2006 17:22:07 +1000
+
+ucsd-psystem-fs (1.0.D039-1) unstable; urgency=low
+
+  * There is a new ucsdpsys_disk command which may be used to manipulate the
+    contents of a UCSD p-System filesystem disk image.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 09 May 2006 17:09:26 +1000
+
+ucsd-psystem-fs (1.0.D038-1) unstable; urgency=low
+
+  * There is a new ucsdpsys_mkfs -B option which is used to specify the sizeof
+    the filesystem image to be created.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 09 May 2006 17:08:31 +1000
+
+ucsd-psystem-fs (1.0.D037-1) unstable; urgency=low
+
+  * More content has been placed on the web site front pages, as well as some
+    layout changes.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 04 May 2006 20:52:59 +1000
+
+ucsd-psystem-fs (1.0.D036-1) unstable; urgency=low
+
+  * Code has been added to used memory mapped I/O whenever possible, to improve
+    performance.  This should help to optimize away some of the redundant reads
+    and writes.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 04 May 2006 20:23:49 +1000
+
+ucsd-psystem-fs (1.0.D035-1) unstable; urgency=low
+
+  * There is a new ucsdpsys_fsck program for checking, and optionally repairing,
+    the integrity of UCSD p-System filesystem disk images.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 04 May 2006 19:11:49 +1000
+
+ucsd-psystem-fs (1.0.D034-1) unstable; urgency=low
+
+  * The securedir class has been renamed to be the volume_label class, to more
+    accurately reflect its semantics and usage.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 04 May 2006 10:37:30 +1000
+
+ucsd-psystem-fs (1.0.D033-1) unstable; urgency=low
+
+  * The truncate system call is now fully supported.  It is able to extend the
+    file length, if requested, by filling with zero (since Unix file "holes"
+    aren't an option).
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 04 May 2006 10:25:20 +1000
+
+ucsd-psystem-fs (1.0.D032-1) unstable; urgency=low
+
+  * The write support has been enhanced to automatically insert zero fill in
+    situations where Unix files would have holes (which are implicitly zero).
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 03 May 2006 22:59:01 +1000
+
+ucsd-psystem-fs (1.0.D031-1) unstable; urgency=low
+
+  * The umask option passed to fusermount is now derived from the process umask.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 03 May 2006 20:23:50 +1000
+
+ucsd-psystem-fs (1.0.D030-1) unstable; urgency=low
+
+  * The ucsdpsys_mount -r flag (read-only) is now passed all they way down to
+    the raw I/O for enforcement.  Whiel FUSE (and Linux) takes care of most of
+    the read-only stuff, and never actually asks us to do the wrong this,
+    provision is still made for handling this, becase it is possible that a
+    program could be written to access the disk image directly, rather than
+    mounting it as ucsdpsys_mount(1) does.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 03 May 2006 18:34:35 +1000
+
+ucsd-psystem-fs (1.0.D029-1) unstable; urgency=low
+
+  * The ucsdpsys_text(1) program can now cope with text files which do not have
+    the 1KB editor settings header.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 03 May 2006 14:41:24 +1000
+
+ucsd-psystem-fs (1.0.D028-1) unstable; urgency=low
+
+  * The disk image to be mounted can now be either interleaved or non-
+    interleaved, and the code automagically copes.
+  * Also, a bug has been fixed in the code which reads directories from thsi
+    disk image into memory.  It was scanning too many entries.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Wed, 03 May 2006 10:56:10 +1000
+
+ucsd-psystem-fs (1.0.D027-1) unstable; urgency=low
+
+  * The aee-policy command is now use dto check for simpleprocess errors.  The
+    test_linlen is now used ot check for over-long linens and various whitespace
+    problems.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 02 May 2006 23:10:39 +1000
+
+ucsd-psystem-fs (1.0.D026-1) unstable; urgency=low
+
+  * The chown system call is now supported, so long as you don't actually change
+    anything.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 02 May 2006 22:42:06 +1000
+
+ucsd-psystem-fs (1.0.D025-1) unstable; urgency=low
+
+  * The chmod system call is now supported, so long as you don't actually change
+    anything.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 02 May 2006 22:25:09 +1000
+
+ucsd-psystem-fs (1.0.D024-1) unstable; urgency=low
+
+  * This change ...
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 02 May 2006 22:08:00 +1000
+
+ucsd-psystem-fs (1.0.D023-1) unstable; urgency=low
+
+  * The file system now supports removing files.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 02 May 2006 19:56:13 +1000
+
+ucsd-psystem-fs (1.0.D022-1) unstable; urgency=low
+
+  * This change ...
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 02 May 2006 19:31:33 +1000
+
+ucsd-psystem-fs (1.0.D021-1) unstable; urgency=low
+
+  * This change ...
+
+ -- Peter Miller <pmiller@opensource.org.au>  Tue, 02 May 2006 17:22:52 +1000
+
+ucsd-psystem-fs (1.0.D020-1) unstable; urgency=low
+
+  * The mounted file system now supports the statfs system call.  This is the
+    information which is presented by the df(1) command.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 01 May 2006 23:28:32 +1000
+
+ucsd-psystem-fs (1.0.D019-1) unstable; urgency=low
+
+  * There is a new check-tarball build target, which may be used to build the
+    tarball, then unpack it and build its contents.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 01 May 2006 22:37:14 +1000
+
+ucsd-psystem-fs (1.0.D018-1) unstable; urgency=low
+
+  * The project name was wrong in some file headers.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 01 May 2006 17:41:59 +1000
+
+ucsd-psystem-fs (1.0.D017-1) unstable; urgency=low
+
+  * This change ...
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 01 May 2006 17:32:49 +1000
+
+ucsd-psystem-fs (1.0.D016-1) unstable; urgency=low
+
+  * The list of directory entries in the directory class has been re-worked to
+    use a new directory_entry_list class.  The maximum number of directory
+    entries is now calculated from the number of blocks.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Mon, 01 May 2006 10:10:34 +1000
+
+ucsd-psystem-fs (1.0.D015-1) unstable; urgency=low
+
+  * The mknod callback from libfuse is now supported.  This means you can create
+    emoty files (can't write anything to them yet, of course).
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 30 Apr 2006 22:01:38 +1000
+
+ucsd-psystem-fs (1.0.D014-1) unstable; urgency=low
+
+  * All fuise callbacks are now handled, and passed to the relevant directory
+    entry. Default (error) implementatiosn of all directory entry methods now
+    exist.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 30 Apr 2006 17:47:53 +1000
+
+ucsd-psystem-fs (1.0.D013-1) unstable; urgency=low
+
+  * The initial files for the web site have been added.	 Soem work has to be
+    deferred until we get SourceForget.net project approval.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 30 Apr 2006 13:33:13 +1000
+
+ucsd-psystem-fs (1.0.D012-1) unstable; urgency=low
+
+  * Reference manual pages have been added for each command, and the reference
+    manual PDF build has been added.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 30 Apr 2006 12:46:06 +1000
+
+ucsd-psystem-fs (1.0.D011-1) unstable; urgency=low
+
+  * The name of the project has been changed, to comply with SourceForge.net's
+    name length limit.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 30 Apr 2006 11:56:49 +1000
+
+ucsd-psystem-fs (1.0.D010-1) unstable; urgency=low
+
+  * This change adds code to build a makefile and distribution tarball.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 30 Apr 2006 11:30:57 +1000
+
+ucsd-psystem-fs (1.0.D009-1) unstable; urgency=low
+
+  * This change adds tags to the build targets, for easy source navigation.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 30 Apr 2006 08:53:03 +1000
+
+ucsd-psystem-fs (1.0.D008-1) unstable; urgency=low
+
+  * There is a new ucsdpsys_mkfs command, which can be used to create new file
+    systems.  At the moment it only works for normal files, not device special
+    files.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 30 Apr 2006 01:05:24 +1000
+
+ucsd-psystem-fs (1.0.D007-1) unstable; urgency=low
+
+  * There is now more library code for common tasks.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 30 Apr 2006 00:50:58 +1000
+
+ucsd-psystem-fs (1.0.D006-1) unstable; urgency=low
+
+  * The new test template has been improved.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sun, 30 Apr 2006 00:45:37 +1000
+
+ucsd-psystem-fs (1.0.D005-1) unstable; urgency=low
+
+  * The ucsdpsys_mount command is now able to produce a directory listing for
+    the volume.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 29 Apr 2006 21:58:11 +1000
+
+ucsd-psystem-fs (1.0.D004-1) unstable; urgency=low
+
+  * There are new classes for managing directories and directory entries.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Sat, 29 Apr 2006 14:33:55 +1000
+
+ucsd-psystem-fs (1.0.D003-1) unstable; urgency=low
+
+  * There is a new ucsdpsys_mount command, which is used to mount the user-mode
+    file system.  Functionality will be added later.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 27 Apr 2006 19:51:44 +1000
+
+ucsd-psystem-fs (1.0.D002-1) unstable; urgency=low
+
+  * This change set adds new file templates, so that all files will have the
+    appropriate header.	 It is also used to provide the infrastructure for
+    tests.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 27 Apr 2006 14:42:33 +1000
+
+ucsd-psystem-fs (1.0.D001-1) unstable; urgency=low
+
+  * This change set creates the minimum Aegis configuration to get a small
+    project up and running quickly.  It does not include any source files, as
+    those are expected to be supplied by release tarballs imported using the
+    aetar command.
+
+ -- Peter Miller <pmiller@opensource.org.au>  Thu, 27 Apr 2006 14:24:25 +1000
+

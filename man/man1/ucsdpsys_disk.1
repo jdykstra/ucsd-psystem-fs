@@ -1,0 +1,273 @@
+'\" t
+.\"
+.\" UCSD p-System filesystem in user space
+.\" Copyright (C) 2006-2008, 2010, 2011 Peter Miller
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 3 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+.\" General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program. If not, see <http://www.gnu.org/licenses/>.
+.\"
+.ds n) ucsdpsys_disk
+.TH \*(n) 1 ucsd\[hy]psystem\[hy]fs "Reference Manual"
+.SH NAME
+ucsdpsys_disk \- manipulate files on a UCSD p\[hy]System filesystem image
+.if require_index \{
+.XX "ucsdpsys_disk(1)" \
+    "manipulate files on a UCSD p\[hy]System filesystem image"
+.\}
+.SH SYNOPSIS
+\fB\*(n) \-f\fP \fIdisk\[hy]image\fP \fB\-l\fP
+.br
+\fB\*(n) \-f\fP \fIdisk\[hy]image\fP \fB\-g\fP \fIfiles\[hy]to\[hy]get\fP...
+.br
+\fB\*(n) \-f\fP \fIdisk\[hy]image\fP \fB\-p\fP \fIfiles\[hy]to\[hy]put\fP...
+.br
+\fB\*(n) \-f\fP \fIdisk\[hy]image\fP \fB\-r\fP \fIfiles\[hy]to\[hy]remove\fP...
+.br
+\fB\*(n) \-f\fP \fIdisk\[hy]image\fP \fB\-k\fP
+.br
+\fB\*(n) \-f\fP \fIdisk\[hy]image\fP \fB\-\-system\-volume\fP
+.br
+\fB\*(n) \-V\fP
+.SH DESCRIPTION
+The \fI\*(n)\fP program is used to
+manipulate the contents of a UCSD p\[hy]System filesystem disk image.
+.PP
+Features include
+.TP 2n
+\[bu]
+Get single files from the disk image,
+with automatic text file translation.
+.TP 2n
+\[bu]
+Put single files into the disk image,
+with automatic text file translation.
+.TP 2n
+\[bu]
+Get all files from a disk image into a directory, with a single command,
+with automatic text file translation.
+.TP 2n
+\[bu]
+Put all files from a directory into a disk image, with a single command,
+with automatic text file translation.
+.TP 2n
+\[bu]
+Remove files from a disk image.
+.TP 2n
+\[bu]
+You can crunch a disk image; that is, you can move all of the files as
+close to the start of the disk image as possible.
+(Also known as \fB\-\-squeeze\fP or \fB\-\-defragment\fP.)
+.TP 2n
+\[bu]
+List all of the files in a disk image.
+You can select the sort criterion.
+.so man/man1/z_format.so
+.br
+.ne 1i
+.SH OPTIONS
+The following options are understood:
+.\" ----------  A  ---------------------------------------------------------
+.TP 8n
+\fB\-A\fP
+.TP 8n
+\fB\-\-all\fP
+By default, files with names that start with a dot (\[lq]\f[CW].\fP\[rq])
+are ignored when you \fB\-\-put\fP a whole directory.
+This option says to include files with names that start with a dot.
+.TP 8n
+\fB\-B\fP
+.TP 8n
+\fB\-\-all\[hy]binary\fP
+This option requests that all file transfers be binary, without text
+encoding or decoding.  If you happen to transfer a text file this way,
+you can use the \fIucsdpsys_text\fP(1) command to translate the text
+files afterwards.
+.\" ----------  B  ---------------------------------------------------------
+.TP 8n
+\fB\-b\fP \f[I]filename\fP
+.TP 8n
+\fB\-\-boot=\fP\f[I]filename\fP
+This option may be used to obtain the boot blocks (with the
+\fB\-\-get\fP option) or set the boot blocks (with the \fB\-\-put\fP
+option).  The named file is expected to be raw binary (exactly 1 KiB).
+.\" ----------  C  ---------------------------------------------------------
+.\" ----------  D  ---------------------------------------------------------
+.TP 8n
+\fB\-D\fP
+.TP 8n
+\fB\-\-debug\fP
+Increase debug level.  Only of interest to developers.
+.\" ----------  E  ---------------------------------------------------------
+.\" ----------  F  ---------------------------------------------------------
+.TP 8n
+\fB\-f\fP \fIfilename\fP
+.TP 8n
+\fB\-\-file=\fP\fIfilename\fP
+The name of the file containing the UCSD p\[hy]System filesystem disk image.
+.TP 8n
+\fB\-g\fP \fIfilename\fP...
+.TP 8n
+\fB\-\-get\fP \fIfilename\fP...
+Get the named files from the disk image and write them to Unix,
+using the same file name.
+Naming a directory will result in the whole directory being transferred.
+Note that text file formats will \fInot\fP be translated.
+.\" ----------  G  ---------------------------------------------------------
+.\" ----------  H  ---------------------------------------------------------
+.\" ----------  I  ---------------------------------------------------------
+.\" ----------  J  ---------------------------------------------------------
+.\" ----------  K  ---------------------------------------------------------
+.TP 8n
+\fB\-k\fP
+.TP 8n
+\fB\-\-crunch\fP
+Move all of the files as far towards the start of the disk image as
+possible.  This will maximize the space available for writing by the
+(much dumber) UCSD p\[hy]System.  You can use this option in combination
+with the \fB\-\-put\fP or \fB\-\-remove\fP options.
+It is common to combine this option with the \fB\-\-wipe\[hy]unused\fP option,
+see below.
+.\" ----------  L  ---------------------------------------------------------
+.TP 8n
+\fB\-l\fP
+.TP 8n
+\fB\-\-list\fP
+.RS
+Obtain a listing of the volume's files.
+(Used twice, it will print the block numbers as well.)
+.PP
+By default, files are sorted by start block (the order they appear in
+the disk image).
+To sort by a different criterion, use the \fB\-\-sort\fP option; see below.
+.RE
+.\" ----------  M  ---------------------------------------------------------
+.\" ----------  N  ---------------------------------------------------------
+.\" ----------  O  ---------------------------------------------------------
+.\" ----------  P  ---------------------------------------------------------
+.TP 8n
+\fB\-p\fP \fIfilename\fP...
+.TP 8n
+\fB\-\-put\fP \fIfilename\fP...
+Put the named files into the disk image, reading from the Unix file of
+the same name.
+Naming a directory will result in the whole directory being transferred.
+Note that text file formats will \fInot\fP be translated.
+.\" ----------  Q  ---------------------------------------------------------
+.\" ----------  R  ---------------------------------------------------------
+.TP 8n
+\fB\-r\fP \fIfilename\fP...
+.TP 8n
+\fB\-\-remove=\fP\fIfilename\fP...
+.RS
+Remove the named files from the filesystem image.
+.PP
+Actually, this just removes the directory entry.  To completely erase
+the file contents as well, use the \fB\-\-wipe\[hy]unused\fP option;
+see below.
+.RE
+.\" ----------  S  ---------------------------------------------------------
+.TP 8n
+\fB\-S\fP
+.TP 8n
+\fB\-\-system\-volume\fP
+.RS
+This option may be used to test whether or not a disk image can
+be considered a system volume, by testing for the presence of the
+\[lq]\f[CW]SYSTEM.COMPILER\fP\[rq], \[lq]\f[CW]SYSTEM.EDITOR\fP\[rq],
+\[lq]\f[CW]SYSTEM.FILER\fP\[rq] and \[lq]\f[CW]SYSTEM.PASCAL\fP\[rq]
+files.  If all are present, it is probably a system volume.
+.PP
+This option prints no output.  It is silent, because it is intended
+for use in shell scripts and the like.  The results are in the exit
+status: EXIT_SUCCESS (zero) if it is a system volume, or EXIT_FAILURE
+(non\[hy]zero) if it is not.
+.RE
+.\" -----------
+.TP 8n
+\fB\-s\fP \f[I]name\fP
+.TP 8n
+\fB\-\-sort=\fP\f[I]name\fP
+.RS
+This option may be used to change the criterion by which the files are
+sorted in a directory listing.
+.TP 4n
+block
+Sort the files according to their initial block number,
+the order in which they appear on the disk.
+This is the default, for compatibility with the original UCSD system.
+.TP 4n
+name
+Sort the directory entries by the file name.
+.TP 4n
+date
+Sort the directory entries by the date last modified,
+or by name if that is not sufficient.
+.TP 4n
+kind
+Sort the directory entries by the kind of file they are,
+or by name if that is not sufficient.
+.PP
+Any other sort name is an error.
+.RE
+.\" ----------  T  ---------------------------------------------------------
+.TP 8n
+\fB\-t\fP
+.TP 8n
+\fB\-\-auto\[hy]text\fP
+Convert text files between Unix and UCSD text formats automatically, in
+the same way as the \f[I]ucsdpsys_mount\fP(1) command.
+.\" ----------  U  ---------------------------------------------------------
+.\" ----------  V  ---------------------------------------------------------
+.TP 8n
+\fB\-V\fP
+.TP 8n
+\fB\-\-version\fP
+Print the version of the \fI\*(n)\fP program being executed.
+.\" ----------  W  ---------------------------------------------------------
+.TP 8n
+\fB\-w\fP
+.TP 8n
+\fB\-\-wipe\[hy]unused\fP
+.RS
+This option may be used to make sure that all blocks not accounted for
+in the directory are reset to zero, wiping any \[lq]left over\[rq]
+content.  Not only is this more secure (things you didn't intent to stay
+on the disk don't) but the disk images compress better, too.
+The boot blocks are unaffected.
+.PP
+If there are any files that are not exact multiples of 512 bytes long,
+the unused portions of their last blocks are also reset to zero.
+Code files and text files are always multiples of 512 bytes long,
+but other data files can have short last blocks.
+.PP
+When combined with other disk\[hy]altering options,
+this option is the last applied to the disk image.
+This is useful when combined with the \fB\-\-crunch\fP option.
+.RE
+.\" ----------  X  ---------------------------------------------------------
+.\" ----------  Y  ---------------------------------------------------------
+.\" ----------  Z  ---------------------------------------------------------
+.PP
+All other options will produce a diagnostic error.
+.so man/man1/z_exit.so
+.SH SEE ALSO
+.TP 8n
+\fIucsdpsys_mkfs\fP(1)
+create a new UCSD p\[hy]System disk image
+.TP 8n
+\fIucsdpsys_mount\fP(1)
+mount a UCSD p\[hy]System disk image as a Linux file system
+.TP 8n
+\fIucsdpsys_text\fP(1)
+translate to and from the UCSD p\[hy]System text file format
+.so man/man1/z_copyright.so

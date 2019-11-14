@@ -1,0 +1,93 @@
+'\" t
+.\"     UCSD p-System filesystem in user space
+.\"     Copyright (C) 2010 Peter Miller
+.\"
+.\"     This program is free software; you can redistribute it and/or modify
+.\"     it under the terms of the GNU General Public License as published by
+.\"     the Free Software Foundation; either version 3 of the License, or
+.\"     (at your option) any later version.
+.\"
+.\"     This program is distributed in the hope that it will be useful,
+.\"     but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\"     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\"     GNU General Public License for more details.
+.\"
+.\"     You should have received a copy of the GNU General Public License
+.\"     along with this program. If not, see
+.\"     <http://www.gnu.org/licenses/>.
+.\"
+.ds n) ucsdpsys_text
+.TH \*(n) 5 ucsd\[hy]psystem\[hy]fs "Reference Manual"
+.SH NAME
+ucsdpsys_text \- UCSD p\[hy]System text file format
+.if require_index \{
+.XX "ucsdpsys_text(5)" "UCSD p\[hy]System text file format
+.\}
+.SH DESCRIPTION
+The format of a textfile is as follows:
+.TP 2m
+\(bu
+There are two blocks (1024 bytes) of header information at the
+beginning of the file.  This information is used by the Pascal
+Editor.  The Pascal system creates the header page when a
+user program opens a textfile.  The header page is transferred
+only during disk\[hy]to\[hy]disk transfers; transfers to character
+devices, such as the console or printer, always omit the
+header page.
+.TP 2m
+\(bu
+The rest of the file consists of two\[hy]block pages.  Each
+page contains lines of text, separated from each other by
+RETURN characters (ASCII 0x0D).  No line ever crosses a page
+boundary; thus a page contains only whole lines.  After the
+last line on a page, the remainder of the page is filled with
+NUL characters (ASCII 0x00).  READ and READLN skip the NUL
+characters, and WRITE and WRITELN provide them automatically.
+Thus this page formatting is normally invisible to a Pascal
+program.
+.TP 2m
+\(bu
+A sequence of leading spaces in a line may be compressed to a
+DLE\[hy]blank code.  This code consists of a DLE control character
+(ASCII 0x10) followed by one byte containing the number of
+spaces to indent plus 32 (decimal).  Using this code saves a
+considerable amount of space in files where indentation occurs
+frequently.  The Editor is the main creator of DLE\[hy]blank
+codes; it usually outputs a DLE\[hy]blank code where a sequence
+of spaces occurs at the beginning of a line.  However, the
+DLE\[hy]blank code is optional; some lines may have it, and others
+may have space characters instead.  Also, a line with no
+indentation may or may not be preceded by a DLE character and
+an indent code value of 32 (meaning O indentation).
+.SS Limitations
+.TP 2m
+\[bu]
+The smallest text file is 2kB.  There is no way to avoid the 1kB editor
+information at the start of a text file.
+.TP 2m
+\(bu
+You must guarantee that every 1KB text block ends with at least one NUL.
+This is to cope with a bug in the native compiler.
+.br
+.ne 1i
+.SH OPTIONS
+The following options are understood:
+.TP 8n
+.B \-Help
+.br
+Provide some help with using the
+.I \*(n)
+program.
+.TP 8n
+.B \-VERSion
+.br
+Print the version of the
+.I \*(n)
+program being executed.
+.PP
+All other options will produce a diagnostic error.
+.SH SEE ALSO
+.TP 8n
+\f[I]ucsdpsys_text\fP(1)
+convert UCSD p\[hy]System text files
+.so man/man1/z_copyright.so

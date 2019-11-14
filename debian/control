@@ -1,0 +1,28 @@
+Source: ucsd-psystem-fs
+Section: utils
+Priority: extra
+Maintainer: Peter Miller <pmiller@opensource.org.au>
+Homepage: http://ucsd-psystem-fs.sourceforge.net
+Build-Depends: debhelper (>= 5), fuse-utils, ghostscript, groff, libboost-dev,
+ libexplain-dev (>= 0.35), libfuse-dev
+Standards-Version: 3.9.3
+
+Package: ucsd-psystem-fs
+Architecture: any
+Description: UCSD p-System File System
+ The ucsd-psystem-fs package is a collection of tools for manipulating and
+ mounting UCSD p-Systems disk images.  The disk images can be mounted into the
+ Linux file system by using the ucsdpsys_mount command, that is based on the
+ FUSE "File System in User Space" facility.
+Depends: ${misc:Depends}, ${shlibs:Depends}, fuse-utils
+Suggests: ucsd-psystem-vm, ucsd-psystem-xc
+
+Package: ucsd-psystem-fs-doc
+Architecture: all
+Section: doc
+Description: UCSD p-System filesystem in user space - documentation
+ The ucsd-psystem-fs package is a collection of tools for manipulating and
+ mounting UCSD p-Systems disk images.  The disk images can be mounted into the
+ Linux file system by using the ucsdpsys_mount command, that is based on the
+ FUSE "File System in User Space" facility.
+Depends: ${misc:Depends}

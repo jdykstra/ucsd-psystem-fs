@@ -1,0 +1,57 @@
+'\" t
+.\"     UCSD p-System filesystem in user space
+.\"     Copyright (C) 2006, 2007, 2010 Peter Miller
+.\"
+.\"     This program is free software; you can redistribute it and/or modify
+.\"     it under the terms of the GNU General Public License as published by
+.\"     the Free Software Foundation; either version 3 of the License, or
+.\"     (at your option) any later version.
+.\"
+.\"     This program is distributed in the hope that it will be useful,
+.\"     but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\"     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\"     GNU General Public License for more details.
+.\"
+.\"     You should have received a copy of the GNU General Public License
+.\"     along with this program. If not, see
+.\"     <http://www.gnu.org/licenses/>.
+.\"
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 20
+A bug has been fixed in the \fIucsdpsys_text\fP(1) program.  It no longer
+inserts tab characters in the text of a line when a tab is in
+the Unix file at that position \- space characters are inserted
+instead. A warning is issued for all other cases of non\[hy]printing
+characters.
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 19
+A bug has been fixed in the date\[hy]last\[hy]modified file
+meta\[hy]data.  The bit layout being used for dates was wrong.
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 17
+The \fIucsdpsys_disk\fP(1) command now understands how to manipulate disk
+files which have differing Unix and p\[hy]System file names.
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 18
+The \fIucsdpsys_disk\fP(1) directory listings now resemble the original
+more closely.
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 16
+The \fIwrite\fP(2) handling in the file system has been improved.  It
+now uses the existing gap beyond the current file if that will serve
+immediate needs.  This saves expensive block shuufling to make a gap we
+didn't need.  This situation can arrise, for example, as a result of an
+open with O_TRUNC specified.
+.\" ------------------------------------------------------------------------
+.\"     Add new entries above this line.
+.SS Version 1.1 (2006\[hy]Apr\[hy]11)

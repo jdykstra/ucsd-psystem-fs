@@ -1,0 +1,151 @@
+'\" t
+.\"
+.\" UCSD p-System filesystem in user space
+.\" Copyright (C) 2006, 2007, 2010 Peter Miller
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 3 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+.\" General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program. If not, see <http://www.gnu.org/licenses/>.
+.\"
+.ds n) ucsdpsys_mkfs
+.TH \*(n) 1 ucsd\[hy]psystem\[hy]fs "Reference Manual"
+.SH NAME
+ucsdpsys_mkfs \- create new UCSD p\[hy]System filesystem disk images
+.if require_index \{
+.XX "ucsdpsys_mkfs(1)" "create new UCSD p\[hy]System filesystem disk images"
+.\}
+.SH SYNOPSIS
+.B \*(n)
+[
+.IR option \&...
+]
+.IR filename
+.br
+.B \*(n)
+.B \-V
+.SH DESCRIPTION
+The
+.I \*(n)
+program is used to
+create new UCSD p\[hy]System disk image files.
+.PP
+While the \f[I]ucsdpsys_disk\fP(1) command understands IMD and TD0
+disk image formats for reading, it is not possible at this time to for
+\f[I]ucsdpsys_mkfs\fP(1) to create or \f[I]ucsdpsys_disk\fP(1) to modify
+these disk image formats.
+.br
+.ne 1i
+.SH OPTIONS
+The following options are understood:
+.TP 8n
+\fB\-A\fP \f[I]name\fP
+.TP 8n
+\fB\-\-architecture=\fP\f[I]name\fP
+This option is used to specify the microprocessor of the host
+system.  This, in turn, implies the byte sex of the file system to be
+created.  The usual names are accepted, \f[I]e.g.\fP \[lq]pdp11\[rq],
+\[lq]6502\[rq], \[lq]6800\[rq], \f[I]etc\fP
+.TP 8n
+\fB\-B\fP \f[I]number\fP
+.TP 8n
+\fB\-\-size=\fP\f[I]number\fP
+.RS
+This option may be used to specify the size of the disk image,
+in kilobytes (KB = 1024 bytes).
+Defaults to 140 if not specified, the size of an Apple Pascal floppy.
+.PP
+Other common sizes are 800KB for 5.25" disks,
+and 1440KB for PC 3.5" floppies.
+.PP
+You may specify B, K and M suffixes to indicate bytes, kilobytes (2**10)
+and megabytes (2**20).
+.PP
+The maximum possible addressable size is 16MB (however, the limit of 77
+files, and no subdirectories, makes it unlikely that a 16MB disk image
+would be useful).
+It is an error to specify a size greater than 16MB.
+The size must be a multiple of 4KB.
+.RE
+.TP 8n
+\fB\-b\fP \f[I]filename\fP
+.TP 8n
+\fB\-\-boot=\fP\f[I]filename\fP
+This option may be used to set the boot blocks.
+The named file is expected to be raw binary (1KiB).
+.TP 8n
+\fB\-D\fP
+.TP 8n
+\fB\-\-debug\fP
+Increase debugging level.  Only of interest to developers.
+.TP 8n
+\fB\-i\fP
+This is a synonym for \f[CW]\-\-interleave=apple\fP
+.TP 8n
+\fB\-\-interleave=\fP\f[I]name\fP
+.RS
+Interleave the sectors in the style given.
+Known interleave patterns include:
+.TP 4n
+apple
+The interleave pattern that Apple ][ Pascal used.
+.TP 4n
+pdp
+.br
+The interleave pattern that PDP\[hy]11 used.
+.TP 4n
+none
+No interleave.  This is the default.
+.TP 4n
+help
+Print a list of known interleave pattern names
+.PP
+Name are case\[hy]\f[B]in\fPsensitive.
+All other names will result in a diagnostic error being issued.
+.RE
+.TP 8n
+\fB\-L\fP \f[I]string\fP
+.TP 8n
+\fB\-\-label=\fP\f[I]string\fP
+This option may be used to specify the name of the volume.  Defaults to
+something random, but probably unique, starting with "V".  There is a
+size limit of 7 characters, the label will be truncated if it is longer
+than this.
+.TP 8n
+\fB\-t\fP
+.TP 8n
+\fB\-\-twin\fP
+This option may be used to ask for two copies of the directory
+meta\[hy]data to be stored, not just one.  This will not be used by
+\f[I]ucsdpsys_fsck\fP(1), but it will be kept up\[hy]to\[hy]date by all of the
+disk access methods.
+.TP 8n
+\fB\-V\fP
+.TP 8n
+\fB\-\-version\fP
+Print the version of the
+.I \*(n)
+program being executed.
+.PP
+All other options will produce a diagnostic error.
+.so man/man1/z_exit.so
+.SH SEE ALSO
+.TP 8n
+\f[I]ucsdpsys_fsck\fP(1)
+check a disk image
+.TP 8n
+\f[I]ucsdpsys_disk\fP(1)
+Manipulate a disk image.  Is able to get, put and remove individual
+files, or whole directories.
+.TP 8n
+\f[I]ucsdpsys_mount\fP(1)
+mount a disk image
+.so man/man1/z_copyright.so

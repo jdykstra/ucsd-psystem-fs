@@ -1,0 +1,75 @@
+'\" t
+.\"     UCSD p-System filesystem in user space
+.\"     Copyright (C) 2006, 2007, 2010 Peter Miller
+.\"
+.\"     This program is free software; you can redistribute it and/or modify
+.\"     it under the terms of the GNU General Public License as published by
+.\"     the Free Software Foundation; either version 3 of the License, or
+.\"     (at your option) any later version.
+.\"
+.\"     This program is distributed in the hope that it will be useful,
+.\"     but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\"     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\"     GNU General Public License for more details.
+.\"
+.\"     You should have received a copy of the GNU General Public License
+.\"     along with this program. If not, see
+.\"     <http://www.gnu.org/licenses/>.
+.\"
+.ds n) ucsdpsys_fsck
+.TH \*(n) 1 ucsd\[hy]psystem\[hy]fs "Reference Manual"
+.SH NAME
+ucsdpsys_fsck \- verify and repair UCSD p\[hy]System filesystem images
+.if require_index \{
+.XX "ucsdpsys_fsck(1)" "verify and repair UCSD p\[hy]System filesystem images"
+.\}
+.SH SYNOPSIS
+.B \*(n)
+[
+.IR option \&...
+]
+.IR disk\[hy]image
+.br
+.B \*(n)
+.B \-V
+.SH DESCRIPTION
+The \fI\*(n)\fP program is used to verify and repair UCSD p\[hy]System
+filesystem disk images.
+.br
+.ne 1i
+.SH OPTIONS
+The following options are understood:
+.TP 8n
+\fB\-D\fP
+.TP 8n
+\fB\-debug\fP
+Inclease debug level.
+Probably only of interest to file system developers.
+.TP 8n
+\fB\-f\fP
+.TP 8n
+\fB\-\-fix\fP
+This option causes the file system to be fixed,
+without this the file system will be checked but not repaired.
+.TP 8n
+\fB\-r\fP
+.TP 8n
+\fB\-\-read\[hy]only\fP
+Open the disk image read\[hy]only.
+It will be checked but not repaired.
+.TP 8n
+\fB\-V\fP
+.TP 8n
+\fB\-\-version\fP
+Print the version of the \fI\*(n)\fP program being executed.
+.PP
+All other options will produce a diagnostic error.
+.so man/man1/z_exit.so
+.SH SEE ALSO
+.TP 8n
+\fIucsdpsys_disk\fP(1)
+manipulate a disk image
+.TP 8n
+\fIucsdpsys_mount\fP(1)
+mount a disk image
+.so man/man1/z_copyright.so

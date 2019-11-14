@@ -1,0 +1,46 @@
+'\" t
+.\" UCSD p-System filesystem in user space
+.\" Copyright (C) 2008, 2010 Peter Miller
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 3 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+.\" General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program. If not, see <http://www.gnu.org/licenses/>.
+.\"
+.\" ------------------------------------------------------------------------
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 19
+The code that tries to divine the file type from the file's
+name, has been extended to understand more of the types of the
+system files.
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 15
+The \f[CW]\.imd\fP format code is now able to cope with broken sector maps.
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 12
+There is a new \f[I]ucsdpsys_interleave \-Tguess\fP option,
+for guessing the interleave of a disk image.
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 11
+The code has been made more robust around volume header records
+with incorrect dnumfiles fields.  This is now detected, and can
+be repaired with the \f[I]ucsdpsys_fsck\fP(1) command.
+.\" ------------------------------------------------------------------------
+.\" Add new entries above this line.
+.SS Version 1.6 (2008\[hy]Jan\[hy]20)

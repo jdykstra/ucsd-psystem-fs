@@ -1,0 +1,1524 @@
+#
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#
+#    W   W    A    RRRR   N   N   III  N   N  III  N   N   GGG
+#    W   W   A A   R   R  NN  N    I   NN  N   I   NN  N  G   G
+#    W   W  A   A  RRRR   N N N    I   N N N   I   N N N  G
+#    W W W  AAAAA  R R    N  NN    I   N  NN   I   N  NN  G  GG
+#    W W W  A   A  R  R   N   N    I   N   N   I   N   N  G   G
+#     W W   A   A  R   R  N   N   III  N   N  III  N   N   GGG
+#
+# Warning: DO NOT send patches which fix this file. IT IS NOT the original
+# source file. This file is GENERATED from the Aegis repository file manifest.
+# If you find a bug in this file, it could well be an Aegis bug.
+#
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#
+
+#
+# @configure_input@
+#
+# The configure script generates 2 files:
+# 1. This Makefile
+# 2. lib/config.h
+# If you change this Makefile, you may also need to change these files. To see
+# what is configured by the configure script, search for @ in the Makefile.in
+# file.
+#
+# If you wish to reconfigure the installations directories it is RECOMMENDED
+# that you re-run the configure script.
+#
+# Use "./configure --help" for a list of options.
+#
+
+#
+# directory containing the source
+#
+srcdir = @srcdir@
+VPATH = @srcdir@
+
+#
+# the name of the install program to use
+#
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = @INSTALL_PROGRAM@
+INSTALL_DATA = @INSTALL_DATA@
+INSTALL_DIR = @INSTALL@ -m 0755 -d
+
+#
+# The name of the C++ compiler to use.
+#
+CXX = @CXX@
+
+#
+# The C++ compiler flags to use.
+#
+CXXFLAGS = @CXXFLAGS@
+
+#
+# The C++ preprocessor flags to use.
+#
+CPPFLAGS = @CPPFLAGS@
+
+#
+# The linker flags to use
+#
+LDFLAGS = @LDFLAGS@
+
+#
+# prefix for installation path
+#
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+
+#
+# Where to put the executables.
+#
+# On a network, this would only be shared between machines of identical
+# cpu-hw-os flavour. It can be read-only.
+#
+# The $(DESTDIR) is for packaging.
+#
+bindir = $(DESTDIR)@bindir@
+
+#
+# Where to put the manuals.
+#
+# On a network, this would be shared between all machines on the network. It can
+# be read-only.
+#
+# The $(DESTDIR) is for packaging.
+#
+mandir = $(DESTDIR)@mandir@
+
+# define this to silence ./configure warning
+datarootdir = $(DESTDIR)@datarootdir@
+
+#
+# extra libraries required for your system
+#
+LIBS = @LIBS@
+
+#
+# shell to use to run tests and commands
+#
+SH = @SH@
+
+#
+# The program to use to construct static libraries.
+#
+AR = @AR@
+
+#
+# The program to use to place symbol indexes within static libraries.
+#
+RANLIB = @RANLIB@
+
+#
+# Set GROFF to the name of the roff command on your system, usually "groff" or
+# "troff" or "nroff".
+#
+GROFF = @GROFF@
+
+#
+# Set SOELIM to the name of the roff proprocessor command on your system,
+# usually "soelim" or "gsoelim".
+#
+SOELIM = @SOELIM@
+
+# ---------------------------------------------------------
+# You should not need to change anything below this line.
+
+#
+# The default target
+#
+the-default-target: all
+
+etc/BUILDING.pdf: etc/BUILDING.man
+	$(GROFF) -Tps -s -I. -t -man etc/BUILDING.man > etc/BUILDING.ps
+	ps2pdf etc/BUILDING.ps $@
+	rm etc/BUILDING.ps
+
+$(datarootdir)/doc/ucsd-psystem-fs/BUILDING.pdf: \
+		.mkdir.__datarootdir__doc_ucsd_psystem_fs etc/BUILDING.pdf
+	$(INSTALL_DATA) etc/BUILDING.pdf $@
+
+etc/Howto.conf: config.status etc/Howto.conf.in
+	CONFIG_FILES=$@:etc/Howto.conf.in CONFIG_HEADERS= $(SH) config.status
+
+etc/README.pdf: etc/README.man etc/new.1.0.so etc/new.1.1.so etc/new.1.11.so \
+		etc/new.1.12.so etc/new.1.13.so etc/new.1.14.so \
+		etc/new.1.15.so etc/new.1.16.so etc/new.1.17.so \
+		etc/new.1.18.so etc/new.1.19.so etc/new.1.2.so etc/new.1.20.so \
+		etc/new.1.21.so etc/new.1.22.so etc/new.1.3.so etc/new.1.4.so \
+		etc/new.1.5.so etc/new.1.6.so etc/new.1.7.so etc/new.1.8.so \
+		etc/new.1.9.so
+	$(GROFF) -Tps -s -I. -t -man etc/README.man > etc/README.ps
+	ps2pdf etc/README.ps $@
+	rm etc/README.ps
+
+$(datarootdir)/doc/ucsd-psystem-fs/README.pdf: \
+		.mkdir.__datarootdir__doc_ucsd_psystem_fs etc/README.pdf
+	$(INSTALL_DATA) etc/README.pdf $@
+
+etc/change_log.pdf: etc/change_log.man etc/new.1.0.so etc/new.1.1.so \
+		etc/new.1.11.so etc/new.1.12.so etc/new.1.13.so \
+		etc/new.1.14.so etc/new.1.15.so etc/new.1.16.so \
+		etc/new.1.17.so etc/new.1.18.so etc/new.1.19.so etc/new.1.2.so \
+		etc/new.1.20.so etc/new.1.21.so etc/new.1.22.so etc/new.1.3.so \
+		etc/new.1.4.so etc/new.1.5.so etc/new.1.6.so etc/new.1.7.so \
+		etc/new.1.8.so etc/new.1.9.so
+	$(GROFF) -Tps -s -I. -t -man etc/change_log.man > etc/change_log.ps
+	ps2pdf etc/change_log.ps $@
+	rm etc/change_log.ps
+
+$(datarootdir)/doc/ucsd-psystem-fs/change_log.pdf: \
+		.mkdir.__datarootdir__doc_ucsd_psystem_fs etc/change_log.pdf
+	$(INSTALL_DATA) etc/change_log.pdf $@
+
+etc/reference.pdf: etc/BUILDING.man etc/README.man etc/logo.so etc/new.1.0.so \
+		etc/new.1.1.so etc/new.1.11.so etc/new.1.12.so etc/new.1.13.so \
+		etc/new.1.14.so etc/new.1.15.so etc/new.1.16.so \
+		etc/new.1.17.so etc/new.1.18.so etc/new.1.19.so etc/new.1.2.so \
+		etc/new.1.20.so etc/new.1.21.so etc/new.1.22.so etc/new.1.3.so \
+		etc/new.1.4.so etc/new.1.5.so etc/new.1.6.so etc/new.1.7.so \
+		etc/new.1.8.so etc/new.1.9.so etc/ref-toc.so etc/reference.man \
+		man/man1/ucsdpsys_disk.1 man/man1/ucsdpsys_fs_license.1 \
+		man/man1/ucsdpsys_fsck.1 man/man1/ucsdpsys_interleave.1 \
+		man/man1/ucsdpsys_mkfs.1 man/man1/ucsdpsys_mount.1 \
+		man/man1/ucsdpsys_rt11.1 man/man1/ucsdpsys_text.1 \
+		man/man1/ucsdpsys_umount.1 man/man1/z_copyright.so \
+		man/man1/z_exit.so man/man1/z_format.so man/man5/ucsdpsys_fs.5 \
+		man/man5/ucsdpsys_text.5
+	$(GROFF) -Tps -s -I. -t -man etc/reference.man > etc/reference.ps
+	ps2pdf etc/reference.ps $@
+	rm etc/reference.ps
+
+$(datarootdir)/doc/ucsd-psystem-fs/reference.pdf: \
+		.mkdir.__datarootdir__doc_ucsd_psystem_fs etc/reference.pdf
+	$(INSTALL_DATA) etc/reference.pdf $@
+
+lib/byte_sex.o: lib/byte_sex.cc lib/byte_sex.h lib/format_printf.h \
+		lib/rcstring.h lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/byte_sex.cc
+	mv byte_sex.o $@
+
+lib/concern.o: lib/concern.cc lib/concern.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/concern.cc
+	mv concern.o $@
+
+lib/debug.o: lib/debug.cc lib/debug.h lib/format_printf.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/debug.cc
+	mv debug.o $@
+
+lib/directory.o: lib/byte_sex.h lib/concern.h lib/config.messy.h lib/debug.h \
+		lib/directory.cc lib/directory.h lib/directory/entry.h \
+		lib/directory/entry/file.h lib/directory/entry/list.h \
+		lib/directory/entry/volume_label.h lib/endof.h \
+		lib/format_printf.h lib/hexdump.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/sector_io.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/directory.cc
+	mv directory.o $@
+
+lib/directory/boot.o: lib/byte_sex.h lib/concern.h lib/config.messy.h \
+		lib/directory.h lib/directory/boot.cc lib/directory/entry.h \
+		lib/directory/entry/list.h lib/directory/entry/volume_label.h \
+		lib/endof.h lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/sector_io.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/directory/boot.cc
+	mv boot.o $@
+
+lib/directory/entry.o: lib/byte_sex.h lib/concern.h lib/config.messy.h \
+		lib/debug.h lib/directory.h lib/directory/entry.cc \
+		lib/directory/entry.h lib/directory/entry/list.h \
+		lib/directory/entry/volume_label.h lib/endof.h \
+		lib/format_printf.h lib/rcstring.h lib/rcstring/gizzards.h \
+		lib/sector_io.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/directory/entry.cc
+	mv entry.o $@
+
+lib/directory/entry/file.o: lib/byte_sex.h lib/concern.h lib/config.messy.h \
+		lib/debug.h lib/directory.h lib/directory/entry.h \
+		lib/directory/entry/file.cc lib/directory/entry/file.h \
+		lib/directory/entry/file/text.h lib/directory/entry/list.h \
+		lib/directory/entry/volume_label.h lib/endof.h \
+		lib/format_printf.h lib/input.h lib/output.h \
+		lib/output/memory.h lib/pretty_size.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h \
+		lib/sector_io.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/directory/entry/file.cc
+	mv file.o $@
+
+lib/directory/entry/file/text.o: lib/byte_sex.h lib/concern.h \
+		lib/config.messy.h lib/debug.h lib/directory.h \
+		lib/directory/entry.h lib/directory/entry/file.h \
+		lib/directory/entry/file/text.cc \
+		lib/directory/entry/file/text.h lib/directory/entry/list.h \
+		lib/directory/entry/volume_label.h lib/endof.h \
+		lib/format_printf.h lib/input.h lib/input/psystem.h \
+		lib/output.h lib/output/memory.h lib/output/text_decode.h \
+		lib/output/text_encode.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h \
+		lib/sector_io.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/directory/entry/file/text.cc
+	mv text.o $@
+
+lib/directory/entry/list.o: lib/concern.h lib/config.messy.h \
+		lib/directory/entry.h lib/directory/entry/list.cc \
+		lib/directory/entry/list.h lib/endof.h lib/format_printf.h \
+		lib/rcstring.h lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/directory/entry/list.cc
+	mv list.o $@
+
+lib/directory/entry/volume_label.o: lib/byte_sex.h lib/concern.h \
+		lib/config.messy.h lib/debug.h lib/directory.h \
+		lib/directory/entry.h lib/directory/entry/file.h \
+		lib/directory/entry/list.h lib/directory/entry/volume_label.cc \
+		lib/directory/entry/volume_label.h lib/endof.h \
+		lib/format_printf.h lib/rcstring.h lib/rcstring/gizzards.h \
+		lib/rcstring/list.h lib/sector_io.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c \
+		lib/directory/entry/volume_label.cc
+	mv volume_label.o $@
+
+lib/directory/factory.o: lib/byte_sex.h lib/concern.h lib/config.messy.h \
+		lib/directory.h lib/directory/entry.h \
+		lib/directory/entry/list.h lib/directory/entry/volume_label.h \
+		lib/directory/factory.cc lib/endof.h lib/format_printf.h \
+		lib/rcstring.h lib/rcstring/gizzards.h lib/sector_io.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/directory/factory.cc
+	mv factory.o $@
+
+lib/directory/print_listing.o: lib/byte_sex.h lib/concern.h lib/config.messy.h \
+		lib/directory.h lib/directory/entry.h \
+		lib/directory/entry/list.h lib/directory/entry/volume_label.h \
+		lib/directory/print_listing.cc lib/endof.h lib/format_printf.h \
+		lib/rcstring.h lib/rcstring/gizzards.h lib/sector_io.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/directory/print_listing.cc
+	mv print_listing.o $@
+
+lib/fstrcmp.o: lib/fstrcmp.cc lib/fstrcmp.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/fstrcmp.cc
+	mv fstrcmp.o $@
+
+lib/hexdump.o: lib/format_printf.h lib/hexdump.cc lib/hexdump.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/hexdump.cc
+	mv hexdump.o $@
+
+lib/input.o: lib/format_printf.h lib/input.cc lib/input.h lib/rcstring.h \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/input.cc
+	mv input.o $@
+
+lib/input/file.o: lib/config.messy.h lib/format_printf.h lib/input.h \
+		lib/input/file.cc lib/input/file.h lib/rcstring.h \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/input/file.cc
+	mv file.o $@
+
+lib/input/psystem.o: lib/concern.h lib/config.messy.h lib/directory/entry.h \
+		lib/endof.h lib/format_printf.h lib/input.h \
+		lib/input/psystem.cc lib/input/psystem.h lib/rcstring.h \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/input/psystem.cc
+	mv psystem.o $@
+
+lib/input/stdin.o: lib/config.messy.h lib/format_printf.h lib/input.h \
+		lib/input/stdin.cc lib/input/stdin.h lib/rcstring.h \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/input/stdin.cc
+	mv stdin.o $@
+
+lib/mtype.o: lib/byte_sex.h lib/endof.h lib/format_printf.h lib/fstrcmp.h \
+		lib/mtype.cc lib/mtype.h lib/rcstring.h lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/mtype.cc
+	mv mtype.o $@
+
+lib/output.o: lib/config.messy.h lib/format_printf.h lib/input.h lib/output.cc \
+		lib/output.h lib/rcstring.h lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/output.cc
+	mv output.o $@
+
+lib/output/file.o: lib/config.messy.h lib/format_printf.h lib/input.h \
+		lib/output.h lib/output/file.cc lib/output/file.h \
+		lib/rcstring.h lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/output/file.cc
+	mv file.o $@
+
+lib/output/from_input.o: lib/debug.h lib/format_printf.h lib/input.h \
+		lib/output.h lib/output/from_input.cc lib/rcstring.h \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/output/from_input.cc
+	mv from_input.o $@
+
+lib/output/memory.o: lib/debug.h lib/format_printf.h lib/input.h lib/output.h \
+		lib/output/memory.cc lib/output/memory.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/output/memory.cc
+	mv memory.o $@
+
+lib/output/psystem.o: lib/concern.h lib/config.messy.h lib/debug.h \
+		lib/directory/entry.h lib/endof.h lib/format_printf.h \
+		lib/input.h lib/output.h lib/output/psystem.cc \
+		lib/output/psystem.h lib/rcstring.h lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/output/psystem.cc
+	mv psystem.o $@
+
+lib/output/stdout.o: lib/config.messy.h lib/format_printf.h lib/input.h \
+		lib/output.h lib/output/stdout.cc lib/output/stdout.h \
+		lib/rcstring.h lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/output/stdout.cc
+	mv stdout.o $@
+
+lib/output/text_decode.o: lib/format_printf.h lib/input.h lib/output.h \
+		lib/output/text_decode.cc lib/output/text_decode.h \
+		lib/rcstring.h lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/output/text_decode.cc
+	mv text_decode.o $@
+
+lib/output/text_encode.o: lib/config.messy.h lib/format_printf.h lib/input.h \
+		lib/output.h lib/output/text_encode.cc \
+		lib/output/text_encode.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/output/text_encode.cc
+	mv text_encode.o $@
+
+lib/pretty_size.o: lib/format_printf.h lib/pretty_size.cc lib/pretty_size.h \
+		lib/rcstring.h lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/pretty_size.cc
+	mv pretty_size.o $@
+
+lib/rcstring.o: lib/format_printf.h lib/rcstring.cc lib/rcstring.h \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring.cc
+	mv rcstring.o $@
+
+lib/rcstring/accumulator.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.cc lib/rcstring/accumulator.h \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/accumulator.cc
+	mv accumulator.o $@
+
+lib/rcstring/accumulator/grow.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/accumulator/grow.cc \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/accumulator/grow.cc
+	mv grow.o $@
+
+lib/rcstring/accumulator/overwrite.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h \
+		lib/rcstring/accumulator/overwrite.cc lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c \
+		lib/rcstring/accumulator/overwrite.cc
+	mv overwrite.o $@
+
+lib/rcstring/accumulator/printf.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/accumulator/printf.cc \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/accumulator/printf.cc
+	mv printf.o $@
+
+lib/rcstring/accumulator/set_size.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h \
+		lib/rcstring/accumulator/set_size.cc lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c \
+		lib/rcstring/accumulator/set_size.cc
+	mv set_size.o $@
+
+lib/rcstring/basename.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/basename.cc lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/basename.cc
+	mv basename.o $@
+
+lib/rcstring/bool.o: lib/format_printf.h lib/rcstring.h lib/rcstring/bool.cc \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/bool.cc
+	mv bool.o $@
+
+lib/rcstring/capitalize.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/capitalize.cc \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/capitalize.cc
+	mv capitalize.o $@
+
+lib/rcstring/catenate.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/catenate.cc \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/catenate.cc
+	mv catenate.o $@
+
+lib/rcstring/clear.o: lib/format_printf.h lib/rcstring.h lib/rcstring/clear.cc \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/clear.cc
+	mv clear.o $@
+
+lib/rcstring/dirname.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/dirname.cc lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/dirname.cc
+	mv dirname.o $@
+
+lib/rcstring/downcase.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/downcase.cc \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/downcase.cc
+	mv downcase.o $@
+
+lib/rcstring/ends_with_nc.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/ends_with_nc.cc lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/ends_with_nc.cc
+	mv ends_with_nc.o $@
+
+lib/rcstring/field.o: lib/format_printf.h lib/rcstring.h lib/rcstring/field.cc \
+		lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/field.cc
+	mv field.o $@
+
+lib/rcstring/gizzards.o: lib/rcstring/gizzards.cc lib/rcstring/gizzards.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/gizzards.cc
+	mv gizzards.o $@
+
+lib/rcstring/identifier.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h \
+		lib/rcstring/identifier.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/identifier.cc
+	mv identifier.o $@
+
+lib/rcstring/lead_prefix.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/lead_prefix.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/lead_prefix.cc
+	mv lead_prefix.o $@
+
+lib/rcstring/list/appelistuniq.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/appelistuniq.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/appelistuniq.cc
+	mv appelistuniq.o $@
+
+lib/rcstring/list/append.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/append.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/append.cc
+	mv append.o $@
+
+lib/rcstring/list/append_list.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/append_list.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/append_list.cc
+	mv append_list.o $@
+
+lib/rcstring/list/append_uniqu.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/append_uniqu.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/append_uniqu.cc
+	mv append_uniqu.o $@
+
+lib/rcstring/list/assign_op.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/assign_op.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/assign_op.cc
+	mv assign_op.o $@
+
+lib/rcstring/list/clear.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/clear.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/clear.cc
+	mv clear.o $@
+
+lib/rcstring/list/constructor.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/constructor.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/constructor.cc
+	mv constructor.o $@
+
+lib/rcstring/list/copy.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/copy.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/copy.cc
+	mv copy.o $@
+
+lib/rcstring/list/destructor.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/destructor.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/destructor.cc
+	mv destructor.o $@
+
+lib/rcstring/list/equal.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/equal.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/equal.cc
+	mv equal.o $@
+
+lib/rcstring/list/intersection.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/intersection.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/intersection.cc
+	mv intersection.o $@
+
+lib/rcstring/list/member.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/member.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/member.cc
+	mv member.o $@
+
+lib/rcstring/list/member_nocas.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/member_nocas.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/member_nocas.cc
+	mv member_nocas.o $@
+
+lib/rcstring/list/pop_back.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/pop_back.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/pop_back.cc
+	mv pop_back.o $@
+
+lib/rcstring/list/pop_front.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/pop_front.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/pop_front.cc
+	mv pop_front.o $@
+
+lib/rcstring/list/prepend.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/prepend.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/prepend.cc
+	mv prepend.o $@
+
+lib/rcstring/list/prepend_list.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/prepend_list.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/prepend_list.cc
+	mv prepend_list.o $@
+
+lib/rcstring/list/quote.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/quote.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/quote.cc
+	mv quote.o $@
+
+lib/rcstring/list/remove.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/remove.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/remove.cc
+	mv remove.o $@
+
+lib/rcstring/list/remove_list.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/remove_list.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/remove_list.cc
+	mv remove_list.o $@
+
+lib/rcstring/list/sort.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/sort.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/sort.cc
+	mv sort.o $@
+
+lib/rcstring/list/sort_long_short.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/sort_long_short.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c \
+		lib/rcstring/list/sort_long_short.cc
+	mv sort_long_short.o $@
+
+lib/rcstring/list/sort_nocase.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/sort_nocase.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/sort_nocase.cc
+	mv sort_nocase.o $@
+
+lib/rcstring/list/sort_vers.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/sort_vers.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/sort_vers.cc
+	mv sort_vers.o $@
+
+lib/rcstring/list/str2wl.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/str2wl.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/str2wl.cc
+	mv str2wl.o $@
+
+lib/rcstring/list/subset.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/subset.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/subset.cc
+	mv subset.o $@
+
+lib/rcstring/list/validate.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/validate.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/validate.cc
+	mv validate.o $@
+
+lib/rcstring/list/wl2str.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h \
+		lib/rcstring/list.h lib/rcstring/list/wl2str.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/wl2str.cc
+	mv wl2str.o $@
+
+lib/rcstring/list/xor.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/rcstring/list/xor.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/list/xor.cc
+	mv xor.o $@
+
+lib/rcstring/long.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/long.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/long.cc
+	mv long.o $@
+
+lib/rcstring/printf.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/printf.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/printf.cc
+	mv printf.o $@
+
+lib/rcstring/quote.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h \
+		lib/rcstring/quote.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/quote.cc
+	mv quote.o $@
+
+lib/rcstring/quote_c.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h \
+		lib/rcstring/quote_c.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/quote_c.cc
+	mv quote_c.o $@
+
+lib/rcstring/relative.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/relative.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/relative.cc
+	mv relative.o $@
+
+lib/rcstring/replace.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h \
+		lib/rcstring/replace.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/replace.cc
+	mv replace.o $@
+
+lib/rcstring/starts_with_nc.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/starts_with_nc.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/starts_with_nc.cc
+	mv starts_with_nc.o $@
+
+lib/rcstring/substring.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/substring.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/substring.cc
+	mv substring.o $@
+
+lib/rcstring/traili_suffi.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/rcstring/traili_suffi.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/traili_suffi.cc
+	mv traili_suffi.o $@
+
+lib/rcstring/trim.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h \
+		lib/rcstring/trim.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/trim.cc
+	mv trim.o $@
+
+lib/rcstring/upcase.o: lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h \
+		lib/rcstring/upcase.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/rcstring/upcase.cc
+	mv upcase.o $@
+
+lib/sector_io.o: lib/config.messy.h lib/sector_io.cc lib/sector_io.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io.cc
+	mv sector_io.o $@
+
+lib/sector_io/apple.o: lib/config.messy.h lib/debug.h lib/format_printf.h \
+		lib/rcstring.h lib/rcstring/gizzards.h lib/sector_io.h \
+		lib/sector_io/apple.cc lib/sector_io/apple.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io/apple.cc
+	mv apple.o $@
+
+lib/sector_io/factory.o: lib/config.messy.h lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/sector_io.h \
+		lib/sector_io/factory.cc lib/sector_io/imd.h \
+		lib/sector_io/mmap.h lib/sector_io/raw.h lib/sector_io/td0.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io/factory.cc
+	mv factory.o $@
+
+lib/sector_io/guess.o: lib/config.messy.h lib/debug.h lib/format_printf.h \
+		lib/hexdump.h lib/rcstring.h lib/rcstring/gizzards.h \
+		lib/sector_io.h lib/sector_io/apple.h lib/sector_io/guess.cc \
+		lib/sector_io/offset.h lib/sector_io/pdp.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io/guess.cc
+	mv guess.o $@
+
+lib/sector_io/imd.o: lib/config.messy.h lib/debug.h lib/format_printf.h \
+		lib/hexdump.h lib/rcstring.h lib/rcstring/gizzards.h \
+		lib/sector_io.h lib/sector_io/imd.cc lib/sector_io/imd.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io/imd.cc
+	mv imd.o $@
+
+lib/sector_io/interleave_factory.o: lib/config.messy.h lib/endof.h \
+		lib/format_printf.h lib/rcstring.h lib/rcstring/gizzards.h \
+		lib/sector_io.h lib/sector_io/apple.h \
+		lib/sector_io/interleave_factory.cc lib/sector_io/pdp.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c \
+		lib/sector_io/interleave_factory.cc
+	mv interleave_factory.o $@
+
+lib/sector_io/mmap.o: lib/config.messy.h lib/debug.h lib/format_printf.h \
+		lib/rcstring.h lib/rcstring/gizzards.h lib/sector_io.h \
+		lib/sector_io/mmap.cc lib/sector_io/mmap.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io/mmap.cc
+	mv mmap.o $@
+
+lib/sector_io/offset.o: lib/config.messy.h lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/sector_io.h \
+		lib/sector_io/offset.cc lib/sector_io/offset.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io/offset.cc
+	mv offset.o $@
+
+lib/sector_io/pdp.o: lib/config.messy.h lib/debug.h lib/format_printf.h \
+		lib/rcstring.h lib/rcstring/gizzards.h lib/sector_io.h \
+		lib/sector_io/pdp.cc lib/sector_io/pdp.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io/pdp.cc
+	mv pdp.o $@
+
+lib/sector_io/raw.o: lib/config.messy.h lib/debug.h lib/format_printf.h \
+		lib/rcstring.h lib/rcstring/gizzards.h lib/sector_io.h \
+		lib/sector_io/raw.cc lib/sector_io/raw.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io/raw.cc
+	mv raw.o $@
+
+lib/sector_io/read.o: lib/config.messy.h lib/debug.h lib/format_printf.h \
+		lib/sector_io.h lib/sector_io/read.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io/read.cc
+	mv read.o $@
+
+lib/sector_io/relocate.o: lib/config.messy.h lib/sector_io.h \
+		lib/sector_io/relocate.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io/relocate.cc
+	mv relocate.o $@
+
+lib/sector_io/td0.o: lib/config.messy.h lib/debug.h lib/endof.h \
+		lib/format_printf.h lib/rcstring.h lib/rcstring/accumulator.h \
+		lib/rcstring/gizzards.h lib/sector_io.h lib/sector_io/td0.cc \
+		lib/sector_io/td0.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io/td0.cc
+	mv td0.o $@
+
+lib/sector_io/write.o: lib/config.messy.h lib/debug.h lib/format_printf.h \
+		lib/sector_io.h lib/sector_io/write.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io/write.cc
+	mv write.o $@
+
+lib/sector_io/write_zero.o: lib/config.messy.h lib/sector_io.h \
+		lib/sector_io/write_zero.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/sector_io/write_zero.cc
+	mv write_zero.o $@
+
+lib/version.o: lib/config.messy.h lib/version.cc lib/version.h \
+		lib/version_stamp.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/version.cc
+	mv version.o $@
+
+lib/version_stamp.o: lib/version_stamp.cc lib/version_stamp.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c lib/version_stamp.cc
+	mv version_stamp.o $@
+
+man/cat1/ucsdpsys_disk.1: man/man1/ucsdpsys_disk.1 man/man1/z_copyright.so \
+		man/man1/z_exit.so man/man1/z_format.so
+	@mkdir -p man/cat1
+	GROFF_NO_SGR=-c $(GROFF) -I. -Tascii -t -man man/man1/ucsdpsys_disk.1 \
+		> $@
+
+$(mandir)/man1/ucsdpsys_disk.1: .mkdir.__mandir__man1 man/man1/ucsdpsys_disk.1 \
+		man/man1/z_copyright.so man/man1/z_exit.so man/man1/z_format.so
+	$(SOELIM) -I. man/man1/ucsdpsys_disk.1 | sed '/^[.]XX ./d' > \
+		man/man1/ucsdpsys_disk.1.tmp
+	$(INSTALL_DATA) man/man1/ucsdpsys_disk.1.tmp $@
+	@rm -f man/man1/ucsdpsys_disk.1.tmp
+
+man/cat1/ucsdpsys_fs_license.1: man/man1/ucsdpsys_fs_license.1
+	@mkdir -p man/cat1
+	GROFF_NO_SGR=-c $(GROFF) -I. -Tascii -t -man \
+		man/man1/ucsdpsys_fs_license.1 > $@
+
+$(mandir)/man1/ucsdpsys_fs_license.1: .mkdir.__mandir__man1 \
+		man/man1/ucsdpsys_fs_license.1
+	sed '/^[.]XX ./d' < man/man1/ucsdpsys_fs_license.1 > \
+		man/man1/ucsdpsys_fs_license.1.tmp
+	$(INSTALL_DATA) man/man1/ucsdpsys_fs_license.1.tmp $@
+	@rm -f man/man1/ucsdpsys_fs_license.1.tmp
+
+man/cat1/ucsdpsys_fsck.1: man/man1/ucsdpsys_fsck.1 man/man1/z_copyright.so \
+		man/man1/z_exit.so
+	@mkdir -p man/cat1
+	GROFF_NO_SGR=-c $(GROFF) -I. -Tascii -t -man man/man1/ucsdpsys_fsck.1 \
+		> $@
+
+$(mandir)/man1/ucsdpsys_fsck.1: .mkdir.__mandir__man1 man/man1/ucsdpsys_fsck.1 \
+		man/man1/z_copyright.so man/man1/z_exit.so
+	$(SOELIM) -I. man/man1/ucsdpsys_fsck.1 | sed '/^[.]XX ./d' > \
+		man/man1/ucsdpsys_fsck.1.tmp
+	$(INSTALL_DATA) man/man1/ucsdpsys_fsck.1.tmp $@
+	@rm -f man/man1/ucsdpsys_fsck.1.tmp
+
+man/cat1/ucsdpsys_interleave.1: man/man1/ucsdpsys_interleave.1 \
+		man/man1/z_copyright.so man/man1/z_exit.so
+	@mkdir -p man/cat1
+	GROFF_NO_SGR=-c $(GROFF) -I. -Tascii -t -man \
+		man/man1/ucsdpsys_interleave.1 > $@
+
+$(mandir)/man1/ucsdpsys_interleave.1: .mkdir.__mandir__man1 \
+		man/man1/ucsdpsys_interleave.1 man/man1/z_copyright.so \
+		man/man1/z_exit.so
+	$(SOELIM) -I. man/man1/ucsdpsys_interleave.1 | sed '/^[.]XX ./d' > \
+		man/man1/ucsdpsys_interleave.1.tmp
+	$(INSTALL_DATA) man/man1/ucsdpsys_interleave.1.tmp $@
+	@rm -f man/man1/ucsdpsys_interleave.1.tmp
+
+man/cat1/ucsdpsys_mkfs.1: man/man1/ucsdpsys_mkfs.1 man/man1/z_copyright.so \
+		man/man1/z_exit.so
+	@mkdir -p man/cat1
+	GROFF_NO_SGR=-c $(GROFF) -I. -Tascii -t -man man/man1/ucsdpsys_mkfs.1 \
+		> $@
+
+$(mandir)/man1/ucsdpsys_mkfs.1: .mkdir.__mandir__man1 man/man1/ucsdpsys_mkfs.1 \
+		man/man1/z_copyright.so man/man1/z_exit.so
+	$(SOELIM) -I. man/man1/ucsdpsys_mkfs.1 | sed '/^[.]XX ./d' > \
+		man/man1/ucsdpsys_mkfs.1.tmp
+	$(INSTALL_DATA) man/man1/ucsdpsys_mkfs.1.tmp $@
+	@rm -f man/man1/ucsdpsys_mkfs.1.tmp
+
+man/cat1/ucsdpsys_mount.1: man/man1/ucsdpsys_mount.1 man/man1/z_copyright.so \
+		man/man1/z_exit.so man/man1/z_format.so
+	@mkdir -p man/cat1
+	GROFF_NO_SGR=-c $(GROFF) -I. -Tascii -t -man man/man1/ucsdpsys_mount.1 \
+		> $@
+
+$(mandir)/man1/ucsdpsys_mount.1: .mkdir.__mandir__man1 \
+		man/man1/ucsdpsys_mount.1 man/man1/z_copyright.so \
+		man/man1/z_exit.so man/man1/z_format.so
+	$(SOELIM) -I. man/man1/ucsdpsys_mount.1 | sed '/^[.]XX ./d' > \
+		man/man1/ucsdpsys_mount.1.tmp
+	$(INSTALL_DATA) man/man1/ucsdpsys_mount.1.tmp $@
+	@rm -f man/man1/ucsdpsys_mount.1.tmp
+
+man/cat1/ucsdpsys_rt11.1: man/man1/ucsdpsys_rt11.1 man/man1/z_copyright.so \
+		man/man1/z_exit.so
+	@mkdir -p man/cat1
+	GROFF_NO_SGR=-c $(GROFF) -I. -Tascii -t -man man/man1/ucsdpsys_rt11.1 \
+		> $@
+
+$(mandir)/man1/ucsdpsys_rt11.1: .mkdir.__mandir__man1 man/man1/ucsdpsys_rt11.1 \
+		man/man1/z_copyright.so man/man1/z_exit.so
+	$(SOELIM) -I. man/man1/ucsdpsys_rt11.1 | sed '/^[.]XX ./d' > \
+		man/man1/ucsdpsys_rt11.1.tmp
+	$(INSTALL_DATA) man/man1/ucsdpsys_rt11.1.tmp $@
+	@rm -f man/man1/ucsdpsys_rt11.1.tmp
+
+man/cat1/ucsdpsys_text.1: man/man1/ucsdpsys_text.1 man/man1/z_copyright.so \
+		man/man1/z_exit.so
+	@mkdir -p man/cat1
+	GROFF_NO_SGR=-c $(GROFF) -I. -Tascii -t -man man/man1/ucsdpsys_text.1 \
+		> $@
+
+$(mandir)/man1/ucsdpsys_text.1: .mkdir.__mandir__man1 man/man1/ucsdpsys_text.1 \
+		man/man1/z_copyright.so man/man1/z_exit.so
+	$(SOELIM) -I. man/man1/ucsdpsys_text.1 | sed '/^[.]XX ./d' > \
+		man/man1/ucsdpsys_text.1.tmp
+	$(INSTALL_DATA) man/man1/ucsdpsys_text.1.tmp $@
+	@rm -f man/man1/ucsdpsys_text.1.tmp
+
+man/cat1/ucsdpsys_umount.1: man/man1/ucsdpsys_umount.1 man/man1/z_copyright.so \
+		man/man1/z_exit.so
+	@mkdir -p man/cat1
+	GROFF_NO_SGR=-c $(GROFF) -I. -Tascii -t -man \
+		man/man1/ucsdpsys_umount.1 > $@
+
+$(mandir)/man1/ucsdpsys_umount.1: .mkdir.__mandir__man1 \
+		man/man1/ucsdpsys_umount.1 man/man1/z_copyright.so \
+		man/man1/z_exit.so
+	$(SOELIM) -I. man/man1/ucsdpsys_umount.1 | sed '/^[.]XX ./d' > \
+		man/man1/ucsdpsys_umount.1.tmp
+	$(INSTALL_DATA) man/man1/ucsdpsys_umount.1.tmp $@
+	@rm -f man/man1/ucsdpsys_umount.1.tmp
+
+man/cat5/ucsdpsys_fs.5: man/man1/z_copyright.so man/man5/ucsdpsys_fs.5
+	@mkdir -p man/cat5
+	GROFF_NO_SGR=-c $(GROFF) -I. -Tascii -t -man man/man5/ucsdpsys_fs.5 > $@
+
+$(mandir)/man5/ucsdpsys_fs.5: .mkdir.__mandir__man5 man/man1/z_copyright.so \
+		man/man5/ucsdpsys_fs.5
+	$(SOELIM) -I. man/man5/ucsdpsys_fs.5 | sed '/^[.]XX ./d' > \
+		man/man5/ucsdpsys_fs.5.tmp
+	$(INSTALL_DATA) man/man5/ucsdpsys_fs.5.tmp $@
+	@rm -f man/man5/ucsdpsys_fs.5.tmp
+
+man/cat5/ucsdpsys_text.5: man/man1/z_copyright.so man/man5/ucsdpsys_text.5
+	@mkdir -p man/cat5
+	GROFF_NO_SGR=-c $(GROFF) -I. -Tascii -t -man man/man5/ucsdpsys_text.5 \
+		> $@
+
+$(mandir)/man5/ucsdpsys_text.5: .mkdir.__mandir__man5 man/man1/z_copyright.so \
+		man/man5/ucsdpsys_text.5
+	$(SOELIM) -I. man/man5/ucsdpsys_text.5 | sed '/^[.]XX ./d' > \
+		man/man5/ucsdpsys_text.5.tmp
+	$(INSTALL_DATA) man/man5/ucsdpsys_text.5.tmp $@
+	@rm -f man/man5/ucsdpsys_text.5.tmp
+
+script/test_prelude: config.status script/test_prelude.in
+	CONFIG_FILES=$@:script/test_prelude.in CONFIG_HEADERS= $(SH) \
+		config.status
+
+bin/test_prelude: .bin script/test_prelude
+	cp script/test_prelude $@
+	chmod a+rx $@
+
+t0001a: all test/00/t0001a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0001a.sh
+
+t0002a: all test/00/t0002a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0002a.sh
+
+t0003a: all test/00/t0003a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0003a.sh
+
+t0005a: all test/00/t0005a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0005a.sh
+
+t0006a: all test/00/t0006a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0006a.sh
+
+t0007a: all test/00/t0007a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0007a.sh
+
+t0008a: all test/00/t0008a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0008a.sh
+
+t0009a: all test/00/t0009a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0009a.sh
+
+t0010a: all test/00/t0010a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0010a.sh
+
+t0011a: all test/00/t0011a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0011a.sh
+
+t0015a: all test/00/t0015a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0015a.sh
+
+t0016a: all test/00/t0016a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0016a.sh
+
+t0017a: all test/00/t0017a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0017a.sh
+
+t0018a: all test/00/t0018a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0018a.sh
+
+t0019a: all test/00/t0019a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0019a.sh
+
+t0020a: all test/00/t0020a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0020a.sh
+
+t0021a: all test/00/t0021a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0021a.sh
+
+t0022a: all test/00/t0022a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0022a.sh
+
+t0023a: all test/00/t0023a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0023a.sh
+
+t0025a: all test/00/t0025a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0025a.sh
+
+t0026a: all test/00/t0026a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0026a.sh
+
+t0027a: all test/00/t0027a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0027a.sh
+
+t0028a: all test/00/t0028a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0028a.sh
+
+t0029a: all test/00/t0029a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0029a.sh
+
+t0030a: all test/00/t0030a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0030a.sh
+
+t0031a: all test/00/t0031a.sh
+	PATH=`pwd`/bin:$$PATH $(SH) test/00/t0031a.sh
+
+test_rdwr/main.o: lib/config.messy.h lib/version.h test_rdwr/main.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c test_rdwr/main.cc
+	mv main.o $@
+
+test_statfs/main.o: lib/config.messy.h lib/version.h test_statfs/main.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c test_statfs/main.cc
+	mv main.o $@
+
+ucsdpsys_disk/main.o: lib/byte_sex.h lib/concern.h lib/config.messy.h \
+		lib/debug.h lib/directory.h lib/directory/entry.h \
+		lib/directory/entry/list.h lib/directory/entry/volume_label.h \
+		lib/endof.h lib/format_printf.h lib/input.h lib/input/file.h \
+		lib/input/psystem.h lib/output.h lib/output/file.h \
+		lib/output/psystem.h lib/output/text_decode.h \
+		lib/output/text_encode.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h \
+		lib/rcstring/list.h lib/sector_io.h lib/version.h \
+		ucsdpsys_disk/main.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c ucsdpsys_disk/main.cc
+	mv main.o $@
+
+ucsdpsys_fsck/main.o: lib/byte_sex.h lib/concern.h lib/config.messy.h \
+		lib/debug.h lib/directory.h lib/directory/entry.h \
+		lib/directory/entry/list.h lib/directory/entry/volume_label.h \
+		lib/endof.h lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/sector_io.h lib/version.h \
+		ucsdpsys_fsck/main.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c ucsdpsys_fsck/main.cc
+	mv main.o $@
+
+ucsdpsys_interleave/main.o: lib/config.messy.h lib/debug.h lib/format_printf.h \
+		lib/rcstring.h lib/rcstring/gizzards.h lib/sector_io.h \
+		lib/sector_io/apple.h lib/sector_io/imd.h \
+		lib/sector_io/offset.h lib/sector_io/pdp.h lib/sector_io/raw.h \
+		lib/sector_io/td0.h lib/version.h ucsdpsys_interleave/main.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c ucsdpsys_interleave/main.cc
+	mv main.o $@
+
+ucsdpsys_logo/main.o: lib/config.messy.h ucsdpsys_logo/main.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c ucsdpsys_logo/main.cc
+	mv main.o $@
+
+ucsdpsys_mkfs/main.o: lib/byte_sex.h lib/concern.h lib/config.messy.h \
+		lib/debug.h lib/directory.h lib/directory/entry.h \
+		lib/directory/entry/list.h lib/directory/entry/volume_label.h \
+		lib/endof.h lib/format_printf.h lib/mtype.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/sector_io.h lib/sector_io/apple.h \
+		lib/sector_io/raw.h lib/version.h ucsdpsys_mkfs/main.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c ucsdpsys_mkfs/main.cc
+	mv main.o $@
+
+ucsdpsys_mount/main.o: lib/byte_sex.h lib/concern.h lib/config.messy.h \
+		lib/debug.h lib/directory.h lib/directory/entry.h \
+		lib/directory/entry/list.h lib/directory/entry/volume_label.h \
+		lib/endof.h lib/format_printf.h lib/fuse.h lib/hexdump.h \
+		lib/rcstring.h lib/rcstring/gizzards.h lib/rcstring/list.h \
+		lib/sector_io.h lib/sector_io/raw.h lib/version.h \
+		ucsdpsys_mount/main.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c ucsdpsys_mount/main.cc
+	mv main.o $@
+
+ucsdpsys_rt11/main.o: lib/config.messy.h lib/endof.h lib/format_printf.h \
+		lib/rcstring.h lib/rcstring/gizzards.h lib/version.h \
+		ucsdpsys_rt11/main.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c ucsdpsys_rt11/main.cc
+	mv main.o $@
+
+ucsdpsys_text/main.o: lib/config.messy.h lib/format_printf.h lib/input.h \
+		lib/input/file.h lib/input/stdin.h lib/output.h \
+		lib/output/file.h lib/output/stdout.h lib/output/text_decode.h \
+		lib/output/text_encode.h lib/rcstring.h \
+		lib/rcstring/accumulator.h lib/rcstring/gizzards.h \
+		lib/version.h ucsdpsys_text/main.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c ucsdpsys_text/main.cc
+	mv main.o $@
+
+ucsdpsys_umount/main.o: lib/config.messy.h lib/format_printf.h lib/rcstring.h \
+		lib/rcstring/gizzards.h lib/version.h ucsdpsys_umount/main.cc
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -I. -c ucsdpsys_umount/main.cc
+	mv main.o $@
+
+web/icon.png: web/icon.png.uue
+	uudecode -o $@ web/icon.png.uue
+
+web/logo.png: web/logo.png.uue
+	uudecode -o $@ web/logo.png.uue
+
+#
+# The lib/libucsd-psystem-fs.a library.
+#
+lib_obj = lib/byte_sex.o lib/concern.o lib/debug.o lib/directory.o \
+		lib/directory/boot.o lib/directory/entry.o \
+		lib/directory/entry/file.o lib/directory/entry/file/text.o \
+		lib/directory/entry/list.o lib/directory/entry/volume_label.o \
+		lib/directory/factory.o lib/directory/print_listing.o \
+		lib/fstrcmp.o lib/hexdump.o lib/input.o lib/input/file.o \
+		lib/input/psystem.o lib/input/stdin.o lib/mtype.o lib/output.o \
+		lib/output/file.o lib/output/from_input.o lib/output/memory.o \
+		lib/output/psystem.o lib/output/stdout.o \
+		lib/output/text_decode.o lib/output/text_encode.o \
+		lib/pretty_size.o lib/rcstring.o lib/rcstring/accumulator.o \
+		lib/rcstring/accumulator/grow.o \
+		lib/rcstring/accumulator/overwrite.o \
+		lib/rcstring/accumulator/printf.o \
+		lib/rcstring/accumulator/set_size.o lib/rcstring/basename.o \
+		lib/rcstring/bool.o lib/rcstring/capitalize.o \
+		lib/rcstring/catenate.o lib/rcstring/clear.o \
+		lib/rcstring/dirname.o lib/rcstring/downcase.o \
+		lib/rcstring/ends_with_nc.o lib/rcstring/field.o \
+		lib/rcstring/gizzards.o lib/rcstring/identifier.o \
+		lib/rcstring/lead_prefix.o lib/rcstring/list/appelistuniq.o \
+		lib/rcstring/list/append.o lib/rcstring/list/append_list.o \
+		lib/rcstring/list/append_uniqu.o lib/rcstring/list/assign_op.o \
+		lib/rcstring/list/clear.o lib/rcstring/list/constructor.o \
+		lib/rcstring/list/copy.o lib/rcstring/list/destructor.o \
+		lib/rcstring/list/equal.o lib/rcstring/list/intersection.o \
+		lib/rcstring/list/member.o lib/rcstring/list/member_nocas.o \
+		lib/rcstring/list/pop_back.o lib/rcstring/list/pop_front.o \
+		lib/rcstring/list/prepend.o lib/rcstring/list/prepend_list.o \
+		lib/rcstring/list/quote.o lib/rcstring/list/remove.o \
+		lib/rcstring/list/remove_list.o lib/rcstring/list/sort.o \
+		lib/rcstring/list/sort_long_short.o \
+		lib/rcstring/list/sort_nocase.o lib/rcstring/list/sort_vers.o \
+		lib/rcstring/list/str2wl.o lib/rcstring/list/subset.o \
+		lib/rcstring/list/validate.o lib/rcstring/list/wl2str.o \
+		lib/rcstring/list/xor.o lib/rcstring/long.o \
+		lib/rcstring/printf.o lib/rcstring/quote.o \
+		lib/rcstring/quote_c.o lib/rcstring/relative.o \
+		lib/rcstring/replace.o lib/rcstring/starts_with_nc.o \
+		lib/rcstring/substring.o lib/rcstring/traili_suffi.o \
+		lib/rcstring/trim.o lib/rcstring/upcase.o lib/sector_io.o \
+		lib/sector_io/apple.o lib/sector_io/factory.o \
+		lib/sector_io/guess.o lib/sector_io/imd.o \
+		lib/sector_io/interleave_factory.o lib/sector_io/mmap.o \
+		lib/sector_io/offset.o lib/sector_io/pdp.o lib/sector_io/raw.o \
+		lib/sector_io/read.o lib/sector_io/relocate.o \
+		lib/sector_io/td0.o lib/sector_io/write.o \
+		lib/sector_io/write_zero.o lib/version.o lib/version_stamp.o
+
+lib/libucsd-psystem-fs.a: $(lib_obj)
+	rm -f $@
+	$(AR) qc $@ $(lib_obj)
+	$(RANLIB) $@
+
+.mkdir.__bindir_:
+	-$(INSTALL_DIR) $(bindir)
+	@-test -d $(bindir) && touch $@
+	@sleep 1
+
+.mkdir.__datarootdir_:
+	-$(INSTALL_DIR) $(datarootdir)
+	@-test -d $(datarootdir) && touch $@
+	@sleep 1
+
+.mkdir.__datarootdir__doc: .mkdir.__datarootdir_
+	-$(INSTALL_DIR) $(datarootdir)/doc
+	@-test -d $(datarootdir)/doc && touch $@
+	@sleep 1
+
+.mkdir.__datarootdir__doc_ucsd_psystem_fs: .mkdir.__datarootdir__doc
+	-$(INSTALL_DIR) $(datarootdir)/doc/ucsd-psystem-fs
+	@-test -d $(datarootdir)/doc/ucsd-psystem-fs && touch $@
+	@sleep 1
+
+.mkdir.__mandir_:
+	-$(INSTALL_DIR) $(mandir)
+	@-test -d $(mandir) && touch $@
+	@sleep 1
+
+.mkdir.__mandir__man1: .mkdir.__mandir_
+	-$(INSTALL_DIR) $(mandir)/man1
+	@-test -d $(mandir)/man1 && touch $@
+	@sleep 1
+
+.mkdir.__mandir__man5: .mkdir.__mandir_
+	-$(INSTALL_DIR) $(mandir)/man5
+	@-test -d $(mandir)/man5 && touch $@
+	@sleep 1
+
+#
+# The test_rdwr program.
+#
+test_rdwr_obj = test_rdwr/main.o
+
+bin/test_rdwr: $(test_rdwr_obj) .bin lib/libucsd-psystem-fs.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(test_rdwr_obj) \
+		lib/libucsd-psystem-fs.a $(LDFLAGS) $(LIBS)
+
+#
+# The test_statfs program.
+#
+test_statfs_obj = test_statfs/main.o
+
+bin/test_statfs: $(test_statfs_obj) .bin lib/libucsd-psystem-fs.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(test_statfs_obj) \
+		lib/libucsd-psystem-fs.a $(LDFLAGS) $(LIBS)
+
+#
+# The ucsdpsys_disk program.
+#
+ucsdpsys_disk_obj = ucsdpsys_disk/main.o
+
+bin/ucsdpsys_disk: $(ucsdpsys_disk_obj) .bin lib/libucsd-psystem-fs.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(ucsdpsys_disk_obj) \
+		lib/libucsd-psystem-fs.a $(LDFLAGS) $(LIBS)
+
+$(bindir)/ucsdpsys_disk: .mkdir.__bindir_ bin/ucsdpsys_disk
+	$(INSTALL_PROGRAM) bin/ucsdpsys_disk $@
+
+#
+# The ucsdpsys_fsck program.
+#
+ucsdpsys_fsck_obj = ucsdpsys_fsck/main.o
+
+bin/ucsdpsys_fsck: $(ucsdpsys_fsck_obj) .bin lib/libucsd-psystem-fs.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(ucsdpsys_fsck_obj) \
+		lib/libucsd-psystem-fs.a $(LDFLAGS) $(LIBS)
+
+$(bindir)/ucsdpsys_fsck: .mkdir.__bindir_ bin/ucsdpsys_fsck
+	$(INSTALL_PROGRAM) bin/ucsdpsys_fsck $@
+
+#
+# The ucsdpsys_interleave program.
+#
+ucsdpsys_interleave_obj = ucsdpsys_interleave/main.o
+
+bin/ucsdpsys_interleave: $(ucsdpsys_interleave_obj) .bin \
+		lib/libucsd-psystem-fs.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(ucsdpsys_interleave_obj) \
+		lib/libucsd-psystem-fs.a $(LDFLAGS) $(LIBS)
+
+$(bindir)/ucsdpsys_interleave: .mkdir.__bindir_ bin/ucsdpsys_interleave
+	$(INSTALL_PROGRAM) bin/ucsdpsys_interleave $@
+
+#
+# The ucsdpsys_logo program.
+#
+ucsdpsys_logo_obj = ucsdpsys_logo/main.o
+
+bin/ucsdpsys_logo: $(ucsdpsys_logo_obj) .bin lib/libucsd-psystem-fs.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(ucsdpsys_logo_obj) \
+		lib/libucsd-psystem-fs.a $(LDFLAGS) $(LIBS)
+
+$(bindir)/ucsdpsys_logo: .mkdir.__bindir_ bin/ucsdpsys_logo
+	$(INSTALL_PROGRAM) bin/ucsdpsys_logo $@
+
+#
+# The ucsdpsys_mkfs program.
+#
+ucsdpsys_mkfs_obj = ucsdpsys_mkfs/main.o
+
+bin/ucsdpsys_mkfs: $(ucsdpsys_mkfs_obj) .bin lib/libucsd-psystem-fs.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(ucsdpsys_mkfs_obj) \
+		lib/libucsd-psystem-fs.a $(LDFLAGS) $(LIBS)
+
+$(bindir)/ucsdpsys_mkfs: .mkdir.__bindir_ bin/ucsdpsys_mkfs
+	$(INSTALL_PROGRAM) bin/ucsdpsys_mkfs $@
+
+#
+# The ucsdpsys_mount program.
+#
+ucsdpsys_mount_obj = ucsdpsys_mount/main.o
+
+bin/ucsdpsys_mount: $(ucsdpsys_mount_obj) .bin lib/libucsd-psystem-fs.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(ucsdpsys_mount_obj) \
+		lib/libucsd-psystem-fs.a $(LDFLAGS) $(LIBS)
+
+$(bindir)/ucsdpsys_mount: .mkdir.__bindir_ bin/ucsdpsys_mount
+	$(INSTALL_PROGRAM) bin/ucsdpsys_mount $@
+
+#
+# The ucsdpsys_rt11 program.
+#
+ucsdpsys_rt11_obj = ucsdpsys_rt11/main.o
+
+bin/ucsdpsys_rt11: $(ucsdpsys_rt11_obj) .bin lib/libucsd-psystem-fs.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(ucsdpsys_rt11_obj) \
+		lib/libucsd-psystem-fs.a $(LDFLAGS) $(LIBS)
+
+$(bindir)/ucsdpsys_rt11: .mkdir.__bindir_ bin/ucsdpsys_rt11
+	$(INSTALL_PROGRAM) bin/ucsdpsys_rt11 $@
+
+#
+# The ucsdpsys_text program.
+#
+ucsdpsys_text_obj = ucsdpsys_text/main.o
+
+bin/ucsdpsys_text: $(ucsdpsys_text_obj) .bin lib/libucsd-psystem-fs.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(ucsdpsys_text_obj) \
+		lib/libucsd-psystem-fs.a $(LDFLAGS) $(LIBS)
+
+$(bindir)/ucsdpsys_text: .mkdir.__bindir_ bin/ucsdpsys_text
+	$(INSTALL_PROGRAM) bin/ucsdpsys_text $@
+
+#
+# The ucsdpsys_umount program.
+#
+ucsdpsys_umount_obj = ucsdpsys_umount/main.o
+
+bin/ucsdpsys_umount: $(ucsdpsys_umount_obj) .bin lib/libucsd-psystem-fs.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -o $@ $(ucsdpsys_umount_obj) \
+		lib/libucsd-psystem-fs.a $(LDFLAGS) $(LIBS)
+
+$(bindir)/ucsdpsys_umount: .mkdir.__bindir_ bin/ucsdpsys_umount
+	$(INSTALL_PROGRAM) bin/ucsdpsys_umount $@
+
+all: all-bin all-doc
+
+all-bin: bin/test_prelude bin/test_rdwr bin/test_statfs bin/ucsdpsys_disk \
+		bin/ucsdpsys_fsck bin/ucsdpsys_interleave bin/ucsdpsys_logo \
+		bin/ucsdpsys_mkfs bin/ucsdpsys_mount bin/ucsdpsys_rt11 \
+		bin/ucsdpsys_text bin/ucsdpsys_umount
+
+all-doc: etc/BUILDING.pdf etc/README.pdf etc/change_log.pdf etc/reference.pdf \
+		man/cat1/ucsdpsys_disk.1 man/cat1/ucsdpsys_fs_license.1 \
+		man/cat1/ucsdpsys_fsck.1 man/cat1/ucsdpsys_interleave.1 \
+		man/cat1/ucsdpsys_mkfs.1 man/cat1/ucsdpsys_mount.1 \
+		man/cat1/ucsdpsys_rt11.1 man/cat1/ucsdpsys_text.1 \
+		man/cat1/ucsdpsys_umount.1 man/cat5/ucsdpsys_fs.5 \
+		man/cat5/ucsdpsys_text.5
+
+.bin:
+	-mkdir bin
+	-chmod 0755 bin
+	@-test -d bin && touch $@
+	@sleep 1
+
+check: sure
+
+test_files = t0001a t0002a t0003a t0005a t0006a t0007a t0008a t0009a t0010a \
+		t0011a t0015a t0016a t0017a t0018a t0019a t0020a t0021a t0022a \
+		t0023a t0025a t0026a t0027a t0028a t0029a t0030a t0031a
+
+sure: $(test_files)
+	@echo Passed All Tests
+
+clean: clean-bin clean-doc clean-misc clean-obj
+
+clean-bin:
+	rm -f bin/test_prelude bin/test_rdwr bin/test_statfs bin/ucsdpsys_disk
+	rm -f bin/ucsdpsys_fsck bin/ucsdpsys_interleave bin/ucsdpsys_logo
+	rm -f bin/ucsdpsys_mkfs bin/ucsdpsys_mount bin/ucsdpsys_rt11
+	rm -f bin/ucsdpsys_text bin/ucsdpsys_umount
+
+clean-doc:
+	rm -f etc/BUILDING.pdf etc/README.pdf etc/change_log.pdf
+	rm -f etc/reference.pdf man/cat1/ucsdpsys_disk.1
+	rm -f man/cat1/ucsdpsys_fs_license.1 man/cat1/ucsdpsys_fsck.1
+	rm -f man/cat1/ucsdpsys_interleave.1 man/cat1/ucsdpsys_mkfs.1
+	rm -f man/cat1/ucsdpsys_mount.1 man/cat1/ucsdpsys_rt11.1
+	rm -f man/cat1/ucsdpsys_text.1 man/cat1/ucsdpsys_umount.1
+	rm -f man/cat5/ucsdpsys_fs.5 man/cat5/ucsdpsys_text.5
+
+clean-misc:
+	rm -f .bin .mkdir.__bindir_ .mkdir.__datarootdir_
+	rm -f .mkdir.__datarootdir__doc
+	rm -f .mkdir.__datarootdir__doc_ucsd_psystem_fs .mkdir.__mandir_
+	rm -f .mkdir.__mandir__man1 .mkdir.__mandir__man5 core etc/BUILDING.pdf
+	rm -f etc/README.pdf etc/change_log.pdf etc/reference.pdf web/icon.png
+	rm -f web/logo.png
+
+clean-obj:
+	rm -f lib/byte_sex.o lib/concern.o lib/debug.o lib/directory.o
+	rm -f lib/directory/boot.o lib/directory/entry.o
+	rm -f lib/directory/entry/file.o lib/directory/entry/file/text.o
+	rm -f lib/directory/entry/list.o lib/directory/entry/volume_label.o
+	rm -f lib/directory/factory.o lib/directory/print_listing.o
+	rm -f lib/fstrcmp.o lib/hexdump.o lib/input.o lib/input/file.o
+	rm -f lib/input/psystem.o lib/input/stdin.o lib/libucsd-psystem-fs.a
+	rm -f lib/mtype.o lib/output.o lib/output/file.o lib/output/from_input.o
+	rm -f lib/output/memory.o lib/output/psystem.o lib/output/stdout.o
+	rm -f lib/output/text_decode.o lib/output/text_encode.o
+	rm -f lib/pretty_size.o lib/rcstring.o lib/rcstring/accumulator.o
+	rm -f lib/rcstring/accumulator/grow.o
+	rm -f lib/rcstring/accumulator/overwrite.o
+	rm -f lib/rcstring/accumulator/printf.o
+	rm -f lib/rcstring/accumulator/set_size.o lib/rcstring/basename.o
+	rm -f lib/rcstring/bool.o lib/rcstring/capitalize.o
+	rm -f lib/rcstring/catenate.o lib/rcstring/clear.o
+	rm -f lib/rcstring/dirname.o lib/rcstring/downcase.o
+	rm -f lib/rcstring/ends_with_nc.o lib/rcstring/field.o
+	rm -f lib/rcstring/gizzards.o lib/rcstring/identifier.o
+	rm -f lib/rcstring/lead_prefix.o lib/rcstring/list/appelistuniq.o
+	rm -f lib/rcstring/list/append.o lib/rcstring/list/append_list.o
+	rm -f lib/rcstring/list/append_uniqu.o lib/rcstring/list/assign_op.o
+	rm -f lib/rcstring/list/clear.o lib/rcstring/list/constructor.o
+	rm -f lib/rcstring/list/copy.o lib/rcstring/list/destructor.o
+	rm -f lib/rcstring/list/equal.o lib/rcstring/list/intersection.o
+	rm -f lib/rcstring/list/member.o lib/rcstring/list/member_nocas.o
+	rm -f lib/rcstring/list/pop_back.o lib/rcstring/list/pop_front.o
+	rm -f lib/rcstring/list/prepend.o lib/rcstring/list/prepend_list.o
+	rm -f lib/rcstring/list/quote.o lib/rcstring/list/remove.o
+	rm -f lib/rcstring/list/remove_list.o lib/rcstring/list/sort.o
+	rm -f lib/rcstring/list/sort_long_short.o
+	rm -f lib/rcstring/list/sort_nocase.o lib/rcstring/list/sort_vers.o
+	rm -f lib/rcstring/list/str2wl.o lib/rcstring/list/subset.o
+	rm -f lib/rcstring/list/validate.o lib/rcstring/list/wl2str.o
+	rm -f lib/rcstring/list/xor.o lib/rcstring/long.o lib/rcstring/printf.o
+	rm -f lib/rcstring/quote.o lib/rcstring/quote_c.o
+	rm -f lib/rcstring/relative.o lib/rcstring/replace.o
+	rm -f lib/rcstring/starts_with_nc.o lib/rcstring/substring.o
+	rm -f lib/rcstring/traili_suffi.o lib/rcstring/trim.o
+	rm -f lib/rcstring/upcase.o lib/sector_io.o lib/sector_io/apple.o
+	rm -f lib/sector_io/factory.o lib/sector_io/guess.o lib/sector_io/imd.o
+	rm -f lib/sector_io/interleave_factory.o lib/sector_io/mmap.o
+	rm -f lib/sector_io/offset.o lib/sector_io/pdp.o lib/sector_io/raw.o
+	rm -f lib/sector_io/read.o lib/sector_io/relocate.o lib/sector_io/td0.o
+	rm -f lib/sector_io/write.o lib/sector_io/write_zero.o lib/version.o
+	rm -f lib/version_stamp.o test_rdwr/main.o test_statfs/main.o
+	rm -f ucsdpsys_disk/main.o ucsdpsys_fsck/main.o
+	rm -f ucsdpsys_interleave/main.o ucsdpsys_logo/main.o
+	rm -f ucsdpsys_mkfs/main.o ucsdpsys_mount/main.o ucsdpsys_rt11/main.o
+	rm -f ucsdpsys_text/main.o ucsdpsys_umount/main.o
+
+distclean: clean distclean-directories distclean-files
+
+distclean-files:
+	rm -f Makefile config.cache config.log config.status etc/Howto.conf
+	rm -f lib/config.h script/test_prelude
+
+distclean-directories:
+	rm -rf bin
+
+install: install-bin install-doc install-man
+
+install-bin: $(bindir)/ucsdpsys_disk $(bindir)/ucsdpsys_fsck \
+		$(bindir)/ucsdpsys_interleave $(bindir)/ucsdpsys_logo \
+		$(bindir)/ucsdpsys_mkfs $(bindir)/ucsdpsys_mount \
+		$(bindir)/ucsdpsys_rt11 $(bindir)/ucsdpsys_text \
+		$(bindir)/ucsdpsys_umount
+
+install-doc: $(datarootdir)/doc/ucsd-psystem-fs/BUILDING.pdf \
+		$(datarootdir)/doc/ucsd-psystem-fs/README.pdf \
+		$(datarootdir)/doc/ucsd-psystem-fs/change_log.pdf \
+		$(datarootdir)/doc/ucsd-psystem-fs/reference.pdf
+
+install-man: $(mandir)/man1/ucsdpsys_disk.1 \
+		$(mandir)/man1/ucsdpsys_fs_license.1 \
+		$(mandir)/man1/ucsdpsys_fsck.1 \
+		$(mandir)/man1/ucsdpsys_interleave.1 \
+		$(mandir)/man1/ucsdpsys_mkfs.1 $(mandir)/man1/ucsdpsys_mount.1 \
+		$(mandir)/man1/ucsdpsys_rt11.1 $(mandir)/man1/ucsdpsys_text.1 \
+		$(mandir)/man1/ucsdpsys_umount.1 $(mandir)/man5/ucsdpsys_fs.5 \
+		$(mandir)/man5/ucsdpsys_text.5
+
+uninstall:
+	rm -f $(bindir)/ucsdpsys_disk $(bindir)/ucsdpsys_fsck
+	rm -f $(bindir)/ucsdpsys_interleave $(bindir)/ucsdpsys_logo
+	rm -f $(bindir)/ucsdpsys_mkfs $(bindir)/ucsdpsys_mount
+	rm -f $(bindir)/ucsdpsys_rt11 $(bindir)/ucsdpsys_text
+	rm -f $(bindir)/ucsdpsys_umount
+	rm -f $(datarootdir)/doc/ucsd-psystem-fs/BUILDING.pdf
+	rm -f $(datarootdir)/doc/ucsd-psystem-fs/README.pdf
+	rm -f $(datarootdir)/doc/ucsd-psystem-fs/change_log.pdf
+	rm -f $(datarootdir)/doc/ucsd-psystem-fs/reference.pdf
+	rm -f $(mandir)/man1/ucsdpsys_disk.1
+	rm -f $(mandir)/man1/ucsdpsys_fs_license.1
+	rm -f $(mandir)/man1/ucsdpsys_fsck.1
+	rm -f $(mandir)/man1/ucsdpsys_interleave.1
+	rm -f $(mandir)/man1/ucsdpsys_mkfs.1 $(mandir)/man1/ucsdpsys_mount.1
+	rm -f $(mandir)/man1/ucsdpsys_rt11.1 $(mandir)/man1/ucsdpsys_text.1
+	rm -f $(mandir)/man1/ucsdpsys_umount.1 $(mandir)/man5/ucsdpsys_fs.5
+	rm -f $(mandir)/man5/ucsdpsys_text.5
+
+.PHONY: all all-bin all-doc check clean clean-bin clean-doc distclean \
+		distclean-directories distclean-files install install-bin \
+		install-mandir sure t0001a t0002a t0003a t0005a t0006a t0007a \
+		t0008a t0009a t0010a t0011a t0015a t0016a t0017a t0018a t0019a \
+		t0020a t0021a t0022a t0023a t0025a t0026a t0027a t0028a t0029a \
+		t0030a t0031a the-default-target
+
+# vim: set ts=8 sw=8 noet :

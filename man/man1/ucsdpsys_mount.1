@@ -1,0 +1,125 @@
+'\" t
+.\"     UCSD p-System filesystem in user space
+.\"     Copyright (C) 2006-2008, 2010 Peter Miller
+.\"
+.\"     This program is free software; you can redistribute it and/or modify
+.\"     it under the terms of the GNU General Public License as published by
+.\"     the Free Software Foundation; either version 3 of the License, or
+.\"     (at your option) any later version.
+.\"
+.\"     This program is distributed in the hope that it will be useful,
+.\"     but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\"     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\"     GNU General Public License for more details.
+.\"
+.\"     You should have received a copy of the GNU General Public License
+.\"     along with this program. If not, see
+.\"     <http://www.gnu.org/licenses/>.
+.\"
+.ds n) ucsdpsys_mount
+.TH \*(n) 1 ucsd\[hy]psystem\[hy]fs "Reference Manual"
+.SH NAME
+ucsdpsys_mount \- mount a UCSD p\[hy]System filesystem
+.if require_index \{
+.XX "ucsdpsys_mount(1)" "mount a UCSD p\[hy]System filesystem"
+.\}
+.SH SYNOPSIS
+.B \*(n)
+[
+.IR option \&...
+]
+.I filename
+.I directory
+.br
+.B \*(n)
+.B \-V
+.SH DESCRIPTION
+All files accessible in a Unix system are arranged in one big tree,
+the file hierarchy, rooted at \fB/\fP.  These files can be spread
+out over several devices.  The \fI\*(n)\fP command serves to attach
+a UCSD p\[hy]System disk image to the big file tree.
+.SS Disk Formats
+At present, only the Apple ][ Pascal disk format is understood for
+reading and writing, however it is simple to add more formats in future.
+.so man/man1/z_format.so
+.SS Umount When Finish
+To umount the file system when you are done with it, use the
+.RS
+\f[CW]ucsdpsys_umount\fP \fIdirectory\fP
+.RE
+command.
+.SS Concurrent Writes
+The original p\[hy]System had difficulty writing to more than on file at time.
+This file system
+uses the Buffer Gap algorithm (a common implementation for text editors)
+to establish a gap for write to be performed within,
+compacting file automatically when necessary.
+While you have a single file open for writing, this is very efficient.
+.PP
+If you have two files open for writing, this file system can cope, but
+the constant block shuffling to obtain gaps in which to write two (or
+more) file simultaneously will affect performance.
+.br
+.ne 1i
+.SH OPTIONS
+The following options are understood:
+.TP 8n
+\fB\-D\fP
+.TP 8n
+\fB\-\-debug\fP
+Turn on internal debugging.
+Specifying this option more than once increases the verbosity.
+.TP 8n
+\fB\-d\fP
+.TP 8n
+\fB\-\-fuse\-debug\fP
+Turn on FUSE (libfuse) debugging.
+Only interesting to \fI\*(n)\fP(1) developers.
+Implies the \fB\-f\fP options.
+.TP 8n
+\fB\-f\fP
+.TP 8n
+\fB\-\-foreground\fP
+Execute the filesystem in the foreground.
+Usually a daemon process is spawned,
+and the \fI\*(n)\fP(1) command returns immediately.
+.TP 8n
+\fB\-o\fP \fIstring\fP
+.TP 8n
+\fB\-\-options=\fP\fIstring\fP
+One or \fImount\fP(1) options, separated by commas.
+This option may be given more than once.
+.TP 8n
+\fB\-r\fP
+.TP 8n
+\fB\-\-read\-only\fP
+Mount the file system read\[hy]only.
+.TP 8n
+\fB\-t\fP
+.TP 8n
+\fB\-\-text\fP
+Convert text files between Unix and UCSD formats on\[hy]the\[hy]fly.
+.TP 8n
+\fB\-V\fP
+.TP 8n
+\fB\-\-version\fP
+Print the version of the
+.I \*(n)
+program being executed.
+.PP
+All other options will produce a diagnostic error.
+.so man/man1/z_exit.so
+.SH SEE ALSO
+.TP 8n
+\fIfusermount\fP(1)
+mount FUSE file systems
+.TP 8n
+\fIucsdpsys_fsck\fP(1)
+Check the integrity of UCSD p\[hy]System filesystem disk images.
+.TP 8n
+\fIucsdpsys_mkfs\fP(1)
+create new empty UCSD p\[hy]System filesystem disk images.
+.TP 8n
+\fIucsdpsys_umount\fP(1)
+unmount UCSD p\[hy]System filesystems
+.so man/man1/z_copyright.so

@@ -1,0 +1,107 @@
+'\" t
+.\"     UCSD p-System filesystem in user space
+.\"     Copyright (C) 2006, 2007, 2010 Peter Miller
+.\"
+.\"     This program is free software; you can redistribute it and/or modify
+.\"     it under the terms of the GNU General Public License as published by
+.\"     the Free Software Foundation; either version 3 of the License, or
+.\"     (at your option) any later version.
+.\"
+.\"     This program is distributed in the hope that it will be useful,
+.\"     but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\"     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\"     GNU General Public License for more details.
+.\"
+.\"     You should have received a copy of the GNU General Public License
+.\"     along with this program. If not, see
+.\"     <http://www.gnu.org/licenses/>.
+.\"
+.ds n) ucsdpsys_text
+.TH \*(n) 1 ucsd\[hy]psystem\[hy]fs "Reference Manual"
+.SH NAME
+ucsdpsys_text \- translate UCSD p\[hy]System text files
+.if require_index \{
+.XX "ucsdpsys_text(1)" "translate UCSD p\[hy]System text files"
+.\}
+.SH SYNOPSIS
+\fB\*(n)\fP \fB\-d\fP [ \fI\-option\fP... ][ \fIfilename\fP... ]
+.br
+\fB\*(n)\fP \fB\-e\fP [ \fI\-option\fP... ][ \fIfilename\fP... ]
+.br
+\fB\*(n)\fP \fB\-V\fP
+.SH DESCRIPTION
+The \fI\*(n)\fP program is used to translate UCSD p\[hy]System text files to
+and from Unix text files.
+.PP
+If no files are named on the command line, the standard input will be
+translated and written on the standard output.
+.PP
+Any files named on the command line will be translated \fIin situ\fP.  A
+temporary output file will be in the same directory as each file being
+translated; the file system will need enough extra space to be able
+to hold the temporary files, until they are moved back over the input
+files.  No backup copies of the inputs are kept.
+.PP
+The results are undefined if you attempt to use this command on binary
+data files.
+.br
+.ne 1i
+.SH OPTIONS
+The following options are understood:
+.TP 8n
+.B \-d
+.TP 8n
+.B \-\-decode
+This option is used to translate files from UCSD p\[hy]System text format to
+Unix text format.
+.TP 8n
+.B \-e
+.TP 8n
+.B \-\-encode
+This option is used to translate files from Unix text format to UCSD
+p\[hy]System text format.
+.TP 8n
+.B \-N
+.TP 8n
+.B \-\-nul
+.RS
+There is a bug in the UCSD compiler.  It will report error 400 (invalid
+character on line) if a line of text ends \fIexactly\fP at the end of
+the block.
+.PP
+Interestingly, the editor is capable of reading text files with
+completely filled 1KB blocks, but never writes them out.
+.PP
+By default, the encode (\fB\-e\fP) option guarantees that there will
+be at least one NUL (0x00) character at the end of each 1KB block.  The
+\fB\-N\fP option says not to bother.
+.RE
+.TP 8n
+.B \-t
+.TP 8n
+.B \-\-tabs
+.RS
+When decoding the default is to use tabs to replace leading spaces on
+a line (tabs are assumed to be 8 characters wide).  When used with
+\fB\-d\fP, this option says not to use tabs.
+.PP
+When encoding the default is to use two byte sequences (0x10 \fInn\fP)
+to replace leading spaces on a line.  When used with \fB\-e\fP, this
+option says not to use tabs.
+.RE
+.TP 8n
+.B \-V
+.TP 8n
+.B \-\-version
+Print the version of the \fI\*(n)\fP program being executed.
+.PP
+All other options will produce a diagnostic error.
+.so man/man1/z_exit.so
+.SH SEE ALSO
+.TP 8n
+\f[I]ucsdpsys_disk\fP(1)
+manipulate UCSD p\[hy]System disk images
+.TP 8n
+\f[I]ucsdpsys_text\fP(5)
+format of UCSD p\[hy]System text files
+.so man/man1/z_copyright.so

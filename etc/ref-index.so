@@ -1,0 +1,918 @@
+.hy 0
+.de TH
+..
+.TS H
+l r lw(2.5i) lw(2.5i).
+.TH
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+
+T}
+ucsdpsys_mkfs(1)	\*[Page*Of*ucsdpsys_mkfs(1)]	T{
+.ad r
+ucsdpsys mkfs -
+T}	T{
+.ad l
+create new UCSD p[hy]System filesystem disk images
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+decode
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+decode interleaved
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+decode interleaved UCSD
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+decode interleaved UCSD p[
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+decode interleaved UCSD p[hy]
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+decode interleaved UCSD p[hy]System
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+decode interleaved UCSD p[hy]System filesystem
+T}
+ucsdpsys_interleave(1)	\*[Page*Of*ucsdpsys_interleave(1)]	T{
+.ad r
+ucsdpsys interleave -
+T}	T{
+.ad l
+decode interleaved UCSD p[hy]System filesystem image
+T}
+ucsdpsys_mkfs(1)	\*[Page*Of*ucsdpsys_mkfs(1)]	T{
+.ad r
+ucsdpsys mkfs - create new UCSD p[hy]System filesystem
+T}	T{
+.ad l
+disk images
+T}
+ucsdpsys_rt11(1)	\*[Page*Of*ucsdpsys_rt11(1)]	T{
+.ad r
+ucsdpsys rt11 - extract files from RT[hy]11
+T}	T{
+.ad l
+disk images
+T}
+ucsdpsys_disk(1)	\*[Page*Of*ucsdpsys_disk(1)]	T{
+.ad r
+ucsdpsys
+T}	T{
+.ad l
+disk - manipulate files on a UCSD p[hy]System filesystem image
+T}
+ucsdpsys_rt11(1)	\*[Page*Of*ucsdpsys_rt11(1)]	T{
+.ad r
+ucsdpsys rt11 -
+T}	T{
+.ad l
+extract files from RT[hy]11 disk images
+T}
+ucsdpsys_text(5)	\*[Page*Of*ucsdpsys_text(5)]	T{
+.ad r
+ucsdpsys text - UCSD p[hy]System text
+T}	T{
+.ad l
+file format
+T}
+ucsdpsys_text(1)	\*[Page*Of*ucsdpsys_text(1)]	T{
+.ad r
+ucsdpsys text - translate UCSD p[hy]System text
+T}	T{
+.ad l
+files
+T}
+ucsdpsys_rt11(1)	\*[Page*Of*ucsdpsys_rt11(1)]	T{
+.ad r
+ucsdpsys rt11 - extract
+T}	T{
+.ad l
+files from RT[hy]11 disk images
+T}
+ucsdpsys_disk(1)	\*[Page*Of*ucsdpsys_disk(1)]	T{
+.ad r
+ucsdpsys disk - manipulate
+T}	T{
+.ad l
+files on a UCSD p[hy]System filesystem image
+T}
+ucsdpsys_mount(1)	\*[Page*Of*ucsdpsys_mount(1)]	T{
+.ad r
+ucsdpsys mount - mount a UCSD p[hy]System
+T}	T{
+.ad l
+filesystem
+T}
+ucsdpsys_mkfs(1)	\*[Page*Of*ucsdpsys_mkfs(1)]	T{
+.ad r
+ucsdpsys mkfs - create new UCSD p[hy]System
+T}	T{
+.ad l
+filesystem disk images
+T}
+ucsdpsys_fs(5)	\*[Page*Of*ucsdpsys_fs(5)]	T{
+.ad r
+ucsdpsys fs - UCSD p[hy]System
+T}	T{
+.ad l
+filesystem format
+T}
+ucsdpsys_disk(1)	\*[Page*Of*ucsdpsys_disk(1)]	T{
+.ad r
+ucsdpsys disk - manipulate files on a UCSD p[hy]System
+T}	T{
+.ad l
+filesystem image
+T}
+ucsdpsys_interleave(1)	\*[Page*Of*ucsdpsys_interleave(1)]	T{
+.ad r
+ucsdpsys interleave - decode interleaved UCSD p[hy]System
+T}	T{
+.ad l
+filesystem image
+T}
+ucsdpsys_fsck(1)	\*[Page*Of*ucsdpsys_fsck(1)]	T{
+.ad r
+ucsdpsys fsck - verify and repair UCSD p[hy]System
+T}	T{
+.ad l
+filesystem images
+T}
+ucsdpsys_umount(1)	\*[Page*Of*ucsdpsys_umount(1)]	T{
+.ad r
+ucsdpsys umount - unmount UCSD p[hy]System
+T}	T{
+.ad l
+filesystems
+T}
+ucsdpsys_fs(5)	\*[Page*Of*ucsdpsys_fs(5)]	T{
+.ad r
+ucsdpsys fs - UCSD p[hy]System filesystem
+T}	T{
+.ad l
+format
+T}
+ucsdpsys_text(5)	\*[Page*Of*ucsdpsys_text(5)]	T{
+.ad r
+ucsdpsys text - UCSD p[hy]System text file
+T}	T{
+.ad l
+format
+T}
+ucsdpsys_rt11(1)	\*[Page*Of*ucsdpsys_rt11(1)]	T{
+.ad r
+ucsdpsys rt11 - extract files
+T}	T{
+.ad l
+from RT[hy]11 disk images
+T}
+ucsdpsys_fsck(1)	\*[Page*Of*ucsdpsys_fsck(1)]	T{
+.ad r
+ucsdpsys
+T}	T{
+.ad l
+fsck - verify and repair UCSD p[hy]System filesystem images
+T}
+ucsdpsys_fs(5)	\*[Page*Of*ucsdpsys_fs(5)]	T{
+.ad r
+ucsdpsys
+T}	T{
+.ad l
+fs - UCSD p[hy]System filesystem format
+T}
+ucsdpsys_rt11(1)	\*[Page*Of*ucsdpsys_rt11(1)]	T{
+.ad r
+ucsdpsys rt11 - extract files from RT[
+T}	T{
+.ad l
+hy]11 disk images
+T}
+ucsdpsys_mount(1)	\*[Page*Of*ucsdpsys_mount(1)]	T{
+.ad r
+ucsdpsys mount - mount a UCSD p[
+T}	T{
+.ad l
+hy]System filesystem
+T}
+ucsdpsys_mkfs(1)	\*[Page*Of*ucsdpsys_mkfs(1)]	T{
+.ad r
+ucsdpsys mkfs - create new UCSD p[
+T}	T{
+.ad l
+hy]System filesystem disk images
+T}
+ucsdpsys_fs(5)	\*[Page*Of*ucsdpsys_fs(5)]	T{
+.ad r
+ucsdpsys fs - UCSD p[
+T}	T{
+.ad l
+hy]System filesystem format
+T}
+ucsdpsys_disk(1)	\*[Page*Of*ucsdpsys_disk(1)]	T{
+.ad r
+ucsdpsys disk - manipulate files on a UCSD p[
+T}	T{
+.ad l
+hy]System filesystem image
+T}
+ucsdpsys_interleave(1)	\*[Page*Of*ucsdpsys_interleave(1)]	T{
+.ad r
+ucsdpsys interleave - decode interleaved UCSD p[
+T}	T{
+.ad l
+hy]System filesystem image
+T}
+ucsdpsys_fsck(1)	\*[Page*Of*ucsdpsys_fsck(1)]	T{
+.ad r
+ucsdpsys fsck - verify and repair UCSD p[
+T}	T{
+.ad l
+hy]System filesystem images
+T}
+ucsdpsys_umount(1)	\*[Page*Of*ucsdpsys_umount(1)]	T{
+.ad r
+ucsdpsys umount - unmount UCSD p[
+T}	T{
+.ad l
+hy]System filesystems
+T}
+ucsdpsys_text(5)	\*[Page*Of*ucsdpsys_text(5)]	T{
+.ad r
+ucsdpsys text - UCSD p[
+T}	T{
+.ad l
+hy]System text file format
+T}
+ucsdpsys_text(1)	\*[Page*Of*ucsdpsys_text(1)]	T{
+.ad r
+ucsdpsys text - translate UCSD p[
+T}	T{
+.ad l
+hy]System text files
+T}
+ucsdpsys_disk(1)	\*[Page*Of*ucsdpsys_disk(1)]	T{
+.ad r
+ucsdpsys disk - manipulate files on a UCSD p[hy]System filesystem
+T}	T{
+.ad l
+image
+T}
+ucsdpsys_interleave(1)	\*[Page*Of*ucsdpsys_interleave(1)]	T{
+.ad r
+ucsdpsys interleave - decode interleaved UCSD p[hy]System filesystem
+T}	T{
+.ad l
+image
+T}
+ucsdpsys_fsck(1)	\*[Page*Of*ucsdpsys_fsck(1)]	T{
+.ad r
+ucsdpsys fsck - verify and repair UCSD p[hy]System filesystem
+T}	T{
+.ad l
+images
+T}
+ucsdpsys_mkfs(1)	\*[Page*Of*ucsdpsys_mkfs(1)]	T{
+.ad r
+ucsdpsys mkfs - create new UCSD p[hy]System filesystem disk
+T}	T{
+.ad l
+images
+T}
+ucsdpsys_rt11(1)	\*[Page*Of*ucsdpsys_rt11(1)]	T{
+.ad r
+ucsdpsys rt11 - extract files from RT[hy]11 disk
+T}	T{
+.ad l
+images
+T}
+ucsdpsys_disk(1)	\*[Page*Of*ucsdpsys_disk(1)]	T{
+.ad r
+require_
+T}	T{
+.ad l
+index \{
+T}
+ucsdpsys_fs(5)	\*[Page*Of*ucsdpsys_fs(5)]	T{
+.ad r
+require_
+T}	T{
+.ad l
+index \{
+T}
+ucsdpsys_fsck(1)	\*[Page*Of*ucsdpsys_fsck(1)]	T{
+.ad r
+require_
+T}	T{
+.ad l
+index \{
+T}
+ucsdpsys_interleave(1)	\*[Page*Of*ucsdpsys_interleave(1)]	T{
+.ad r
+require_
+T}	T{
+.ad l
+index \{
+T}
+ucsdpsys_mkfs(1)	\*[Page*Of*ucsdpsys_mkfs(1)]	T{
+.ad r
+require_
+T}	T{
+.ad l
+index \{
+T}
+ucsdpsys_mount(1)	\*[Page*Of*ucsdpsys_mount(1)]	T{
+.ad r
+require_
+T}	T{
+.ad l
+index \{
+T}
+ucsdpsys_rt11(1)	\*[Page*Of*ucsdpsys_rt11(1)]	T{
+.ad r
+require_
+T}	T{
+.ad l
+index \{
+T}
+ucsdpsys_text(1)	\*[Page*Of*ucsdpsys_text(1)]	T{
+.ad r
+require_
+T}	T{
+.ad l
+index \{
+T}
+ucsdpsys_text(5)	\*[Page*Of*ucsdpsys_text(5)]	T{
+.ad r
+require_
+T}	T{
+.ad l
+index \{
+T}
+ucsdpsys_umount(1)	\*[Page*Of*ucsdpsys_umount(1)]	T{
+.ad r
+require_
+T}	T{
+.ad l
+index \{
+T}
+ucsdpsys_interleave(1)	\*[Page*Of*ucsdpsys_interleave(1)]	T{
+.ad r
+ucsdpsys
+T}	T{
+.ad l
+interleave - decode interleaved UCSD p[hy]System filesystem image
+T}
+ucsdpsys_interleave(1)	\*[Page*Of*ucsdpsys_interleave(1)]	T{
+.ad r
+ucsdpsys interleave - decode
+T}	T{
+.ad l
+interleaved UCSD p[hy]System filesystem image
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+manipulate
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+manipulate files
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+manipulate files on a
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+manipulate files on a UCSD
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+manipulate files on a UCSD p[
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+manipulate files on a UCSD p[hy]
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+manipulate files on a UCSD p[hy]System
+T}
+	\*[Page*Of*]	T{
+.ad r
+
+T}	T{
+.ad l
+manipulate files on a UCSD p[hy]System filesystem
+T}
+ucsdpsys_disk(1)	\*[Page*Of*ucsdpsys_disk(1)]	T{
+.ad r
+ucsdpsys disk -
+T}	T{
+.ad l
+manipulate files on a UCSD p[hy]System filesystem image
+T}
+ucsdpsys_mkfs(1)	\*[Page*Of*ucsdpsys_mkfs(1)]	T{
+.ad r
+ucsdpsys
+T}	T{
+.ad l
+mkfs - create new UCSD p[hy]System filesystem disk images
+T}
+ucsdpsys_mount(1)	\*[Page*Of*ucsdpsys_mount(1)]	T{
+.ad r
+ucsdpsys mount -
+T}	T{
+.ad l
+mount a UCSD p[hy]System filesystem
+T}
+ucsdpsys_mount(1)	\*[Page*Of*ucsdpsys_mount(1)]	T{
+.ad r
+ucsdpsys
+T}	T{
+.ad l
+mount - mount a UCSD p[hy]System filesystem
+T}
+ucsdpsys_mkfs(1)	\*[Page*Of*ucsdpsys_mkfs(1)]	T{
+.ad r
+ucsdpsys mkfs - create
+T}	T{
+.ad l
+new UCSD p[hy]System filesystem disk images
+T}
+ucsdpsys_disk(1)	\*[Page*Of*ucsdpsys_disk(1)]	T{
+.ad r
+ucsdpsys disk - manipulate files
+T}	T{
+.ad l
+on a UCSD p[hy]System filesystem image
+T}
+ucsdpsys_mount(1)	\*[Page*Of*ucsdpsys_mount(1)]	T{
+.ad r
+ucsdpsys mount - mount a UCSD
+T}	T{
+.ad l
+p[hy]System filesystem
+T}
+ucsdpsys_mkfs(1)	\*[Page*Of*ucsdpsys_mkfs(1)]	T{
+.ad r
+ucsdpsys mkfs - create new UCSD
+T}	T{
+.ad l
+p[hy]System filesystem disk images
+T}
+ucsdpsys_fs(5)	\*[Page*Of*ucsdpsys_fs(5)]	T{
+.ad r
+ucsdpsys fs - UCSD
+T}	T{
+.ad l
+p[hy]System filesystem format
+T}
+ucsdpsys_disk(1)	\*[Page*Of*ucsdpsys_disk(1)]	T{
+.ad r
+ucsdpsys disk - manipulate files on a UCSD
+T}	T{
+.ad l
+p[hy]System filesystem image
+T}
+ucsdpsys_interleave(1)	\*[Page*Of*ucsdpsys_interleave(1)]	T{
+.ad r
+ucsdpsys interleave - decode interleaved UCSD
+T}	T{
+.ad l
+p[hy]System filesystem image
+T}
+ucsdpsys_fsck(1)	\*[Page*Of*ucsdpsys_fsck(1)]	T{
+.ad r
+ucsdpsys fsck - verify and repair UCSD
+T}	T{
+.ad l
+p[hy]System filesystem images
+T}
+ucsdpsys_umount(1)	\*[Page*Of*ucsdpsys_umount(1)]	T{
+.ad r
+ucsdpsys umount - unmount UCSD
+T}	T{
+.ad l
+p[hy]System filesystems
+T}
+ucsdpsys_text(5)	\*[Page*Of*ucsdpsys_text(5)]	T{
+.ad r
+ucsdpsys text - UCSD
+T}	T{
+.ad l
+p[hy]System text file format
+T}
+ucsdpsys_text(1)	\*[Page*Of*ucsdpsys_text(1)]	T{
+.ad r
+ucsdpsys text - translate UCSD
+T}	T{
+.ad l
+p[hy]System text files
+T}
+ucsdpsys_fsck(1)	\*[Page*Of*ucsdpsys_fsck(1)]	T{
+.ad r
+ucsdpsys fsck - verify and
+T}	T{
+.ad l
+repair UCSD p[hy]System filesystem images
+T}
+ucsdpsys_disk(1)	\*[Page*Of*ucsdpsys_disk(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+require_index \{
+T}
+ucsdpsys_fs(5)	\*[Page*Of*ucsdpsys_fs(5)]	T{
+.ad r
+
+T}	T{
+.ad l
+require_index \{
+T}
+ucsdpsys_fsck(1)	\*[Page*Of*ucsdpsys_fsck(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+require_index \{
+T}
+ucsdpsys_interleave(1)	\*[Page*Of*ucsdpsys_interleave(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+require_index \{
+T}
+ucsdpsys_mkfs(1)	\*[Page*Of*ucsdpsys_mkfs(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+require_index \{
+T}
+ucsdpsys_mount(1)	\*[Page*Of*ucsdpsys_mount(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+require_index \{
+T}
+ucsdpsys_rt11(1)	\*[Page*Of*ucsdpsys_rt11(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+require_index \{
+T}
+ucsdpsys_text(1)	\*[Page*Of*ucsdpsys_text(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+require_index \{
+T}
+ucsdpsys_text(5)	\*[Page*Of*ucsdpsys_text(5)]	T{
+.ad r
+
+T}	T{
+.ad l
+require_index \{
+T}
+ucsdpsys_umount(1)	\*[Page*Of*ucsdpsys_umount(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+require_index \{
+T}
+ucsdpsys_rt11(1)	\*[Page*Of*ucsdpsys_rt11(1)]	T{
+.ad r
+ucsdpsys
+T}	T{
+.ad l
+rt11 - extract files from RT[hy]11 disk images
+T}
+ucsdpsys_rt11(1)	\*[Page*Of*ucsdpsys_rt11(1)]	T{
+.ad r
+ucsdpsys rt11 - extract files from
+T}	T{
+.ad l
+RT[hy]11 disk images
+T}
+ucsdpsys_mount(1)	\*[Page*Of*ucsdpsys_mount(1)]	T{
+.ad r
+ucsdpsys mount - mount a UCSD p[hy]
+T}	T{
+.ad l
+System filesystem
+T}
+ucsdpsys_mkfs(1)	\*[Page*Of*ucsdpsys_mkfs(1)]	T{
+.ad r
+ucsdpsys mkfs - create new UCSD p[hy]
+T}	T{
+.ad l
+System filesystem disk images
+T}
+ucsdpsys_fs(5)	\*[Page*Of*ucsdpsys_fs(5)]	T{
+.ad r
+ucsdpsys fs - UCSD p[hy]
+T}	T{
+.ad l
+System filesystem format
+T}
+ucsdpsys_disk(1)	\*[Page*Of*ucsdpsys_disk(1)]	T{
+.ad r
+ucsdpsys disk - manipulate files on a UCSD p[hy]
+T}	T{
+.ad l
+System filesystem image
+T}
+ucsdpsys_interleave(1)	\*[Page*Of*ucsdpsys_interleave(1)]	T{
+.ad r
+ucsdpsys interleave - decode interleaved UCSD p[hy]
+T}	T{
+.ad l
+System filesystem image
+T}
+ucsdpsys_fsck(1)	\*[Page*Of*ucsdpsys_fsck(1)]	T{
+.ad r
+ucsdpsys fsck - verify and repair UCSD p[hy]
+T}	T{
+.ad l
+System filesystem images
+T}
+ucsdpsys_umount(1)	\*[Page*Of*ucsdpsys_umount(1)]	T{
+.ad r
+ucsdpsys umount - unmount UCSD p[hy]
+T}	T{
+.ad l
+System filesystems
+T}
+ucsdpsys_text(5)	\*[Page*Of*ucsdpsys_text(5)]	T{
+.ad r
+ucsdpsys text - UCSD p[hy]
+T}	T{
+.ad l
+System text file format
+T}
+ucsdpsys_text(1)	\*[Page*Of*ucsdpsys_text(1)]	T{
+.ad r
+ucsdpsys text - translate UCSD p[hy]
+T}	T{
+.ad l
+System text files
+T}
+ucsdpsys_text(5)	\*[Page*Of*ucsdpsys_text(5)]	T{
+.ad r
+ucsdpsys text - UCSD p[hy]System
+T}	T{
+.ad l
+text file format
+T}
+ucsdpsys_text(1)	\*[Page*Of*ucsdpsys_text(1)]	T{
+.ad r
+ucsdpsys text - translate UCSD p[hy]System
+T}	T{
+.ad l
+text files
+T}
+ucsdpsys_text(1)	\*[Page*Of*ucsdpsys_text(1)]	T{
+.ad r
+ucsdpsys
+T}	T{
+.ad l
+text - translate UCSD p[hy]System text files
+T}
+ucsdpsys_text(5)	\*[Page*Of*ucsdpsys_text(5)]	T{
+.ad r
+ucsdpsys
+T}	T{
+.ad l
+text - UCSD p[hy]System text file format
+T}
+ucsdpsys_text(1)	\*[Page*Of*ucsdpsys_text(1)]	T{
+.ad r
+ucsdpsys text -
+T}	T{
+.ad l
+translate UCSD p[hy]System text files
+T}
+ucsdpsys_mount(1)	\*[Page*Of*ucsdpsys_mount(1)]	T{
+.ad r
+ucsdpsys mount - mount a
+T}	T{
+.ad l
+UCSD p[hy]System filesystem
+T}
+ucsdpsys_mkfs(1)	\*[Page*Of*ucsdpsys_mkfs(1)]	T{
+.ad r
+ucsdpsys mkfs - create new
+T}	T{
+.ad l
+UCSD p[hy]System filesystem disk images
+T}
+ucsdpsys_fs(5)	\*[Page*Of*ucsdpsys_fs(5)]	T{
+.ad r
+ucsdpsys fs -
+T}	T{
+.ad l
+UCSD p[hy]System filesystem format
+T}
+ucsdpsys_disk(1)	\*[Page*Of*ucsdpsys_disk(1)]	T{
+.ad r
+ucsdpsys disk - manipulate files on a
+T}	T{
+.ad l
+UCSD p[hy]System filesystem image
+T}
+ucsdpsys_interleave(1)	\*[Page*Of*ucsdpsys_interleave(1)]	T{
+.ad r
+ucsdpsys interleave - decode interleaved
+T}	T{
+.ad l
+UCSD p[hy]System filesystem image
+T}
+ucsdpsys_fsck(1)	\*[Page*Of*ucsdpsys_fsck(1)]	T{
+.ad r
+ucsdpsys fsck - verify and repair
+T}	T{
+.ad l
+UCSD p[hy]System filesystem images
+T}
+ucsdpsys_umount(1)	\*[Page*Of*ucsdpsys_umount(1)]	T{
+.ad r
+ucsdpsys umount - unmount
+T}	T{
+.ad l
+UCSD p[hy]System filesystems
+T}
+ucsdpsys_text(5)	\*[Page*Of*ucsdpsys_text(5)]	T{
+.ad r
+ucsdpsys text -
+T}	T{
+.ad l
+UCSD p[hy]System text file format
+T}
+ucsdpsys_text(1)	\*[Page*Of*ucsdpsys_text(1)]	T{
+.ad r
+ucsdpsys text - translate
+T}	T{
+.ad l
+UCSD p[hy]System text files
+T}
+ucsdpsys_disk(1)	\*[Page*Of*ucsdpsys_disk(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+ucsdpsys disk - manipulate files on a UCSD p[hy]System filesystem image
+T}
+ucsdpsys_fsck(1)	\*[Page*Of*ucsdpsys_fsck(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+ucsdpsys fsck - verify and repair UCSD p[hy]System filesystem images
+T}
+ucsdpsys_fs(5)	\*[Page*Of*ucsdpsys_fs(5)]	T{
+.ad r
+
+T}	T{
+.ad l
+ucsdpsys fs - UCSD p[hy]System filesystem format
+T}
+ucsdpsys_interleave(1)	\*[Page*Of*ucsdpsys_interleave(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+ucsdpsys interleave - decode interleaved UCSD p[hy]System filesystem image
+T}
+ucsdpsys_mkfs(1)	\*[Page*Of*ucsdpsys_mkfs(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+ucsdpsys mkfs - create new UCSD p[hy]System filesystem disk images
+T}
+ucsdpsys_mount(1)	\*[Page*Of*ucsdpsys_mount(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+ucsdpsys mount - mount a UCSD p[hy]System filesystem
+T}
+ucsdpsys_rt11(1)	\*[Page*Of*ucsdpsys_rt11(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+ucsdpsys rt11 - extract files from RT[hy]11 disk images
+T}
+ucsdpsys_text(1)	\*[Page*Of*ucsdpsys_text(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+ucsdpsys text - translate UCSD p[hy]System text files
+T}
+ucsdpsys_text(5)	\*[Page*Of*ucsdpsys_text(5)]	T{
+.ad r
+
+T}	T{
+.ad l
+ucsdpsys text - UCSD p[hy]System text file format
+T}
+ucsdpsys_umount(1)	\*[Page*Of*ucsdpsys_umount(1)]	T{
+.ad r
+
+T}	T{
+.ad l
+ucsdpsys umount - unmount UCSD p[hy]System filesystems
+T}
+ucsdpsys_umount(1)	\*[Page*Of*ucsdpsys_umount(1)]	T{
+.ad r
+ucsdpsys
+T}	T{
+.ad l
+umount - unmount UCSD p[hy]System filesystems
+T}
+ucsdpsys_umount(1)	\*[Page*Of*ucsdpsys_umount(1)]	T{
+.ad r
+ucsdpsys umount -
+T}	T{
+.ad l
+unmount UCSD p[hy]System filesystems
+T}
+ucsdpsys_fsck(1)	\*[Page*Of*ucsdpsys_fsck(1)]	T{
+.ad r
+ucsdpsys fsck -
+T}	T{
+.ad l
+verify and repair UCSD p[hy]System filesystem images
+T}
+.TE
+.ad b

@@ -1,0 +1,85 @@
+/*
+ * UCSD p-System filesystem in user space
+ * Copyright (C) 2010 Peter Miller
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or (at
+ * you option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program. If not, see <http://www.gnu.org/licenses/>
+ */
+
+project_specific =
+[
+    {
+        name = "aemakegen:debian:build-depends";
+        value =
+            "fuse-utils, "
+            "groff, "
+            "libboost-dev, "
+            "libexplain-dev (>= 0.35), "
+            "libfuse-dev"
+            ;
+    },
+    {
+        name = "aemakegen:debian:depends";
+        value = "fuse-utils";
+    },
+    {
+        name = "aemakegen:rpm-spec:build-requires";
+        value =
+            "fuse-utils, "
+            "groff, "
+            "libbost-devel, "
+            "libexplain-devel, "
+            "libfuse-devel"
+            ;
+    },
+    {
+        name = "aemakegen:debian:copyright";
+        value = "false";
+    },
+    {
+        name = "aemakegen:debian:description:ucsd-psystem-fs";
+        value = "UCSD p-System File System";
+    },
+    {
+        name = "aemakegen:debian:suggests:ucsd-psystem-fs";
+        value = "ucsd-psystem-vm, ucsd-psystem-xc";
+    },
+    {
+        name = "aemakegen:debian:extended-description:ucsd-psystem-fs";
+        value =
+            "The ucsd-psystem-fs package is a collection of tools for "
+            "manipulating and mounting UCSD p-Systems disk images.  The disk "
+            "images can be mounted into the Linux file system by using the "
+            "ucsdpsys_mount command, that is based on the FUSE \"File System "
+            "in User Space\" facility."
+            ;
+    },
+    {
+        name = "aemakegen:debian:homepage";
+        value = "http://ucsd-psystem-fs.sourceforge.net";
+    },
+    {
+        name = "aemakegen:debian:maintainer";
+        value = "Peter Miller <pmiller@opensource.org.au>";
+    },
+    {
+        name = "aemakegen:debian:priority";
+        value = "extra";
+    },
+    {
+        name = "aemakegen:debian:section";
+        value = "utils";
+    },
+];
+
+# vim:ts=8:sw=4:et

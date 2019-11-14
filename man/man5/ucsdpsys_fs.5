@@ -1,0 +1,197 @@
+'\" t
+.\"     UCSD p-System filesystem in user space
+.\"     Copyright (C) 2010 Peter Miller
+.\"
+.\"     This program is free software; you can redistribute it and/or modify
+.\"     it under the terms of the GNU General Public License as published by
+.\"     the Free Software Foundation; either version 3 of the License, or
+.\"     (at your option) any later version.
+.\"
+.\"     This program is distributed in the hope that it will be useful,
+.\"     but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\"     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\"     GNU General Public License for more details.
+.\"
+.\"     You should have received a copy of the GNU General Public License
+.\"     along with this program. If not, see
+.\"     <http://www.gnu.org/licenses/>.
+.\"
+.ds n) ucsdpsys_fs
+.TH \*(n) 5 ucsd\[hy]psystem\[hy]fs "Reference Manual"
+.SH NAME
+ucsdpsys_fs \- UCSD p\[hy]System filesystem format
+.if require_index \{
+.XX "ucsdpsys_fs(5)" "UCSD p\[hy]System filesystem format"
+.\}
+.SH DESCRIPTION
+The UCSD\[hy]pSystem file system format is very simple, compared to modern
+file systems.  It consists of a single directory, containing at most 77
+files.
+The file system does not support hierarchical directories.
+.PP
+The directory description, and the directory contents, assume the
+disk is composed of 512 byte blocks.  While this is common in modern
+machines, it was uncommon in the 1970s, when 128 byte and 256 byte
+sectors were more common.
+If there is sector interleaving, this is done transparently from the
+perspective of the logical blocks access to the disks by the p\[hy]Machine.
+.PP
+In most cases,
+the directory resides at block 2 on the disk and extends for 4 blocks
+if it is a single directory, 8 blocks if it is a duplicated (backed\[hy]up)
+directory.
+In most cases, blocks 0 and 1 are reserved for the bootstrap.
+.PP
+In some cases, the entire disk contents are offset by several blocks,
+and this is also transparent.  One trick,
+used when first developing the p\[hy]System, before it was self\[hy]hosting,
+was to have an RT\[hy]11 disk also contain a UCSD p\[hy]System directory,
+and have both file systems reference the same files.
+The offset avoided stomping on the RT\[hy]11 directory blocks.
+.SS Byte Sex
+Byte sex is an issue for disk images.
+They have the same byte sex as the host microprocessor architecture.
+You can detect the byte sex by looking that the FIRSTBLK field of the
+first directory entry (the volume label).
+It will always be six, so the high byte will be zero.
+.PP
+Once the byte sex has been determined, it should be used for all 16\[hy]byte
+word accesses.  When extracting a bit field, it is always specified as
+bits within such a value, never the raw bytes.
+.PP
+Strings (file names and volume names) are unaffected by the byte sex.
+.SS Directory Entry Format
+The Pascal declaration of a directory entry is as follows:
+.PP
+.RS
+TYPE
+  DIRENTRY =
+    PACKED RECORD
+      FIRSTBLK: INTEGER;
+      DLASTBLK: INTEGER;
+      CASE DFKIND: FILEKIND OF
+      SECUREDIR,
+      UNTYPEDFILE: (
+        FILLER1 : 0..2048;
+        DVID: VID;
+        DEOVBLK: INTEGER;
+        DNUMFILES: DIRRANGE;
+        DLOADTIME: INTEGER;
+        DLASTBOOT: DATEREC);
+      XDSKFILE,CODEFILE,TEXTFILE,INFOFILE,
+      DATAFILE,GRAFFILE,FOTOFILE: (
+        FILLER2 : 0..1024;
+        STATUS: BOOLEAN;
+        DTID: TID;
+        DLASTBYTE: integer;
+        DACCESS: DATEREC)
+    END;
+.RE
+.PP
+This is not useful unless you know how UCSD Pascal lays out it records.
+.PP
+The directory entry layout for regular file looks like this:
+.TP 8n
+bytes 0, 1:
+The number of the first block of the file, counting from zero, relative
+to the start of the disk.
+.TP 8n
+bytes 2, 3:
+The number of the first block past the end of the file,
+counting from zero, relative to the start of the disk.
+.TP 8n
+bytes 4, 5:
+.RS
+The bottom four bits of the 16\[hy]bit word (\f[I]i.e.\fP in a different
+byte depending on byte sex) describe the file kind.
+.TP 8n
+UNTYPEDFILE, 0:
+Not used (but see Volume Label, below).
+.TP
+XDSKFILE, 1:
+Not used.
+.TP
+CODEFILE, 2:
+Created by the Compiler, Assembler, or Linker.
+Contains code segments, see \f[I]ucsdpsys_codefile\fP(5)
+from the ucsd\[hy]psystem\[hy]xc project, for more information.
+.TP
+TEXTFILE, 3:
+All text file created by the Editor, or Listings by the Compiler or
+Linker, are this file kind.
+.TP
+INFOFILE, 4:
+Not used.
+.TP
+DATAFILE, 5:
+Any file created by a program, that is not a text file,
+will be marked as a datafile.
+.TP
+GRAFFILE, 6:
+Not used.
+.TP
+FOTOFILE, 7:
+Not used.
+.TP
+SECUREDIR, 8:
+Not used.
+.PP
+The file's extension is usually the first 4 bytes of the file kind.
+For example, \[lq].TEXT\[rq] and \[lq].CODE\[rq].
+.RE
+.TP 8n
+bytes 6..21:
+The file's name.  The first byte is the length, remaining bytes are the
+name, in 7\[hy]bit ASCII, no control characters.
+Always upper case on disk, case insensitive for searching.
+A length of zero is invalid, a length greater than 15 is invalid.
+.TP 8n
+bytes 22, 23:
+How many bytes of the last block are actually used.
+.TP 8n
+bytes 24, 25:
+The date the file was last modified.
+In the 16\[hy]bit word, the lower 5 bits are the day (1..32), the next 4
+bits are them month (1..12), the high 7 bits are the year (0..99).
+.SS Directory Format
+Each directory entry is 26 bytes long.  Thus, 78 directory entries fit
+into 2kB (4 blocks).  The remaining bytes are zero padded.
+The first directory entry describes the directory itself, the remaining
+77 entries are used for regular files.
+.PP
+The first two blocks are reserved for the boot loader.
+.SS Volume label.
+The layout of the first directory entry (the volume label) is slightly
+different:
+.TP 8n
+bytes 0, 1:
+The first physical block on the disk (\f[I]i.e.\fP zero).
+.TP 8n
+bytes 2, 3:
+The first block after the directory (\f[I]i.e.\fP six or ten).
+.TP 8n
+bytes 4, 5:
+Ignore, set to zero, corresponding to a UNTYPEDFILE file kind value, see above.
+.TP 8n
+bytes 6..13:
+The volume's name.  The first byte is the length, remaining bytes are the
+name, in 7\[hy]bit ASCII, no control characters.
+Always upper case on disk, case insensitive for searching.
+A length of zero is invalid, a length greater than 7 is invalid.
+.TP 8n
+bytes 14, 15:
+The physical number of blocks on the volume (disk).
+.TP 8n
+bytes 16, 17:
+The number of files on the disk.
+.TP 8n
+bytes 18, 19:
+Ignore.  Set to zero.
+.TP 8n
+bytes 20, 21:
+The date the volume was last mounted or modified.
+Same date format as above.
+.TP 8n
+bytes 22..25:
+Ignore.  Set to zero.
+.so man/man1/z_copyright.so

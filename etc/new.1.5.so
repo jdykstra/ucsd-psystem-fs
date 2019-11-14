@@ -1,0 +1,44 @@
+'\" t
+.\"     UCSD p-System filesystem in user space
+.\"     Copyright (C) 2008, 2010 Peter Miller
+.\"
+.\"     This program is free software; you can redistribute it and/or modify
+.\"     it under the terms of the GNU General Public License as published by
+.\"     the Free Software Foundation; either version 3 of the License, or
+.\"     (at your option) any later version.
+.\"
+.\"     This program is distributed in the hope that it will be useful,
+.\"     but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\"     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\"     GNU General Public License for more details.
+.\"
+.\"     You should have received a copy of the GNU General Public License
+.\"     along with this program. If not, see
+.\"     <http://www.gnu.org/licenses/>.
+.\"
+.\" ------------------------------------------------------------------------
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 15
+There is a new \f[I]ucsdpsys_mount \-t\fP option, which may be used
+to have text files converted text files between Unix and UCSD formats
+on\[hy]the\[hy]fly.
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 12
+The \f[I]ucsdpsys_umount\fP(1) command now exits with a non\[hy]zero exit
+status if it runs out of retries.  It also emits a comforting
+message if it succeeds after more than one attempt.
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 10
+The FUSE behaviour has changed slightly, and it is now sometimes
+necessary to retry umount attempts is within (about) a second of the
+last access.  We use \f[I]usleep\fP(2) if available to minimize the time
+spent sleeping.
+.\" ------------------------------------------------------------------------
+.\" Add new entries above this line.
+.SS Version 1.5 (2008\[hy]Jan\[hy]10)

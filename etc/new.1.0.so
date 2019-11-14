@@ -1,0 +1,56 @@
+'\" t
+.\"     UCSD p-System filesystem in user space
+.\"     Copyright (C) 2006, 2007, 2010 Peter Miller
+.\"
+.\"     This program is free software; you can redistribute it and/or modify
+.\"     it under the terms of the GNU General Public License as published by
+.\"     the Free Software Foundation; either version 3 of the License, or
+.\"     (at your option) any later version.
+.\"
+.\"     This program is distributed in the hope that it will be useful,
+.\"     but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\"     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\"     GNU General Public License for more details.
+.\"
+.\"     You should have received a copy of the GNU General Public License
+.\"     along with this program. If not, see
+.\"     <http://www.gnu.org/licenses/>.
+.\"
+.TP 2n
+.if n *
+.if t \(bu
+The \fIucsdpsys_mount\fP(1) is used to
+mount a UCSD p\[hy]System filesystem disk image as a Linux file system.
+See \fIucsdpsys_mount\fP(1) for more information.
+.TP 2n
+.if n *
+.if t \(bu
+The \fIucsdpsys_umount\fP(1) is used to
+unmount a filesystem mounted by the \fIucsdpsys_mount\fP(1) command.
+See \fIucsdpsys_umount\fP(1) for more information.
+.TP 2n
+.if n *
+.if t \(bu
+The \fIucsdpsys_mkfs\fP(1) is used to
+create a new empty UCSD p\[hy]System filesystem disk image.
+See \fIucsdpsys_mkfs\fP(1) for more information.
+.TP 2n
+.if n *
+.if t \(bu
+The \fIucsdpsys_fsck\fP(1) is used to
+verify and repair a UCSD p\[hy]System filesystem disk image.
+See \fIucsdpsys_fsck\fP(1) for more information.
+.TP 2n
+.if n *
+.if t \(bu
+The \fIucsdpsys_disk\fP(1) is used to
+list, extract, insert and remove files from a UCSD p\[hy]System filesystem
+disk image, without mounting it.
+See \fIucsdpsys_disk\fP(1) for more information.
+.TP 2n
+.if n *
+.if t \(bu
+The \fIucsdpsys_text\fP(1) is used to
+convert text files from the UCSD p\[hy]System format to a Unix text file,
+and back again.
+See \fIucsdpsys_text\fP(1) for more information.

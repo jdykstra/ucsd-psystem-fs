@@ -1,0 +1,59 @@
+'\" t
+.\"     UCSD p-System filesystem in user space
+.\"     Copyright (C) 2006, 2007, 2010 Peter Miller
+.\"
+.\"     This program is free software; you can redistribute it and/or modify
+.\"     it under the terms of the GNU General Public License as published by
+.\"     the Free Software Foundation; either version 3 of the License, or
+.\"     (at your option) any later version.
+.\"
+.\"     This program is distributed in the hope that it will be useful,
+.\"     but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\"     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\"     GNU General Public License for more details.
+.\"
+.\"     You should have received a copy of the GNU General Public License
+.\"     along with this program. If not, see
+.\"     <http://www.gnu.org/licenses/>.
+.\"
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 27
+A couple of build problems have been fixed.
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 26, 25
+Files ending in \f[CW].pas\fP are now considered text files.
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 23
+The file names in the system are now converted to upper case
+automatically.  This is bacuse the p\[hy]System performs case
+\f[I]sensitive\fP file name comparisons some of the time, and case
+\f[I]in\f[P]sensitive at other times.  The only way to work consistently
+is to always convert the names of new files to upper case.
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 20
+The \f[I]ucsdpsys_disk\fP(1) command now automagically converts text
+files during put (\fB\-p\fP) and get (\fB\-p\fP) operations unless
+specifically requested to berform binary transfers (\fB\-B\fP).
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 19
+The \f[I]ucsdpsys_disk\fP(1) command now preserves the modification date
+(as far as is possible) across gets (\fB\-g\fP) and puts (\fB\-p\fP).
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 12
+The \f[I]ucsdpsys_disk\fP(1) command is now able to get and put whole
+directories from and to UCSD p\[hy]System disk images.
+.\" ------------------------------------------------------------------------
+.\" Add new entries above this line.
+.SS Version 1.2 (2006\[hy]Apr\[hy]16)

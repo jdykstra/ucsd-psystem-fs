@@ -1,0 +1,89 @@
+'\" t
+.\"     UCSD p-System filesystem in user space
+.\"     Copyright (C) 2006-2008, 2010 Peter Miller
+.\"
+.\"     This program is free software; you can redistribute it and/or modify
+.\"     it under the terms of the GNU General Public License as published by
+.\"     the Free Software Foundation; either version 3 of the License, or
+.\"     (at your option) any later version.
+.\"
+.\"     This program is distributed in the hope that it will be useful,
+.\"     but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\"     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\"     GNU General Public License for more details.
+.\"
+.\"     You should have received a copy of the GNU General Public License
+.\"     along with this program. If not, see
+.\"     <http://www.gnu.org/licenses/>.
+.\"
+.ds n) ucsdpsys_interleave
+.TH \*(n) 1 ucsd\[hy]psystem\[hy]fs "Reference Manual"
+.SH NAME
+ucsdpsys_interleave \- decode interleaved UCSD p\[hy]System filesystem image
+.if require_index \{
+.XX "ucsdpsys_interleave(1)" \
+    "decode interleaved UCSD p\[hy]System filesystem image"
+.\}
+.SH SYNOPSIS
+\fB\*(n) \-d \-T\fP\f[I]name\fP \f[I]infile\fP \f[I]outfile\fP
+.br
+\fB\*(n) \-e \-T\fP\f[I]name\fP \f[I]infile\fP \f[I]outfile\fP
+.br
+\fB\*(n) \-V\fP
+.SH DESCRIPTION
+The \f[I]\*(n)\fP program is used to read a UCSD p\[hy]System filesystem image
+and decode it into a new uninterleaved filesystem image file.
+It is also possible to do the reverse.
+.br
+.ne 1i
+.SH OPTIONS
+The following options are understood:
+.TP 8n
+\fB\-D\fP
+.TP 8n
+\fB\-\-debug\fP
+Increase debug level.  Only of interest to developers.
+.TP 8n
+\fB\-d\fP
+.TP 8n
+\fB\-\-decode\fP
+read a UCSD p\[hy]System filesystem image
+and decode it into a new \f[B]un\f[P]interleaved filesystem image file.
+.TP 8n
+\fB\-e\fP
+.TP 8n
+\fB\-\-encode\fP
+read a UCSD p\[hy]System filesystem image
+and encode it into a new interleaved filesystem image file.
+.TP 8n
+\fB\-T\fP \f[I]name\fP
+.TP 8n
+\fB\-\-type=\fP\f[I]name\fP
+.RS
+This option is used to specify the type of interleaving in question.
+Known formats are:
+.TP 8n
+apple
+The symmetric interleaving used by the Apple ][ Pascal system.
+.TP 8n
+pdp
+The offset and asymmetric interleaved format used by the PDP11 (?) system.
+.TP 8n
+guess
+For decode \f[I]only\fP, it is possible to have the \fI\*(n)\fP command
+attempt to guess the interleaving, using the same method as the
+\f[I]ucsdpsys_mount\fP(1) and \f[I]ucsdpsys_disk\fP(1) programs.  This
+is particularly useful for decoding weird disk images into uninterleaved
+raw disk images.  This only works if the disk image is of a UCSD
+p\[hy]System disk, it can't guess the interleave for any other type of disk
+image.
+.RE
+.TP 8n
+\fB\-V\fP
+.TP 8n
+\fB\-\-version\fP
+Print the version of the \f[I]\*(n)\fP program being executed.
+.PP
+All other options will produce a diagnostic error.
+.so man/man1/z_exit.so
+.so man/man1/z_copyright.so

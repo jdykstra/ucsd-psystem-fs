@@ -1,0 +1,258 @@
+Read Me(ucsd-psystem-fs)                              Read Me(ucsd-psystem-fs)
+
+
+
+NAME
+       ucsd-psystem-fs - UCSD p-System file system
+
+DESCRIPTION
+       The ucsd-psystem-fs package is a collection of tools for manipulating
+       and mounting UCSD p-System disk images.
+
+ARCHIVE SITE
+       The latest version of ucsd-psystem-fs is available on the Web from:
+
+           URL:    http://ucsd-psystem-fs.sourceforge.net/
+           File:   ucsd-psystem-fs-1.22.README   # Description, from the tar file
+           File:   ucsd-psystem-fs-1.22.lsm      # Description, LSM format
+           File:   ucsd-psystem-fs-1.22.tar.gz   # the complete source
+           File:   ucsd-psystem-fs-1.22.pdf      # Reference Manual
+
+BUILDING ucsd-psystem-fs
+       Full instructions for building ucsd-psystem-fs may be found in the
+       BUILDING file included in this distribution.
+
+COPYRIGHT
+       ucsd-psystem-fs version 1.22
+       Copyright (C) 2006, 2007, 2008, 2010, 2011, 2012 Peter Miller
+
+       This program is free software; you can redistribute it and/or modify it
+       under the terms of the GNU General Public License as published by the
+       Free Software Foundation; either version 3 of the License, or (at your
+       option) any later version.
+
+       This program is distributed in the hope that it will be useful, but
+       WITHOUT ANY WARRANTY; without even the implied warranty of
+       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+       General Public License for more details.
+
+       You should have received a copy of the GNU General Public License along
+       with this program. If not, see <http://www.gnu.org/licenses/>.
+
+       It should be in the LICENSE file included with this distribution.
+
+AUTHOR
+       Peter Miller   E-Mail:   pmiller@opensource.org.au
+       /\/\*          WWW:      http://miller.emu.id.au/pmiller/
+
+RELEASE NOTES
+       This section details the various features and bug fixes of the various
+       releases.
+
+   Version 1.22 (2012-Jul-08)
+       * The web site was not updating the version number correctly, due to a
+         missing build dependency rule.
+
+       * A false positive has been fixed in test 20.
+
+   Version 1.21 (2011-May-24)
+       * There is a new ucsdpsys_disk(1) --system-volume option, which may be
+       used to test whether or not a disk image looks like a system disk.  It
+       is intended for use by shell scripts.
+
+   Version 1.20 (2010-Oct-11)
+       * The ucsdpsys_charset(1) command has been moved to the ucsd-psystem-xc
+         project.
+
+       * There is a new ucsdpsys_disk(1) --wipe-unused option, used to reset
+         unused blocks to zero.
+
+   Version 1.19 (2010-Sep-18)
+       * There is now a pre-built package in the LaunchPad PPA, and a link
+         from the ucsd-psystem-fs web site.
+
+       * An Ubuntu Maverick build problem was fixed.
+
+       * Several test false negatives were foxed.
+
+   Version 1.18 (2010-Sep-12)
+       * The debian packaging Build-Depends was missing libboost-dev
+
+   Version 1.17 (2010-Sep-09)
+       * A build problem on i386 Linux has been fixed.  The large file
+         mechanism is fragile.
+
+   Version 1.16 (2010-Sep-08)
+       * A build problem on 32-bit Linux machines has been fixed, a necessary
+         include file had been omitted in several places.
+
+       * All of the commands now ask libexplain for a four column hanging
+         indent on each error message.  This makes it easier to see when one
+         ends and the next begins.
+
+   Version 1.15 (2010-Aug-24)
+       * The package now depends on libexplain
+         (http://libexplain.sourceforge/net/) for its error messages and error
+         handling.
+
+       * The ucsdpsys_disk(1) and ucsdpsys_mkfs(1) commands now understand how
+         to write the boot blocks.
+
+   Version 1.14 (2010-Jun-22)
+       * The ucsdpsys_disk(1) command has a new --all option, that can be used
+         to request that dot-files also be transferred when a while directory
+         is being added to a disk image.  By default dot-files are ignored.
+
+       * The ucsdpsys_mkfs(1) command now defaults its disk size based on the
+         --architecture given.
+
+   Version 1.13 (2010-Jun-20)
+       * The ucsdpsys_mkfs(1) command has a new --architecture option, that
+         can be used to set the byte sex of the new file system.  See
+         ucsdpsys_mkfs(1) for more information.
+
+       * There is a new ucsdpsys_rt11(1) command, that may be used to extract
+         files from an RT-11 disk image.
+
+   Version 1.12 (2010-Jun-18)
+       * Some verbose, annoying, left-over debugging code has been removed
+         from the sort-by-name directory listing.
+
+   Version 1.11 (2010-Jun-16)
+       * The ucsdpsys_disk(1) command now allows you to specify the sort
+         criteria for the file listing.  See the ucsdpsys_disk(1) man page for
+         more information.
+
+       * The ucsdpsys_disk(1) command can now move all of the files to the
+         beginning of the disk image, maximizing the space available for the
+         UCSD p-System to work with.  See the ucsdpsys_disk(1) man page for
+         more information.
+
+   Version 1.9 (2010-May-30)
+       * It is now possible to specify a third interleave type on the
+         ucsdpsys_mkfs(1) command line, see the man page for details.
+
+       * The file system now silently translates shash (/) characters in file
+         names into underscore (_) characters.  This was causing a very
+         mysterious and uninformative error message to be reported.
+
+       * The ucsdpsys_mkfs(1) command's --label option now converts the label
+         to upper case before writing it to the disk image/
+
+   Version 1.8 (2010-Apr-09)
+       * The commands now all understand long option names.
+
+       * A bug has been fixed in the file-kind guessing code, it no longer
+         tries to make SYSTEM.PASCAL a text file.
+
+       * It is now possible to add a size suffix when specifying the size to
+         ucsdpsys_mkfs(1).
+
+   Version 1.7 (2010-Apr-03)
+       * The code that tries to divine the file type from the file's name, has
+         been extended to understand more of the types of the system files.
+
+       * The .imd format code is now able to cope with broken sector maps.
+
+       * There is a new ucsdpsys_interleave -Tguess option, for guessing the
+         interleave of a disk image.
+
+       * The code has been made more robust around volume header records with
+         incorrect dnumfiles fields.  This is now detected, and can be
+         repaired with the ucsdpsys_fsck(1) command.
+
+   Version 1.6 (2008-Jan-20)
+       * There is a new ucsdpsys_mount -t option, which may be used to have
+         text files converted text files between Unix and UCSD formats on-the-
+         fly.
+
+       * The ucsdpsys_umount(1) command now exits with a non-zero exit status
+         if it runs out of retries.  It also emits a comforting message if it
+         succeeds after more than one attempt.
+
+       * The FUSE behaviour has changed slightly, and it is now sometimes
+         necessary to retry umount attempts is within (about) a second of the
+         last access.  We use usleep(2) if available to minimize the time
+         spent sleeping.
+
+   Version 1.5 (2008-Jan-10)
+       * The text file decoding can now cope with text block padding in the
+         first block.
+
+       * The Teledisk TD0 format is now understood for reading. See
+         http://www.classiccmp.org/dunfield/img/td0notes.txt for a
+         description.
+
+   Version 1.4 (2007-Sep-10)
+       * The IMageDisk (IMD) format is now supported for reading.
+
+       * The license has been changed to GNU GPL version 3.
+
+   Version 1.3 (2007-Apr-04)
+       * A couple of build problems have been fixed.
+
+       * Files ending in .pas are now considered text files.
+
+       * The file names in the system are now converted to upper case
+         automatically.  This is bacuse the p-System performs case sensitive
+         file name comparisons some of the time, and case insensitive at other
+         times.  The only way to work consistently is to always convert the
+         names of new files to upper case.
+
+       * The ucsdpsys_disk(1) command now automagically converts text files
+         during put (-p) and get (-p) operations unless specifically requested
+         to berform binary transfers (-B).
+
+       * The ucsdpsys_disk(1) command now preserves the modification date (as
+         far as is possible) across gets (-g) and puts (-p).
+
+       * The ucsdpsys_disk(1) command is now able to get and put whole
+         directories from and to UCSD p-System disk images.
+
+   Version 1.2 (2006-Apr-16)
+       * A bug has been fixed in the ucsdpsys_text(1) program.  It no longer
+         inserts tab characters in the text of a line when a tab is in the
+         Unix file at that position - space characters are inserted instead. A
+         warning is issued for all other cases of non-printing characters.
+
+       * A bug has been fixed in the date-last-modified file meta-data.  The
+         bit layout being used for dates was wrong.
+
+       * The ucsdpsys_disk(1) command now understands how to manipulate disk
+         files which have differing Unix and p-System file names.
+
+       * The ucsdpsys_disk(1) directory listings now resemble the original
+         more closely.
+
+       * The write(2) handling in the file system has been improved.  It now
+         uses the existing gap beyond the current file if that will serve
+         immediate needs.  This saves expensive block shuufling to make a gap
+         we didn't need.  This situation can arrise, for example, as a result
+         of an open with O_TRUNC specified.
+
+   Version 1.1 (2006-Apr-11)
+       * The ucsdpsys_mount(1) is used to mount a UCSD p-System filesystem
+         disk image as a Linux file system.  See ucsdpsys_mount(1) for more
+         information.
+
+       * The ucsdpsys_umount(1) is used to unmount a filesystem mounted by the
+         ucsdpsys_mount(1) command.  See ucsdpsys_umount(1) for more
+         information.
+
+       * The ucsdpsys_mkfs(1) is used to create a new empty UCSD p-System
+         filesystem disk image.  See ucsdpsys_mkfs(1) for more information.
+
+       * The ucsdpsys_fsck(1) is used to verify and repair a UCSD p-System
+         filesystem disk image.  See ucsdpsys_fsck(1) for more information.
+
+       * The ucsdpsys_disk(1) is used to list, extract, insert and remove
+         files from a UCSD p-System filesystem disk image, without mounting
+         it.  See ucsdpsys_disk(1) for more information.
+
+       * The ucsdpsys_text(1) is used to convert text files from the UCSD p-
+         System format to a Unix text file, and back again.  See
+         ucsdpsys_text(1) for more information.
+
+
+
+Reference Manual                ucsd-psystem-fs       Read Me(ucsd-psystem-fs)

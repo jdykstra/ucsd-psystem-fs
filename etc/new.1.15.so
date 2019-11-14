@@ -1,0 +1,35 @@
+'\" t
+.\"
+.\" UCSD p-System filesystem in user space
+.\" Copyright (C) 2010 Peter Miller
+.\"
+.\" This program is free software; you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation; either version 3 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+.\" General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program. If not, see <http://www.gnu.org/licenses/>.
+.\"
+.\" ------------------------------------------------------------------------
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 12
+A build problem on 32\[hy]bit Linux machines has been fixed,
+a necessary include file had been omitted in several places.
+.TP 2n
+.if n *
+.if t \(bu
+.\" Change 11
+All of the commands now ask libexplain for a four column hanging
+indent on each error message.  This makes it easier to see when one
+ends and the next begins.
+.\" ------------------------------------------------------------------------
+.\" Add new entries above this line.
+.SS Version 1.15 (2010\[hy]Aug\[hy]24)
