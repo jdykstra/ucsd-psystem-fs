@@ -4364,67 +4364,6 @@ $as_echo "
     exit 1
 fi
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for explain_open in -lexplain" >&5
-$as_echo_n "checking for explain_open in -lexplain... " >&6; }
-if ${ac_cv_lib_explain_explain_open+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  ac_check_lib_save_LIBS=$LIBS
-LIBS="-lexplain  $LIBS"
-cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-
-/* Override any GCC internal prototype to avoid an error.
-   Use char because int might match the return type of a GCC
-   builtin and then its argument prototype would still apply.  */
-#ifdef __cplusplus
-extern "C"
-#endif
-char explain_open ();
-int
-main ()
-{
-return explain_open ();
-  ;
-  return 0;
-}
-_ACEOF
-if ac_fn_c_try_link "$LINENO"; then :
-  ac_cv_lib_explain_explain_open=yes
-else
-  ac_cv_lib_explain_explain_open=no
-fi
-rm -f core conftest.err conftest.$ac_objext \
-    conftest$ac_exeext conftest.$ac_ext
-LIBS=$ac_check_lib_save_LIBS
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_explain_explain_open" >&5
-$as_echo "$ac_cv_lib_explain_explain_open" >&6; }
-if test "x$ac_cv_lib_explain_explain_open" = xyes; then :
-  cat >>confdefs.h <<_ACEOF
-#define HAVE_LIBEXPLAIN 1
-_ACEOF
-
-  LIBS="-lexplain $LIBS"
-
-fi
-
-
-if test "$ac_cv_lib_explain_explain_open" != yes
-then
-    { $as_echo "$as_me:${as_lineno-$LINENO}: result:
-        The ucsd-psystem-fs package depends on the libexplain library.
-        If you have a package-based system, you will need to install the
-        libexplain-dev package.
-        " >&5
-$as_echo "
-        The ucsd-psystem-fs package depends on the libexplain library.
-        If you have a package-based system, you will need to install the
-        libexplain-dev package.
-        " >&6; }
-    exit 1
-fi
-
 for ac_func in mmap usleep
 do :
   as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
