@@ -24,7 +24,7 @@ date1="`date '+%e-%b-%y'`"
 date2="`date '+%Y-%m-%d'`"
 cat > ok << fubar
 WORK:
-SYSTEM.PASCAL       29 ${date1} codefile
+SYSTEM.PASCAL       32 ${date1} codefile
 1 of 77 files
 7 of 280 blocks, 97.5% free
 Last mounted ${date2}
@@ -34,7 +34,7 @@ test $? -eq 0 || no_result
 ucsdpsys_mkfs test.vol -L work
 test $? -eq 0 || no_result
 
-date > system.pascal
+date -R > system.pascal
 test $? -eq 0 || no_result
 
 ucsdpsys_disk -f test.vol -p system.pascal
