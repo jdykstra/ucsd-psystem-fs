@@ -2,7 +2,7 @@ No workarounds are needed on the ./configure command.
 
 FS (at least) requires the libboost-dev package, but configure doesn't seem to notice when it's not there.  Also needed (at least on Debian):  libfuse-dev, libexplain-dev, ghostscript.
 
-FS builds cleanly and passes all test on Ubuntu 20.04 (Focal Fossa) and Debian 10.3.
+The git tags indicate which distributions have been verified.
 
 Peter Miller's original BUILDING text
 -------------------------------------
