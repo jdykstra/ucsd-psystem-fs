@@ -1,0 +1,13 @@
+install_man(
+  'man1/ucsdpsys_disk.1',
+  'man1/ucsdpsys_fsck.1',
+  'man1/ucsdpsys_fs_license.1',
+  'man1/ucsdpsys_interleave.1',
+  'man1/ucsdpsys_mkfs.1',
+  'man1/ucsdpsys_mount.1',
+  'man1/ucsdpsys_rt11.1',
+  'man1/ucsdpsys_text.1',
+  'man1/ucsdpsys_umount.1',
+  'man5/ucsdpsys_fs.5',
+  'man5/ucsdpsys_text.5',
+)
