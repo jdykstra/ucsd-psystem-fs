@@ -214,7 +214,7 @@ main(int argc, char **argv)
         explain_output_error_and_die("sync %s: %s", infile, strerror(-rc));
     }
     DEBUG(1, "close");
-    delete buffer;
+    delete[] buffer;
     inp.reset();
     outp.reset();
     return 0;

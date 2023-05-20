@@ -1,5 +1,10 @@
 No workarounds are needed on the ./configure command.
 
+Or build using meson:
+
+	meson setup --buildtype=debugoptimized build/
+	meson compile -C build/
+
 FS (at least) requires the libboost-dev package, but configure doesn't seem to notice when it's not there.  Also needed (at least on Debian):  libfuse-dev, libexplain-dev, ghostscript.
 
 The git tags indicate which distributions have been verified.

@@ -112,8 +112,8 @@ test_write_then_read(const char *filename, size_t nbytes)
 
     explain_close_or_die(fd);
 
-    delete buf2;
-    delete buffer;
+    delete[] buf2;
+    delete[] buffer;
 }
 
 
