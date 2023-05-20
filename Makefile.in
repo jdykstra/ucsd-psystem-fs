@@ -964,10 +964,6 @@ $(mandir)/man5/ucsdpsys_text.5: .mkdir.__mandir__man5 man/man1/z_copyright.so \
 	$(INSTALL_DATA) man/man5/ucsdpsys_text.5.tmp $@
 	@rm -f man/man5/ucsdpsys_text.5.tmp
 
-script/test_prelude: config.status script/test_prelude.in
-	CONFIG_FILES=$@:script/test_prelude.in CONFIG_HEADERS= $(SH) \
-		config.status
-
 bin/test_prelude: .bin script/test_prelude
 	cp script/test_prelude $@
 	chmod a+rx $@
@@ -1372,7 +1368,7 @@ all-doc: etc/BUILDING.pdf etc/README.pdf etc/change_log.pdf etc/reference.pdf \
 		man/cat5/ucsdpsys_text.5
 
 .bin:
-	-mkdir bin
+	-mkdir -p bin
 	-chmod 0755 bin
 	@-test -d bin && touch $@
 	@sleep 1
@@ -1468,7 +1464,7 @@ distclean: clean distclean-directories distclean-files
 
 distclean-files:
 	rm -f Makefile config.cache config.log config.status etc/Howto.conf
-	rm -f lib/config.h script/test_prelude
+	rm -f lib/config.h
 
 distclean-directories:
 	rm -rf bin
