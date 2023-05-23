@@ -7,6 +7,8 @@ Or build using meson:
 
 FS (at least) requires the libboost-dev package, but configure doesn't seem to notice when it's not there.  Also needed (at least on Debian):  libfuse-dev, libexplain-dev, ghostscript.
 
+Running the unit tests requires at least meson 1.0.2.
+
 The git tags indicate which distributions have been verified.
 
 Peter Miller's original BUILDING text
