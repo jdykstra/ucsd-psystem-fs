@@ -10,31 +10,39 @@ env.prepend('PATH', fs.parent(test_rdwr_exe.full_path()))
 env.prepend('PATH', fs.parent(test_statfs_exe.full_path()))
 env.prepend('PATH', fs.parent(text_exe.full_path()))
 env.prepend('PATH', fs.parent(umount_exe.full_path()))
-env.prepend('PATH', meson.source_root() / 'script')
+env.prepend('PATH', meson.project_source_root() / 'script')
 
-test('t0001a', sh, args : files('t0001a.sh'), env : env, depends : [fsck_exe, mkfs_exe,])
-test('t0002a', sh, args : files('t0002a.sh'), env : env, depends : [fsck_exe, mkfs_exe, mount_exe, umount_exe,])
-test('t0003a', sh, args : files('t0003a.sh'), env : env, depends : [test_rdwr_exe, fsck_exe, mkfs_exe, mount_exe, umount_exe,])
-test('t0005a', sh, args : files('t0005a.sh'), env : env, depends : [test_statfs_exe, fsck_exe, mkfs_exe, mount_exe, umount_exe,])
-test('t0006a', sh, args : files('t0006a.sh'), env : env, depends : [text_exe,])
-test('t0007a', sh, args : files('t0007a.sh'), env : env, depends : [fsck_exe, mkfs_exe, mount_exe, umount_exe,])
-test('t0008a', sh, args : files('t0008a.sh'), env : env, depends : [fsck_exe, mkfs_exe, mount_exe, umount_exe,])
-test('t0009a', sh, args : files('t0009a.sh'), env : env, depends : [test_rdwr_exe, fsck_exe, mkfs_exe, mount_exe, umount_exe,])
-test('t0010a', sh, args : files('t0010a.sh'), env : env, depends : [test_rdwr_exe, fsck_exe, mkfs_exe, mount_exe, umount_exe,])
-test('t0011a', sh, args : files('t0011a.sh'), env : env, depends : [disk_exe, fsck_exe, mkfs_exe,])
-test('t0015a', sh, args : files('t0015a.sh'), env : env, depends : [disk_exe, mkfs_exe,])
-test('t0016a', sh, args : files('t0016a.sh'), env : env, depends : [disk_exe, mkfs_exe,])
-test('t0017a', sh, args : files('t0017a.sh'), env : env, depends : [disk_exe, mkfs_exe,])
-test('t0018a', sh, args : files('t0018a.sh'), env : env, depends : [disk_exe, mkfs_exe, text_exe,])
-test('t0019a', sh, args : files('t0019a.sh'), env : env, depends : [disk_exe, mkfs_exe,])
-test('t0020a', sh, args : files('t0020a.sh'), env : env, depends : [disk_exe, mkfs_exe,])
-test('t0021a', sh, args : files('t0021a.sh'), env : env, depends : [disk_exe, mkfs_exe,])
-test('t0022a', sh, args : files('t0022a.sh'), env : env, depends : [mkfs_exe,])
-test('t0023a', sh, args : files('t0023a.sh'), env : env, depends : [disk_exe, mkfs_exe,])
-test('t0025a', sh, args : files('t0025a.sh'), env : env, depends : [disk_exe, mkfs_exe,])
-test('t0026a', sh, args : files('t0026a.sh'), env : env, depends : [disk_exe,])
-test('t0027a', sh, args : files('t0027a.sh'), env : env, depends : [disk_exe, mkfs_exe,])
-test('t0028a', sh, args : files('t0028a.sh'), env : env, depends : [mkfs_exe,])
-test('t0029a', sh, args : files('t0029a.sh'), env : env, depends : [disk_exe, mkfs_exe,])
-test('t0030a', sh, args : files('t0030a.sh'), env : env, depends : [disk_exe, mkfs_exe,])
-test('t0031a', sh, args : files('t0031a.sh'), env : env, depends : [disk_exe, mkfs_exe,])
+cases = [
+  ['t0001a', [fsck_exe, mkfs_exe]],
+  ['t0002a', [fsck_exe, mkfs_exe, mount_exe, umount_exe]],
+  ['t0003a', [test_rdwr_exe, fsck_exe, mkfs_exe, mount_exe, umount_exe]],
+  ['t0005a', [test_statfs_exe, fsck_exe, mkfs_exe, mount_exe, umount_exe]],
+  ['t0006a', [text_exe]],
+  ['t0007a', [fsck_exe, mkfs_exe, mount_exe, umount_exe]],
+  ['t0008a', [fsck_exe, mkfs_exe, mount_exe, umount_exe]],
+  ['t0009a', [test_rdwr_exe, fsck_exe, mkfs_exe, mount_exe, umount_exe]],
+  ['t0010a', [test_rdwr_exe, fsck_exe, mkfs_exe, mount_exe, umount_exe]],
+  ['t0011a', [disk_exe, fsck_exe, mkfs_exe]],
+  ['t0015a', [disk_exe, mkfs_exe]],
+  ['t0016a', [disk_exe, mkfs_exe]],
+  ['t0017a', [disk_exe, mkfs_exe]],
+  ['t0018a', [disk_exe, mkfs_exe, text_exe]],
+  ['t0019a', [disk_exe, mkfs_exe]],
+  ['t0020a', [disk_exe, mkfs_exe]],
+  ['t0021a', [disk_exe, mkfs_exe]],
+  ['t0022a', [mkfs_exe]],
+  ['t0023a', [disk_exe, mkfs_exe]],
+  ['t0025a', [disk_exe, mkfs_exe]],
+  ['t0026a', [disk_exe]],
+  ['t0027a', [disk_exe, mkfs_exe]],
+  ['t0028a', [mkfs_exe]],
+  ['t0029a', [disk_exe, mkfs_exe]],
+  ['t0030a', [disk_exe, mkfs_exe]],
+  ['t0031a', [disk_exe, mkfs_exe]],
+]
+
+foreach case : cases
+  name = case[0]
+  depends = case[1]
+  test(name, sh, args : files(name + '.sh'), env : env, depends : depends)
+endforeach
