@@ -1,9 +1,9 @@
-project('ucsd-psystem-fs', 'cpp')
+project('ucsd-psystem-fs', 'cpp', meson_version: '>=0.58.0')
 
 fs = import('fs')
 
 cpp = meson.get_compiler('cpp')
-sh = find_program('sh', '/bin/sh')
+sh = find_program('sh')
 
 libexplain_dep = dependency('libexplain')
 fuse_dep = dependency('fuse')
