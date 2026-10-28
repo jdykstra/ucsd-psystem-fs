@@ -23,6 +23,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <fcntl.h>
+#include <sys/stat.h>
 #include <getopt.h>
 #include <libexplain/close.h>
 #include <libexplain/creat.h>

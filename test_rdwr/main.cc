@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <fcntl.h>
+#include <sys/stat.h>
 #include <libexplain/close.h>
 #include <libexplain/fopen.h>
 #include <libexplain/fstat.h>

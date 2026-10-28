@@ -19,7 +19,39 @@
 
 #include <cstdlib>
 #include <cstring>
+#include <cctype>
 #include <lib/rcstring/list.h>
+
+
+#ifdef __APPLE__
+// strverscmp is a GNU extension; this is a simplified equivalent.
+static int
+strverscmp(const char *a, const char *b)
+{
+    while (*a && *b)
+    {
+        if (isdigit((unsigned char)*a) && isdigit((unsigned char)*b))
+        {
+            char *ea;
+            char *eb;
+            unsigned long na = strtoul(a, &ea, 10);
+            unsigned long nb = strtoul(b, &eb, 10);
+            if (na != nb)
+                return (na < nb ? -1 : 1);
+            a = ea;
+            b = eb;
+        }
+        else
+        {
+            if (*a != *b)
+                return ((unsigned char)*a - (unsigned char)*b);
+            ++a;
+            ++b;
+        }
+    }
+    return ((unsigned char)*a - (unsigned char)*b);
+}
+#endif
 
 
 static int
