@@ -69,7 +69,11 @@ main(int argc, char **argv)
     // we may need to try more than once, because of the asynchronous
     // nature of the daemon process FUSE talks to.
     rcstring dir(argv[optind]);
+#ifdef __APPLE__
+    rcstring command = "umount " + dir.quote_shell();
+#else
     rcstring command = "fusermount -u " + dir.quote_shell();
+#endif
     int ntries = 0;
     int maximum_ms = 3000;
     int sleep_ms = 20;

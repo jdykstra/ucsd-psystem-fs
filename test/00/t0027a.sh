@@ -29,7 +29,7 @@ test $? -eq 0 || no_result
 ucsdpsys_disk -f example.vol --put --boot=boot.bin
 test $? -eq 0 || fail
 
-cat > ok.1 << 'fubar'
+cat > ok.1.raw << 'fubar'
 0000000  45  78  61  6d  70  6c  65  0a  00  00  00  00  00  00  00  00
           E   x   a   m   p   l   e  \n  \0  \0  \0  \0  \0  \0  \0  \0
 0000020  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00  00
@@ -41,7 +41,7 @@ fubar
 test $? -eq 0 || no_result
 
 # this is a bug in old versions of GNU Coreutils
-cat > ok.2 << 'fubar'
+cat > ok.2.raw << 'fubar'
 0000000 45 78 61 6d 70 6c 65 0a 00 00 00 00 00 00 00 00
           E   x   a   m   p   l   e  \n  \0  \0  \0  \0  \0  \0  \0  \0
 0000020 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
@@ -52,10 +52,16 @@ cat > ok.2 << 'fubar'
 fubar
 test $? -eq 0 || no_result
 
+tr -s ' ' < ok.1.raw > ok.1
+test $? -eq 0 || no_result
+
+tr -s ' ' < ok.2.raw > ok.2
+test $? -eq 0 || no_result
+
 od -tx1 -c example.vol > test.out.2
 test $? -eq 0 || no_result
 
-head -7 test.out.2 > test.out
+head -7 test.out.2 | tr -s ' ' > test.out
 test $? -eq 0 || no_result
 
 diff ok.2 test.out > /dev/null 2> /dev/null && pass

@@ -53,6 +53,20 @@ tear_down()
 }
 
 #
+# The have_fuse function succeeds if this system can mount FUSE file
+# systems: /dev/fuse on Linux, the macFUSE installation on macOS.
+#
+have_fuse()
+{
+    if test "$(uname -s)" = Darwin
+    then
+        test -d /Library/Filesystems/macfuse.fs
+    else
+        test -w /dev/fuse -a -r /etc/mtab
+    fi
+}
+
+#
 # The pass function (command) is used to declare a test to have passed,
 # and exit.  The exit code of 0 is dictated by Aegis, so Aegis can know
 # the result of running the test.

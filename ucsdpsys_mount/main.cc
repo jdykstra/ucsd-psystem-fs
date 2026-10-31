@@ -22,6 +22,19 @@
 #include <cstdio>
 #include <cstring>
 #include <getopt.h>
+#include <stdint.h>
+#ifdef __APPLE__
+#include <string>
+#include <vector>
+#include <fcntl.h>
+#include <limits.h>
+#include <mach-o/dyld.h>
+#include <spawn.h>
+#include <sys/mount.h>
+#include <sys/param.h>
+#include <sys/stat.h>
+#include <sys/wait.h>
+#endif
 #include <libexplain/output.h>
 #include <libexplain/program_name.h>
 #include <unistd.h>
@@ -35,6 +48,10 @@
 #include <lib/sector_io/raw.h>
 #include <lib/version.h>
 
+
+#ifdef __APPLE__
+extern char **environ;
+#endif
 
 static directory *volume;
 
@@ -446,8 +463,16 @@ fsync_callback(const char *path, int arg, fuse_file_info *fi)
 
 static int
 setxattr_callback(const char *path, const char *name, const char *value,
-    size_t size, int arg)
+    size_t size, int arg
+#ifdef __APPLE__
+    , uint32_t position
+#endif
+    )
 {
+#ifdef __APPLE__
+    if (position != 0)
+        return -EINVAL;
+#endif
     DEBUG(1, "setxattr(path = \"%s\", name = \"%s\", value = %s, size = %ld, "
         "arg = %d)", path, name, rcstring(value, size).quote_c().c_str(),
         (long)size, arg);
@@ -460,8 +485,16 @@ setxattr_callback(const char *path, const char *name, const char *value,
 
 
 static int
-getxattr_callback(const char *path, const char *name, char *value, size_t size)
+getxattr_callback(const char *path, const char *name, char *value, size_t size
+#ifdef __APPLE__
+    , uint32_t position
+#endif
+    )
 {
+#ifdef __APPLE__
+    if (position != 0)
+        return -EINVAL;
+#endif
     DEBUG(1, "getxattr(path = \"%s\", name = \"%s\", value = %p, size = %ld)",
         path, name, value, (long)size);
     assert(volume);
@@ -619,47 +652,110 @@ fsyncdir_callback(const char *path, int arg, fuse_file_info *fi)
 }
 
 
-static fuse_operations ops =
+static fuse_operations ops = {};
+
+
+static void
+initialize_operations(void)
 {
-    getattr_callback,
-    readlink_callback,
-    0, // getdir, deprecated
-    mknod_callback,
-    mkdir_callback,
-    unlink_callback,
-    rmdir_callback,
-    symlink_callback,
-    rename_callback,
-    link_callback,
-    chmod_callback,
-    chown_callback,
-    truncate_callback,
-    0, // utime, deprecated
-    open_callback,
-    read_callback,
-    write_callback,
-    statfs_callback,
-    flush_callback,
-    release_callback,
-    fsync_callback,
-    setxattr_callback,
-    getxattr_callback,
-    listxattr_callback,
-    removexattr_callback,
-    opendir_callback,
-    readdir_callback,
-    releasedir_callback,
-    fsyncdir_callback,
-    0, // init
-    0, // destroy
-    0, // access
-    0, // create
-    0, // ftruncate
-    0, // fgetattr
-    0, // lock
-    utimens_callback,
-    0, // bmap
-};
+    ops.getattr = getattr_callback;
+    ops.readlink = readlink_callback;
+    ops.mknod = mknod_callback;
+    ops.mkdir = mkdir_callback;
+    ops.unlink = unlink_callback;
+    ops.rmdir = rmdir_callback;
+    ops.symlink = symlink_callback;
+    ops.rename = rename_callback;
+    ops.link = link_callback;
+    ops.chmod = chmod_callback;
+    ops.chown = chown_callback;
+    ops.truncate = truncate_callback;
+    ops.open = open_callback;
+    ops.read = read_callback;
+    ops.write = write_callback;
+    ops.statfs = statfs_callback;
+    ops.flush = flush_callback;
+    ops.release = release_callback;
+    ops.fsync = fsync_callback;
+    ops.setxattr = setxattr_callback;
+    ops.getxattr = getxattr_callback;
+    ops.listxattr = listxattr_callback;
+    ops.removexattr = removexattr_callback;
+    ops.opendir = opendir_callback;
+    ops.readdir = readdir_callback;
+    ops.releasedir = releasedir_callback;
+    ops.fsyncdir = fsyncdir_callback;
+    ops.utimens = utimens_callback;
+}
+
+
+#ifdef __APPLE__
+//
+// libfuse on macOS forks internally, and forking again without exec
+// crashes the child, so libfuse's own daemonization is unusable.
+// Instead, run a fresh copy of this program in the foreground, in its
+// own session.  This process returns once the file system is mounted,
+// or with the child's exit status if it fails.
+//
+// Never returns.
+//
+static const char child_marker[] = "UCSDPSYS_MOUNT_CHILD";
+
+static void
+daemonize_before_mount(char **argv, const char *mount_point)
+{
+    char exe[PATH_MAX];
+    uint32_t exe_size = sizeof(exe);
+    if (_NSGetExecutablePath(exe, &exe_size) != 0)
+        explain_output_error_and_die("cannot determine executable path");
+
+    std::vector<char *> child_argv;
+    child_argv.push_back(argv[0]);
+    child_argv.push_back((char *)"-f");
+    for (char **ap = argv + 1; *ap; ++ap)
+        child_argv.push_back(*ap);
+    child_argv.push_back(0);
+
+    setenv(child_marker, "1", 1);
+    posix_spawnattr_t attr;
+    posix_spawnattr_init(&attr);
+    posix_spawnattr_setflags(&attr, POSIX_SPAWN_SETSID);
+    pid_t pid;
+    int err =
+        posix_spawn(&pid, exe, 0, &attr, &child_argv[0], environ);
+    if (err)
+        explain_output_error_and_die("posix_spawn: %s", strerror(err));
+
+    char real_mount_point[PATH_MAX];
+    if (!realpath(mount_point, real_mount_point))
+        explain_output_error_and_die("realpath(\"%s\"): %s", mount_point,
+            strerror(errno));
+    for (int ms = 0; ms < 30000; ms += 50)
+    {
+        int status = 0;
+        if (waitpid(pid, &status, WNOHANG) == pid)
+            _exit(WIFEXITED(status) ? WEXITSTATUS(status) : 1);
+        struct statfs sfs;
+        if
+        (
+            statfs(real_mount_point, &sfs) == 0
+        &&
+            0 == strcmp(sfs.f_mntonname, real_mount_point)
+        &&
+            0 == strcmp(sfs.f_fstypename, "macfuse")
+        )
+        {
+            // make sure the daemon is still there before reporting success
+            usleep(50000);
+            if (waitpid(pid, &status, WNOHANG) == pid)
+                _exit(WIFEXITED(status) ? WEXITSTATUS(status) : 1);
+            _exit(0);
+        }
+        usleep(50000);
+    }
+    explain_output_error_and_die("timed out waiting for the mount");
+}
+#endif
 
 
 static void
@@ -789,6 +885,16 @@ main(int argc, char **argv)
         mount_options.push_back(s);
     }
 
+#ifdef __APPLE__
+    //
+    // Without the "local" option, macOS treats the volume as a network
+    // volume and denies access to processes lacking the corresponding
+    // privacy permission.  The volume is backed by a local file.
+    //
+    if (!mount_options.member("local"))
+        mount_options.push_back("local");
+#endif
+
     //
     // Add the options to the command line subset to be passed to fusermount
     //
@@ -802,6 +908,11 @@ main(int argc, char **argv)
     //
     subset.push_back("-s");
 
+#ifdef __APPLE__
+    const bool is_child = getenv(child_marker) != 0;
+    const bool daemonize_here = !foreground && !is_child;
+#endif
+
     //
     // Add the mount point as the last command line option
     // to the fusermount call.
@@ -811,6 +922,10 @@ main(int argc, char **argv)
     //
     // Open the volume, and make sure it has the right format.
     //
+#ifdef __APPLE__
+    if (daemonize_here)
+        daemonize_before_mount(argv, mount_point);
+#endif
     volume = directory::factory(filename, read_only_flag);
     if (text_on_the_fly)
         volume->convert_text_on_the_fly();
@@ -818,8 +933,28 @@ main(int argc, char **argv)
     //
     // Send any future error messages to syslog
     //
+#ifdef __APPLE__
+    if (is_child)
+        unsetenv(child_marker);
+    if (!foreground || is_child)
+#else
     if (!foreground)
+#endif
         explain_output_register(explain_output_syslog_new());
+#ifdef __APPLE__
+    if (is_child)
+    {
+        int fd = open("/dev/null", O_RDWR);
+        if (fd >= 0)
+        {
+            dup2(fd, 0);
+            dup2(fd, 1);
+            dup2(fd, 2);
+            if (fd > 2)
+                close(fd);
+        }
+    }
+#endif
 
     //
     // Mount the file systems and start the fuse loop running to handle
@@ -829,6 +964,7 @@ main(int argc, char **argv)
     for (size_t j = 0; j < subset.size(); ++j)
         av[j] = (char *)subset[j].c_str();
     av[subset.size()] = 0;
+    initialize_operations();
     fuse_main(subset.size(), av, &ops, 0);
 
     //

@@ -44,7 +44,7 @@ test $? -eq 0 || no_result
 ls -l test.out.dir > test.out.raw
 test $? -eq 0 || no_result
 
-wc -l test.out.raw > test.out
+wc -l test.out.raw | sed 's/^ *//' > test.out
 test $? -eq 0 || no_result
 
 cat > test.ok << 'fubar'

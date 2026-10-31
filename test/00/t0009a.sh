@@ -20,12 +20,12 @@
 TEST_SUBJECT="write vs holes"
 . test_prelude
 
-if test -w /dev/fuse -a -r /etc/mtab
+if have_fuse
 then
     : ok
 else
     echo
-    echo "    This system does not appear to provide the /dev/fuse device,"
+    echo "    This system does not appear to provide FUSE support,"
     echo "    needed to run the FUSE tests, probably because it is in a build"
     echo "    chroot.  This test is declared to pass by default."
     echo
