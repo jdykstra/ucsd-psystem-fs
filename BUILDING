@@ -6,7 +6,7 @@ Build using Meson:
 If unfamiliar with Meson, see https://mesonbuild.com/ for package installation,
 initial setup, and built-in build configuration options.
 
-Build FS on Debian requires the libexplain-dev, libfuse-dev, libboost-dev, and
+Build FS on Debian requires the libexplain-dev, libfuse-dev, and libboost-dev
 packages.
 
 The git tags indicate which distributions have been verified.
